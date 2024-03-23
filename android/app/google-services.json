@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1097610978951",
+    "project_id": "evenza-3e3f8",
+    "storage_bucket": "evenza-3e3f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097610978951:android:8b222ce1981f1bb6c63a22",
+        "android_client_info": {
+          "package_name": "com.example.evenza"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDz-XCF6erNQLFt3uBL7g0IpuFJox56dGs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
