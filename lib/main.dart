@@ -1,5 +1,10 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
+import 'package:evenza/screens/OnboardingScreen1.dart';
+import 'package:evenza/screens/OnboardingScreen2.dart';
+import 'package:evenza/screens/login.dart';
+import 'package:evenza/screens/onboarding1.dart';
+import 'package:evenza/screens/SignUp.dart';
 import 'package:evenza/screens/splash_screen.dart';
 import 'package:evenza/screens/welcome_screen.dart';
 import 'package:evenza/styles/color.dart';
@@ -41,7 +46,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: const WelcomeScreen(),
+        home: const OnboardingScreen(),
       ),
     );
   }

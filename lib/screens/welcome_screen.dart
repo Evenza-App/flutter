@@ -24,7 +24,7 @@ class WelcomeScreen extends StatelessWidget {
             right: 0,
             left: 0,
             child: Container(
-              height: 276.h,
+              height: 350.h,
               decoration: BoxDecoration(
                 color: BaseColors.backgroundCard,
                 borderRadius: BorderRadius.only(
