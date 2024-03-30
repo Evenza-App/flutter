@@ -1,4 +1,4 @@
-import 'package:evenza/screens/Login.dart';
+import 'package:evenza/screens/login.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:flutter/foundation.dart';

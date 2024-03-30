@@ -1,14 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
-import 'package:evenza/screens/OnboardingScreen1.dart';
-import 'package:evenza/screens/OnboardingScreen2.dart';
-import 'package:evenza/screens/login.dart';
-import 'package:evenza/screens/onboarding1.dart';
-import 'package:evenza/screens/SignUp.dart';
-import 'package:evenza/screens/splash_screen.dart';
-import 'package:evenza/screens/welcome_screen.dart';
-import 'package:evenza/styles/color.dart';
-import 'package:evenza/styles/images.dart';
+import 'package:evenza/screens/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
