@@ -1,5 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
+import 'package:evenza/screens/Login.dart';
+import 'package:evenza/screens/SignUp.dart';
 import 'package:evenza/screens/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: const OnboardingScreen(),
+        home: const Login(),
       ),
     );
   }
