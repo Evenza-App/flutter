@@ -1,4 +1,3 @@
-import 'package:evenza/screens/onboarding_screen.dart';
 import 'package:evenza/screens/welcome_screen.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +12,7 @@ class SplashScreen extends HookWidget {
     useEffect(() {
       Future.delayed(const Duration(seconds: 3))
           .then((value) => Get.to(const WelcomeScreen()));
+      return null;
     }, const []);
 
     return Scaffold(

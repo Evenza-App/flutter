@@ -1,15 +1,18 @@
 import 'package:evenza/screens/login.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    String? email, password, name, phone, address;
+
     return Scaffold(
         body: Directionality(
       textDirection: TextDirection.rtl,
@@ -41,7 +44,7 @@ class SignUpScreen extends StatelessWidget {
                         'أهلاٌ و سهلاٌ بك',
                         style: TextStyle(
                             fontSize: 23.h,
-                            color: Color.fromARGB(255, 255, 177, 131),
+                            color: const Color.fromARGB(255, 255, 177, 131),
                             fontWeight: FontWeight.normal),
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.rtl,
@@ -105,33 +108,23 @@ class SignUpScreen extends StatelessWidget {
                                             fontWeight: FontWeight.bold,
                                             color: const Color(0xFFAF75B2)))),
                               ),
-                              TextField(
-                                textAlign: TextAlign.right,
+                              TextFormField(
+                                onSaved: (newValue) => email = newValue,
+                                validator: 'required|email'
+                                    .validate(customMessages: {
+                                  'required': 'أدخل بريدك الالكتروني بشكل صحيح'
+                                }),
                                 decoration: InputDecoration(
-
-                                    // prefixText: 'تسجيل ',
-                                    suffixIcon: const Icon(
-                                      Icons.email_rounded,
-                                      color: Color.fromARGB(255, 247, 186, 151),
-                                    ),
-                                    label: Text('البريد الالكتروني',
-                                        style: TextStyle(
-                                            fontSize: 17.h,
-                                            fontWeight: FontWeight.bold,
-                                            color: const Color(0xFFAF75B2)))),
-                              ),
-
-                              TextField(
-                                decoration: InputDecoration(
-                                    suffixIcon: const Icon(
-                                      Icons.password_rounded,
-                                      color: Color.fromARGB(255, 247, 186, 151),
-                                    ),
-                                    label: Text('كلمة السر',
-                                        style: TextStyle(
-                                            fontSize: 17.h,
-                                            fontWeight: FontWeight.bold,
-                                            color: const Color(0xFFAF75B2)))),
+                                  suffixIcon: const Icon(
+                                    Icons.email_rounded,
+                                    color: Color.fromARGB(255, 247, 186, 151),
+                                  ),
+                                  label: Text('البريد الالكتروني',
+                                      style: TextStyle(
+                                          fontSize: 17.h,
+                                          fontWeight: FontWeight.bold,
+                                          color: BaseColors.primaryDark)),
+                                ),
                               ),
                               // TextField(
                               // decoration: InputDecoration(
@@ -175,7 +168,7 @@ class SignUpScreen extends StatelessWidget {
                                       ' لديك حساب ؟',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        color: Color(0xFFFFB183),
+                                        color: const Color(0xFFFFB183),
                                         fontSize: 14.h,
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w600,
@@ -183,7 +176,7 @@ class SignUpScreen extends StatelessWidget {
                                     ),
                                     TextButton(
                                       onPressed: () {
-                                        Get.to(Login());
+                                        Get.to(const Login());
                                       },
                                       child: Text(
                                         ' سجل دخولك',
@@ -205,5 +198,36 @@ class SignUpScreen extends StatelessWidget {
             )),
       ]),
     ));
+  }
+}
+
+class PasswordField extends HookWidget {
+  const PasswordField({super.key, required this.onSaved});
+
+  final void Function(String?) onSaved;
+
+  @override
+  Widget build(BuildContext context) {
+    final isPasswordVisible = useState(true);
+    return TextFormField(
+      obscureText: isPasswordVisible.value,
+      onSaved: onSaved,
+      validator: 'required|min:8|max:25'.validate(customMessages: {
+        'required': 'كلمة السر يجب أن تتكون من 5 الى 25 محرف'
+      }),
+      decoration: InputDecoration(
+          suffixIcon: GestureDetector(
+            onTap: () => isPasswordVisible.value = !isPasswordVisible.value,
+            child: const Icon(
+              Icons.password_rounded,
+              color: Color.fromARGB(255, 247, 186, 151),
+            ),
+          ),
+          label: Text(' كلمة السر ',
+              style: TextStyle(
+                  fontSize: 17.h,
+                  fontWeight: FontWeight.bold,
+                  color: const Color(0xFFAF75B2)))),
+    );
   }
 }

@@ -1,9 +1,6 @@
-import 'package:evenza/screens/login.dart';
-import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class LoginSignupWidget extends StatelessWidget {
   const LoginSignupWidget({
@@ -47,7 +44,7 @@ class LoginSignupWidget extends StatelessWidget {
                           'أهلاٌ و سهلاٌ بك',
                           style: TextStyle(
                               fontSize: 23.h,
-                              color: Color.fromARGB(255, 255, 177, 131),
+                              color: const Color.fromARGB(255, 255, 177, 131),
                               fontWeight: FontWeight.normal),
                           textAlign: TextAlign.center,
                           textDirection: TextDirection.rtl,

@@ -1,11 +1,9 @@
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/on_boarding_widget.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'onboarding_screen2.dart';
-import 'login.dart';
 import 'package:get/get.dart';
 
 class OnboardingScreen1 extends StatelessWidget {
@@ -14,7 +12,7 @@ class OnboardingScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnBoardingWidget(
-      onNext: () => Get.to(OnboardingScreen2()),
+      onNext: () => Get.to(const OnboardingScreen2()),
       imagePath: BaseImages.wedding,
       text: Text.rich(
         TextSpan(
