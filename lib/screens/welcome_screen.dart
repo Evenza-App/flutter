@@ -1,10 +1,8 @@
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/styles/text.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -46,7 +44,6 @@ class WelcomeScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: BaseTextStyles.evenza,
                   ),
-                  
                 ],
               ),
               // child: Text('dsajijd'),

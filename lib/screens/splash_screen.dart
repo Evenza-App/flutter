@@ -12,6 +12,7 @@ class SplashScreen extends HookWidget {
     useEffect(() {
       Future.delayed(const Duration(seconds: 3))
           .then((value) => Get.to(const WelcomeScreen()));
+      return null;
     }, const []);
 
     return Scaffold(

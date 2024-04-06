@@ -1,9 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
-import 'package:evenza/screens/splash_screen.dart';
-import 'package:evenza/screens/welcome_screen.dart';
-import 'package:evenza/styles/color.dart';
-import 'package:evenza/styles/images.dart';
+import 'package:evenza/screens/Login.dart';
+import 'package:evenza/screens/select_type_buffet.dart';
+import 'package:evenza/widgets/buffet_details_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
