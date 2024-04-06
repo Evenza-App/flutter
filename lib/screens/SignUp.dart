@@ -1,6 +1,8 @@
+import 'package:evenza/controllers/auth/singup_controller.dart';
 import 'package:evenza/screens/login.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
+import 'package:evenza/widgets/base_loading.dart';
 import 'package:evenza/widgets/login_signup_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -9,11 +11,11 @@ import 'package:get/get.dart';
 import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+  SignUpScreen({super.key});
+
+  final SingupController signupController = Get.put(SingupController());
   @override
   Widget build(BuildContext context) {
-    String? email, password, name, phone, address;
-
     return LoginSignupWidget(
         title: 'إنشاء حساب',
         content: SingleChildScrollView(
@@ -21,7 +23,7 @@ class SignUpScreen extends StatelessWidget {
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.start, children: [
             TextFormField(
-              onSaved: (newValue) => phone = newValue,
+              onSaved: (newValue) => signupController.name = newValue,
               keyboardType: TextInputType.name,
               validator: 'required'
                   .validate(customMessages: {'required': 'أدخل أسمك رجاءا'}),
@@ -38,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
               ),
             ),
             TextFormField(
-              onSaved: (newValue) => phone = newValue,
+              onSaved: (newValue) => signupController.phone = newValue,
               keyboardType: TextInputType.phone,
               validator: 'required|min:10|max:10'.validate(customMessages: {
                 'required': 'أدخل رقمك رجاءا',
@@ -57,7 +59,7 @@ class SignUpScreen extends StatelessWidget {
                           color: const Color(0xFFAF75B2)))),
             ),
             TextFormField(
-              onSaved: (newValue) => address = newValue,
+              onSaved: (newValue) => signupController.address = newValue,
               validator: 'required'.validate(customMessages: {
                 'required': ' أدخل عنوانك  رجاءا ',
               }),
@@ -73,7 +75,7 @@ class SignUpScreen extends StatelessWidget {
                           color: const Color(0xFFAF75B2)))),
             ),
             TextFormField(
-              onSaved: (newValue) => email = newValue,
+              onSaved: (newValue) => signupController.email = newValue,
               keyboardType: TextInputType.emailAddress,
               validator: 'required|email'.validate(customMessages: {
                 'required': ' أدخل بريدك الالكتروني رجاءا ',
@@ -91,7 +93,8 @@ class SignUpScreen extends StatelessWidget {
                         color: BaseColors.primaryDark)),
               ),
             ),
-            PasswordField(onSaved: (newValue) => password = newValue),
+            PasswordField(
+                onSaved: (newValue) => signupController.password = newValue),
             // TextField(
             // decoration: InputDecoration(
             //    suffixIcon: const Icon(
@@ -112,6 +115,8 @@ class SignUpScreen extends StatelessWidget {
                 onTap: () {
                   if (Form.of(context).validate()) {
                     Form.of(context).save();
+
+                    signupController.Register();
                   }
                 },
                 child: Container(
@@ -122,13 +127,17 @@ class SignUpScreen extends StatelessWidget {
                     color: const Color(0xFFAF75B2),
                   ),
                   child: Center(
-                    child: Text(
-                      'إنشاء حساب',
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 18.h,
-                        color: Colors.white,
-                      ),
+                    child: Obx(
+                      () => signupController.loading.value
+                          ? BaseLoading()
+                          : Text(
+                              'إنشاء حساب',
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 18.h,
+                                color: Colors.white,
+                              ),
+                            ),
                     ),
                   ),
                 ),
@@ -151,7 +160,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Get.to(const Login());
+                      Get.to(Login());
                     },
                     child: Text(
                       ' سجل دخولك',

@@ -64,7 +64,7 @@ class OnBoardingWidget extends StatelessWidget {
                             child: Center(
                           child: TextButton(
                             onPressed: () {
-                              Get.to(const Login());
+                              Get.to(Login());
                             },
                             child: Text(
                               'تخطي',
