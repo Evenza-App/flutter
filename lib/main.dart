@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: SplashScreen(),
+        home: SelectTypeBuffet(),
       ),
     );
   }

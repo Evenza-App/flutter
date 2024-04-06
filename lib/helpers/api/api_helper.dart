@@ -7,7 +7,7 @@ class ApiHelper {
   late final Dio dio;
 
   static const String _baseUrl =
-      'https://d0de-185-177-125-213.ngrok-free.app/api/';
+      'https://bd8a-185-177-125-213.ngrok-free.app/api/';
 
   ApiHelper() {
     dio = Dio()
