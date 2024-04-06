@@ -86,7 +86,7 @@ class Login extends HookWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Get.to(const SignUpScreen());
+                      Get.off(const SignUpScreen());
                     },
                     child: Text(
                       'أنشئ حساب',
