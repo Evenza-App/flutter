@@ -12,7 +12,7 @@ class OnboardingScreen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnBoardingWidget(
-        onNext: () => Get.to(const Login()),
+        onNext: () => Get.to(Login()),
         imagePath: BaseImages.baby,
         text: Column(
           children: [

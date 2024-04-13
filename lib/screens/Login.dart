@@ -1,4 +1,6 @@
+import 'package:evenza/controllers/auth/login_controller.dart';
 import 'package:evenza/styles/color.dart';
+import 'package:evenza/widgets/base_loading.dart';
 import 'package:evenza/widgets/login_signup_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -8,10 +10,12 @@ import 'package:get/get.dart';
 import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
 
 class Login extends HookWidget {
-  const Login({super.key});
+  Login({super.key});
+
+  final LoginController loginController = Get.put(LoginController());
+
   @override
   Widget build(BuildContext context) {
-    String? email, password;
     return LoginSignupWidget(
       title: 'تسجيل الدخول',
       content: Form(
@@ -19,7 +23,7 @@ class Login extends HookWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             TextFormField(
-              onSaved: (newValue) => email = newValue,
+              onSaved: (newValue) => loginController.email = newValue,
               validator: 'required|email'.validate(customMessages: {
                 'required': ' أدخل بريدك الالكتروني رجاءا ',
                 'email': ' يجب ان تدخل بريد فعال'
@@ -36,7 +40,8 @@ class Login extends HookWidget {
                         color: BaseColors.primaryDark)),
               ),
             ),
-            PasswordField(onSaved: (newValue) => password = newValue),
+            PasswordField(
+                onSaved: (newValue) => loginController.password = newValue),
             SizedBox(
               height: 50.h,
             ),
@@ -45,6 +50,8 @@ class Login extends HookWidget {
                 onTap: () {
                   if (Form.of(context).validate()) {
                     Form.of(context).save();
+
+                    loginController.login();
                   }
                 },
                 child: Container(
@@ -55,14 +62,16 @@ class Login extends HookWidget {
                     color: const Color(0xFFAF75B2),
                   ),
                   child: Center(
-                    child: Text(
-                      'تسجيل الدخول',
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 18.h,
-                        color: Colors.white,
-                      ),
-                    ),
+                    child: Obx(() => loginController.loading.value
+                        ? BaseLoading()
+                        : Text(
+                            'تسجيل الدخول',
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: 18.h,
+                              color: Colors.white,
+                            ),
+                          )),
                   ),
                 ),
               );
@@ -86,7 +95,7 @@ class Login extends HookWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Get.off(const SignUpScreen());
+                      Get.off( SignUpScreen());
                     },
                     child: Text(
                       'أنشئ حساب',
