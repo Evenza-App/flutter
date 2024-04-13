@@ -1,8 +1,12 @@
-import 'package:evenza/screens/break_east_aseel.dart';
 import 'package:evenza/screens/break_east_perfect.dart';
+import 'package:evenza/screens/break_west_perfect.dart';
 import 'package:evenza/screens/breakfast_buffet_screen.dart';
+import 'package:evenza/screens/breakfast_buffet_west_screen%20.dart';
 import 'package:evenza/screens/dinner_buffet_screen.dart';
-import 'package:evenza/screens/dinner_east_aseel.dart';
+import 'package:evenza/screens/dinner_buffet_west_screen%20.dart';
+import 'package:evenza/screens/dinner_west_mix.dart';
+import 'package:evenza/screens/dinner_west_mod.dart';
+import 'package:evenza/screens/dinner_west_perfect.dart';
 import 'package:evenza/screens/login.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/color.dart';
@@ -15,13 +19,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
 
-class EastBuffetScreen extends StatelessWidget {
-  const EastBuffetScreen({super.key});
+class WestBuffetScreen extends StatelessWidget {
+  const WestBuffetScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BackGroundWidget(
-        title: 'شرقي',
+        title: 'غربي',
         onback: () => Get.off(const SelectTypeBuffet()),
         content: Padding(
             padding: EdgeInsets.only(left: 10.h, right: 15.h, top: 30.h),
@@ -114,7 +118,7 @@ class EastBuffetScreen extends StatelessWidget {
                                       decoration: ShapeDecoration(
                                         image: DecorationImage(
                                           image:
-                                              AssetImage(BaseImages.breakfast),
+                                              AssetImage(BaseImages.breakfast1),
                                           fit: BoxFit.fill,
                                         ),
                                         shape: RoundedRectangleBorder(
@@ -135,8 +139,8 @@ class EastBuffetScreen extends StatelessWidget {
                                         height: 41.61.h,
                                         child: TextButton(
                                           onPressed: () {
-                                            Get.to(
-                                                const BreakfastBuffetScreen());
+                                            Get.off(
+                                                const BreakfastBuffetWestScreen());
                                           },
                                           child: Text(
                                             'فطور',
@@ -172,7 +176,7 @@ class EastBuffetScreen extends StatelessWidget {
                                       decoration: ShapeDecoration(
                                         image: const DecorationImage(
                                           image:
-                                              AssetImage(BaseImages.arabsweet),
+                                              AssetImage(BaseImages.dinnwest),
                                           fit: BoxFit.fill,
                                         ),
                                         shape: RoundedRectangleBorder(
@@ -193,7 +197,8 @@ class EastBuffetScreen extends StatelessWidget {
                                         height: 41.61.h,
                                         child: TextButton(
                                           onPressed: () {
-                                            Get.to(const DinnerBuffetScreen());
+                                            Get.off(
+                                                const DinnerBuffetWestScreen());
                                           },
                                           child: Text(
                                             'غداء',
@@ -242,7 +247,7 @@ class EastBuffetScreen extends StatelessWidget {
                             children: [
                               TextButton(
                                 onPressed: () {
-                                  Get.off(BreakEastAseel());
+                                  Get.off(BreakWestPerfect());
                                 },
                                 child: Container(
                                   width: 264.w,
@@ -273,7 +278,7 @@ class EastBuffetScreen extends StatelessWidget {
                                         left: 71,
                                         top: 188,
                                         child: Text(
-                                          ' بوفيه فطور عربي أصيل',
+                                          ' بوفيه فطور فاخر ',
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 14.h,
@@ -295,7 +300,7 @@ class EastBuffetScreen extends StatelessWidget {
                                             decoration: ShapeDecoration(
                                               image: const DecorationImage(
                                                 image: AssetImage(BaseImages
-                                                    .buffetarabicaseel),
+                                                    .buffetwestbreak2),
                                                 fit: BoxFit.cover,
                                               ),
                                               shape: RoundedRectangleBorder(
@@ -394,7 +399,7 @@ class EastBuffetScreen extends StatelessWidget {
                                 padding: EdgeInsets.only(top: 20.h),
                                 child: TextButton(
                                   onPressed: () {
-                                    Get.off(BreakEastPerfect());
+                                    Get.off(DinnerWestMod());
                                   },
                                   child: Container(
                                     width: 264.w,
@@ -426,7 +431,7 @@ class EastBuffetScreen extends StatelessWidget {
                                           left: 88.h,
                                           top: 188.h,
                                           child: Text(
-                                            'بوفيه فطور فاخر',
+                                            'بوفيه عشاء مودرن',
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 14.h,
@@ -448,7 +453,7 @@ class EastBuffetScreen extends StatelessWidget {
                                               decoration: ShapeDecoration(
                                                 image: const DecorationImage(
                                                   image: AssetImage(BaseImages
-                                                      .buffetarabicperfect),
+                                                      .buffetwestdinn1),
                                                   fit: BoxFit.cover,
                                                 ),
                                                 shape: RoundedRectangleBorder(
@@ -498,7 +503,7 @@ class EastBuffetScreen extends StatelessWidget {
                                                             height: 25.h,
                                                             //  child:TextButton.icon(onPressed: , icon: Icons.)
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               image: DecorationImage(
                                                                   image: AssetImage(
                                                                       BaseImages
@@ -548,7 +553,7 @@ class EastBuffetScreen extends StatelessWidget {
                                 padding: EdgeInsets.only(top: 20.h),
                                 child: TextButton(
                                   onPressed: () {
-                                    Get.off(DinnerEastAseel());
+                                    Get.off(DinnerWestMix());
                                   },
                                   child: Container(
                                     width: 264.w,
@@ -580,7 +585,7 @@ class EastBuffetScreen extends StatelessWidget {
                                           left: 71,
                                           top: 188,
                                           child: Text(
-                                            ' بوفيه عشاء عربي أصيل',
+                                            ' بوفيه عشاء غربي منوع',
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 14.h,
@@ -602,7 +607,7 @@ class EastBuffetScreen extends StatelessWidget {
                                               decoration: ShapeDecoration(
                                                 image: const DecorationImage(
                                                   image: AssetImage(BaseImages
-                                                      .buffetarabicdinneraseel),
+                                                      .buffetwestdinn3),
                                                   fit: BoxFit.cover,
                                                 ),
                                                 shape: RoundedRectangleBorder(

@@ -1,5 +1,8 @@
+import 'package:evenza/screens/breakfast_buffet_screen.dart';
+import 'package:evenza/screens/breakfast_buffet_west_screen%20.dart';
 import 'package:evenza/screens/east_buffet_screen.dart';
 import 'package:evenza/screens/login.dart';
+import 'package:evenza/screens/west_buffet_screen%20.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
@@ -150,7 +153,7 @@ class SelectTypeBuffet extends StatelessWidget {
                             height: 41.61.h,
                             child: TextButton(
                               onPressed: () {
-                                Get.to(());
+                                Get.to(WestBuffetScreen());
                               },
                               child: Text(
                                 'غربي',

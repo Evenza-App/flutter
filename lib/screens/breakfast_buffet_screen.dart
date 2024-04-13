@@ -1,13 +1,14 @@
 import 'package:evenza/screens/break_east_aseel.dart';
+import 'package:evenza/screens/break_east_mix.dart';
 import 'package:evenza/screens/break_east_perfect.dart';
-import 'package:evenza/screens/breakfast_buffet_screen.dart';
 import 'package:evenza/screens/dinner_buffet_screen.dart';
-import 'package:evenza/screens/dinner_east_aseel.dart';
+import 'package:evenza/screens/east_buffet_screen.dart';
 import 'package:evenza/screens/login.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
+import 'package:evenza/widgets/buffet_details_widget.dart';
 import 'package:evenza/widgets/login_signup_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -15,14 +16,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
 
-class EastBuffetScreen extends StatelessWidget {
-  const EastBuffetScreen({super.key});
+class BreakfastBuffetScreen extends StatelessWidget {
+  const BreakfastBuffetScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BackGroundWidget(
         title: 'شرقي',
-        onback: () => Get.off(const SelectTypeBuffet()),
+        onback: () => Get.off(const EastBuffetScreen()),
         content: Padding(
             padding: EdgeInsets.only(left: 10.h, right: 15.h, top: 30.h),
             child: Column(
@@ -109,8 +110,8 @@ class EastBuffetScreen extends StatelessWidget {
                                         top: 10.h,
                                         bottom: 10.h),
                                     child: Container(
-                                      width: 112.w,
-                                      height: 108.h,
+                                      width: 115.w,
+                                      height: 120.h,
                                       decoration: ShapeDecoration(
                                         image: DecorationImage(
                                           image:
@@ -193,7 +194,7 @@ class EastBuffetScreen extends StatelessWidget {
                                         height: 41.61.h,
                                         child: TextButton(
                                           onPressed: () {
-                                            Get.to(const DinnerBuffetScreen());
+                                            Get.off(const DinnerBuffetScreen());
                                           },
                                           child: Text(
                                             'غداء',
@@ -221,7 +222,7 @@ class EastBuffetScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(right: 18.h, bottom: 10.h),
                       child: Text(
-                        'مقترحات',
+                        'لدينا :',
                         textAlign: TextAlign.start,
                         style: TextStyle(
                           color: Colors.black,
@@ -545,10 +546,11 @@ class EastBuffetScreen extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(top: 20.h),
+                                padding:
+                                    EdgeInsets.only(top: 20.h, bottom: 40.h),
                                 child: TextButton(
                                   onPressed: () {
-                                    Get.off(DinnerEastAseel());
+                                    Get.off(BreakEastMix());
                                   },
                                   child: Container(
                                     width: 264.w,
@@ -577,13 +579,13 @@ class EastBuffetScreen extends StatelessWidget {
                                           ),
                                         ),
                                         Positioned(
-                                          left: 71,
-                                          top: 188,
+                                          left: 88.h,
+                                          top: 188.h,
                                           child: Text(
-                                            ' بوفيه عشاء عربي أصيل',
+                                            ' بوفيه فطور منوع',
                                             style: TextStyle(
                                               color: Colors.black,
-                                              fontSize: 14.h,
+                                              fontSize: 14.sp,
                                               fontFamily: 'Cairo',
                                               fontWeight: FontWeight.w600,
                                               height: 0,
@@ -602,7 +604,7 @@ class EastBuffetScreen extends StatelessWidget {
                                               decoration: ShapeDecoration(
                                                 image: const DecorationImage(
                                                   image: AssetImage(BaseImages
-                                                      .buffetarabicdinneraseel),
+                                                      .buffetarabiclebanon),
                                                   fit: BoxFit.cover,
                                                 ),
                                                 shape: RoundedRectangleBorder(
@@ -678,19 +680,15 @@ class EastBuffetScreen extends StatelessWidget {
                                           left: 93.h,
                                           top: 12.h,
                                           bottom: 12.h,
-                                          child: SizedBox(
-                                            width: 79.w,
-                                            height: 25.h,
-                                            child: Text(
-                                              'بوفيه غداء',
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 14.sp,
-                                                fontFamily: 'Cairo',
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                              textAlign: TextAlign.center,
+                                          child: Text(
+                                            'بوفيه فطور',
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.sp,
+                                              fontFamily: 'Cairo',
+                                              fontWeight: FontWeight.w600,
                                             ),
+                                            textAlign: TextAlign.center,
                                           ),
                                         ),
                                       ],

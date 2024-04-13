@@ -1,13 +1,16 @@
-import 'package:evenza/screens/break_east_aseel.dart';
-import 'package:evenza/screens/break_east_perfect.dart';
-import 'package:evenza/screens/breakfast_buffet_screen.dart';
+import 'package:evenza/screens/break_west_mix.dart';
+import 'package:evenza/screens/break_west_mod.dart';
+import 'package:evenza/screens/break_west_perfect.dart';
 import 'package:evenza/screens/dinner_buffet_screen.dart';
-import 'package:evenza/screens/dinner_east_aseel.dart';
+import 'package:evenza/screens/dinner_buffet_west_screen%20.dart';
+import 'package:evenza/screens/east_buffet_screen.dart';
 import 'package:evenza/screens/login.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
+import 'package:evenza/screens/west_buffet_screen%20.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
+import 'package:evenza/widgets/buffet_details_widget.dart';
 import 'package:evenza/widgets/login_signup_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -15,14 +18,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
 
-class EastBuffetScreen extends StatelessWidget {
-  const EastBuffetScreen({super.key});
+class BreakfastBuffetWestScreen extends StatelessWidget {
+  const BreakfastBuffetWestScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BackGroundWidget(
-        title: 'شرقي',
-        onback: () => Get.off(const SelectTypeBuffet()),
+        title: 'غربي',
+        onback: () => Get.off(const WestBuffetScreen()),
         content: Padding(
             padding: EdgeInsets.only(left: 10.h, right: 15.h, top: 30.h),
             child: Column(
@@ -109,12 +112,12 @@ class EastBuffetScreen extends StatelessWidget {
                                         top: 10.h,
                                         bottom: 10.h),
                                     child: Container(
-                                      width: 112.w,
-                                      height: 108.h,
+                                      width: 115.w,
+                                      height: 120.h,
                                       decoration: ShapeDecoration(
                                         image: DecorationImage(
                                           image:
-                                              AssetImage(BaseImages.breakfast),
+                                              AssetImage(BaseImages.breakfast1),
                                           fit: BoxFit.fill,
                                         ),
                                         shape: RoundedRectangleBorder(
@@ -136,7 +139,7 @@ class EastBuffetScreen extends StatelessWidget {
                                         child: TextButton(
                                           onPressed: () {
                                             Get.to(
-                                                const BreakfastBuffetScreen());
+                                                const BreakfastBuffetWestScreen());
                                           },
                                           child: Text(
                                             'فطور',
@@ -172,7 +175,7 @@ class EastBuffetScreen extends StatelessWidget {
                                       decoration: ShapeDecoration(
                                         image: const DecorationImage(
                                           image:
-                                              AssetImage(BaseImages.arabsweet),
+                                              AssetImage(BaseImages.dinnwest),
                                           fit: BoxFit.fill,
                                         ),
                                         shape: RoundedRectangleBorder(
@@ -193,7 +196,8 @@ class EastBuffetScreen extends StatelessWidget {
                                         height: 41.61.h,
                                         child: TextButton(
                                           onPressed: () {
-                                            Get.to(const DinnerBuffetScreen());
+                                            Get.off(
+                                                const DinnerBuffetWestScreen());
                                           },
                                           child: Text(
                                             'غداء',
@@ -221,7 +225,7 @@ class EastBuffetScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(right: 18.h, bottom: 10.h),
                       child: Text(
-                        'مقترحات',
+                        'لدينا :',
                         textAlign: TextAlign.start,
                         style: TextStyle(
                           color: Colors.black,
@@ -233,169 +237,19 @@ class EastBuffetScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                    height: 400.h,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Column(
-                            children: [
-                              TextButton(
-                                onPressed: () {
-                                  Get.off(BreakEastAseel());
-                                },
-                                child: Container(
-                                  width: 264.w,
-                                  height: 248.h,
-                                  child: Stack(
-                                    children: [
-                                      Positioned(
-                                        left: 0,
-                                        top: 0,
-                                        child: Container(
-                                          width: 264.w,
-                                          height: 248.h,
-                                          decoration: ShapeDecoration(
-                                            color: Color(0xFFFFF1EE),
-                                            shape: RoundedRectangleBorder(
-                                              side: BorderSide(
-                                                width: 1.w,
-                                                color: Colors.black.withOpacity(
-                                                    0.2800000011920929),
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(9.r),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: 71,
-                                        top: 188,
-                                        child: Text(
-                                          ' بوفيه فطور عربي أصيل',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14.h,
-                                            fontFamily: 'Cairo',
-                                            fontWeight: FontWeight.w600,
-                                            height: 0,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                      Positioned(
-                                        top: 40.h,
-                                        left: 10.h,
-                                        right: 10.h,
-                                        child: Center(
-                                          child: Container(
-                                            width: 236.w,
-                                            height: 140.h,
-                                            decoration: ShapeDecoration(
-                                              image: const DecorationImage(
-                                                image: AssetImage(BaseImages
-                                                    .buffetarabicaseel),
-                                                fit: BoxFit.cover,
-                                              ),
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          9.r)),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: 80.h,
-                                        top: 213.h,
-                                        child: Text(
-                                          '30,000000 ل,س',
-                                          style: TextStyle(
-                                            color: Color(0xFFFF8C8D),
-                                            fontSize: 14.sp,
-                                            fontFamily: 'Cairo',
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: 215.h,
-                                        top: 162.h,
-                                        child: Container(
-                                          width: 45.83.w,
-                                          height: 25.h,
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Container(
-                                                width: 45.83.w,
-                                                height: 25.h,
-                                                child: Stack(
-                                                  children: [
-                                                    Positioned(
-                                                      left: 0,
-                                                      top: 0,
-                                                      child: Container(
-                                                          width: 45.83.w,
-                                                          height: 25.h,
-                                                          //  child:TextButton.icon(onPressed: , icon: Icons.)
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            image: DecorationImage(
-                                                                image: AssetImage(
-                                                                    BaseImages
-                                                                        .like)),
-                                                          )),
-                                                    ),
-                                                    Positioned(
-                                                      left: 0,
-                                                      top: 1.94,
-                                                      child: Container(
-                                                        width: 49.40,
-                                                        height: 23.06,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: 93.h,
-                                        top: 12.h,
-                                        bottom: 12.h,
-                                        child: SizedBox(
-                                          width: 79.w,
-                                          height: 25.h,
-                                          child: Text(
-                                            'بوفيه فطور',
-                                            style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 14.sp,
-                                              fontFamily: 'Cairo',
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: 20.h),
-                                child: TextButton(
-                                  onPressed: () {
-                                    Get.off(BreakEastPerfect());
-                                  },
+                TextButton(
+                  onPressed: () {
+                    Get.off(const ());
+                  },
+                  child: Container(
+                      height: 400.h,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Column(
+                              children: [
+                                TextButton(
+                                  onPressed: () => Get.off(BreakWestMod()),
                                   child: Container(
                                     width: 264.w,
                                     height: 248.h,
@@ -423,10 +277,10 @@ class EastBuffetScreen extends StatelessWidget {
                                           ),
                                         ),
                                         Positioned(
-                                          left: 88.h,
-                                          top: 188.h,
+                                          left: 71,
+                                          top: 188,
                                           child: Text(
-                                            'بوفيه فطور فاخر',
+                                            ' بوفيه فطور مودرن ',
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 14.h,
@@ -448,7 +302,7 @@ class EastBuffetScreen extends StatelessWidget {
                                               decoration: ShapeDecoration(
                                                 image: const DecorationImage(
                                                   image: AssetImage(BaseImages
-                                                      .buffetarabicperfect),
+                                                      .buffetwestbreak1),
                                                   fit: BoxFit.cover,
                                                 ),
                                                 shape: RoundedRectangleBorder(
@@ -543,146 +397,296 @@ class EastBuffetScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: 20.h),
-                                child: TextButton(
-                                  onPressed: () {
-                                    Get.off(DinnerEastAseel());
-                                  },
-                                  child: Container(
-                                    width: 264.w,
-                                    height: 248.h,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                          left: 0.h,
-                                          top: 0.h,
-                                          child: Container(
-                                            width: 264.w,
-                                            height: 248.h,
-                                            decoration: ShapeDecoration(
-                                              color: Color(0xFFFFF1EE),
-                                              shape: RoundedRectangleBorder(
-                                                side: BorderSide(
-                                                  width: 1.w,
-                                                  color: Colors.black
-                                                      .withOpacity(
-                                                          0.2800000011920929),
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(9.r),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Positioned(
-                                          left: 71,
-                                          top: 188,
-                                          child: Text(
-                                            ' بوفيه عشاء عربي أصيل',
-                                            style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 14.h,
-                                              fontFamily: 'Cairo',
-                                              fontWeight: FontWeight.w600,
-                                              height: 0,
-                                            ),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ),
-                                        Positioned(
-                                          top: 40.h,
-                                          left: 10.h,
-                                          right: 10.h,
-                                          child: Center(
+                                Padding(
+                                  padding: EdgeInsets.only(top: 20.h),
+                                  child: TextButton(
+                                    onPressed: () =>
+                                        Get.off(BreakWestPerfect()),
+                                    child: Container(
+                                      width: 264.w,
+                                      height: 248.h,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            left: 0,
+                                            top: 0,
                                             child: Container(
-                                              width: 236.w,
-                                              height: 140.h,
+                                              width: 264.w,
+                                              height: 248.h,
                                               decoration: ShapeDecoration(
-                                                image: const DecorationImage(
-                                                  image: AssetImage(BaseImages
-                                                      .buffetarabicdinneraseel),
-                                                  fit: BoxFit.cover,
-                                                ),
+                                                color: Color(0xFFFFF1EE),
                                                 shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            9.r)),
+                                                  side: BorderSide(
+                                                    width: 1.w,
+                                                    color: Colors.black
+                                                        .withOpacity(
+                                                            0.2800000011920929),
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          9.r),
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        Positioned(
-                                          left: 80.h,
-                                          top: 213.h,
-                                          child: Text(
-                                            '30,000000 ل,س',
-                                            style: TextStyle(
-                                              color: Color(0xFFFF8C8D),
-                                              fontSize: 14.sp,
-                                              fontFamily: 'Cairo',
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                        ),
-                                        Positioned(
-                                          left: 215.h,
-                                          top: 162.h,
-                                          child: Container(
-                                            width: 45.83.w,
-                                            height: 25.h,
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  width: 45.83.w,
-                                                  height: 25.h,
-                                                  child: Stack(
-                                                    children: [
-                                                      Positioned(
-                                                        left: 0,
-                                                        top: 0,
-                                                        child: Container(
-                                                            width: 45.83.w,
-                                                            height: 25.h,
-                                                            //  child:TextButton.icon(onPressed: , icon: Icons.)
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              image: DecorationImage(
-                                                                  image: AssetImage(
-                                                                      BaseImages
-                                                                          .like)),
-                                                            )),
-                                                      ),
-                                                      Positioned(
-                                                        left: 0,
-                                                        top: 1.94,
-                                                        child: Container(
-                                                          width: 49.40,
-                                                          height: 23.06,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        Positioned(
-                                          left: 93.h,
-                                          top: 12.h,
-                                          bottom: 12.h,
-                                          child: SizedBox(
-                                            width: 79.w,
-                                            height: 25.h,
+                                          Positioned(
+                                            left: 88.h,
+                                            top: 188.h,
                                             child: Text(
-                                              'بوفيه غداء',
+                                              'بوفيه فطور فاخر',
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 14.h,
+                                                fontFamily: 'Cairo',
+                                                fontWeight: FontWeight.w600,
+                                                height: 0,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: 40.h,
+                                            left: 10.h,
+                                            right: 10.h,
+                                            child: Center(
+                                              child: Container(
+                                                width: 236.w,
+                                                height: 140.h,
+                                                decoration: ShapeDecoration(
+                                                  image: const DecorationImage(
+                                                    image: AssetImage(BaseImages
+                                                        .buffetwestbreak2),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              9.r)),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            left: 80.h,
+                                            top: 213.h,
+                                            child: Text(
+                                              '30,000000 ل,س',
+                                              style: TextStyle(
+                                                color: Color(0xFFFF8C8D),
+                                                fontSize: 14.sp,
+                                                fontFamily: 'Cairo',
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            left: 215.h,
+                                            top: 162.h,
+                                            child: Container(
+                                              width: 45.83.w,
+                                              height: 25.h,
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    width: 45.83.w,
+                                                    height: 25.h,
+                                                    child: Stack(
+                                                      children: [
+                                                        Positioned(
+                                                          left: 0,
+                                                          top: 0,
+                                                          child: Container(
+                                                              width: 45.83.w,
+                                                              height: 25.h,
+                                                              //  child:TextButton.icon(onPressed: , icon: Icons.)
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                image: DecorationImage(
+                                                                    image: AssetImage(
+                                                                        BaseImages
+                                                                            .like)),
+                                                              )),
+                                                        ),
+                                                        Positioned(
+                                                          left: 0,
+                                                          top: 1.94,
+                                                          child: Container(
+                                                            width: 49.40,
+                                                            height: 23.06,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            left: 93.h,
+                                            top: 12.h,
+                                            bottom: 12.h,
+                                            child: SizedBox(
+                                              width: 79.w,
+                                              height: 25.h,
+                                              child: Text(
+                                                'بوفيه فطور',
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 14.sp,
+                                                  fontFamily: 'Cairo',
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      EdgeInsets.only(top: 20.h, bottom: 40.h),
+                                  child: TextButton(
+                                    onPressed: () => Get.off(BreakWestMix()),
+                                    child: Container(
+                                      width: 264.w,
+                                      height: 248.h,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            left: 0.h,
+                                            top: 0.h,
+                                            child: Container(
+                                              width: 264.w,
+                                              height: 248.h,
+                                              decoration: ShapeDecoration(
+                                                color: Color(0xFFFFF1EE),
+                                                shape: RoundedRectangleBorder(
+                                                  side: BorderSide(
+                                                    width: 1.w,
+                                                    color: Colors.black
+                                                        .withOpacity(
+                                                            0.2800000011920929),
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          9.r),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            left: 88.h,
+                                            top: 188.h,
+                                            child: Text(
+                                              ' بوفيه فطور منوع',
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 14.sp,
+                                                fontFamily: 'Cairo',
+                                                fontWeight: FontWeight.w600,
+                                                height: 0,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: 40.h,
+                                            left: 10.h,
+                                            right: 10.h,
+                                            child: Center(
+                                              child: Container(
+                                                width: 236.w,
+                                                height: 140.h,
+                                                decoration: ShapeDecoration(
+                                                  image: const DecorationImage(
+                                                    image: AssetImage(BaseImages
+                                                        .buffetwestbreak3),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              9.r)),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            left: 80.h,
+                                            top: 213.h,
+                                            child: Text(
+                                              '30,000000 ل,س',
+                                              style: TextStyle(
+                                                color: Color(0xFFFF8C8D),
+                                                fontSize: 14.sp,
+                                                fontFamily: 'Cairo',
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            left: 215.h,
+                                            top: 162.h,
+                                            child: Container(
+                                              width: 45.83.w,
+                                              height: 25.h,
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    width: 45.83.w,
+                                                    height: 25.h,
+                                                    child: Stack(
+                                                      children: [
+                                                        Positioned(
+                                                          left: 0,
+                                                          top: 0,
+                                                          child: Container(
+                                                              width: 45.83.w,
+                                                              height: 25.h,
+                                                              //  child:TextButton.icon(onPressed: , icon: Icons.)
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                image: DecorationImage(
+                                                                    image: AssetImage(
+                                                                        BaseImages
+                                                                            .like)),
+                                                              )),
+                                                        ),
+                                                        Positioned(
+                                                          left: 0,
+                                                          top: 1.94,
+                                                          child: Container(
+                                                            width: 49.40,
+                                                            height: 23.06,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            left: 93.h,
+                                            top: 12.h,
+                                            bottom: 12.h,
+                                            child: Text(
+                                              'بوفيه فطور',
                                               style: TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 14.sp,
@@ -692,17 +696,17 @@ class EastBuffetScreen extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ))
+                              ],
+                            )
+                          ],
+                        ),
+                      )),
+                )
               ],
             )));
   }
