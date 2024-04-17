@@ -18,33 +18,30 @@ class OnboardingScreen1 extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(
-              text: ' بعض المناسبات لا تأتي إلا \n',
+              text: ' بعض المناسبات لا تأتي إلا ',
               style: TextStyle(
                 color: BaseColors.primaryDark,
                 fontSize: 17.h,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
-                height: 0,
               ),
             ),
             TextSpan(
-              text: 'مرة',
+              text: ' مرة ',
               style: TextStyle(
                 color: BaseColors.orange,
                 fontSize: 17.h,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
-                height: 0,
               ),
             ),
             TextSpan(
-              text: ' واحدة في ',
+              text: 'واحدة في ',
               style: TextStyle(
                 color: BaseColors.primary,
                 fontSize: 17.h,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
-                height: 0,
               ),
             ),
             TextSpan(
@@ -54,7 +51,6 @@ class OnboardingScreen1 extends StatelessWidget {
                 fontSize: 17.h,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
-                height: 0,
               ),
             ),
             TextSpan(
@@ -64,7 +60,6 @@ class OnboardingScreen1 extends StatelessWidget {
                 fontSize: 17.h,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
-                height: 0,
               ),
             ),
             TextSpan(
@@ -74,7 +69,6 @@ class OnboardingScreen1 extends StatelessWidget {
                 fontSize: 17.h,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
-                height: 0,
               ),
             ),
             TextSpan(
@@ -84,7 +78,6 @@ class OnboardingScreen1 extends StatelessWidget {
                 fontSize: 17.h,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
-                height: 0,
               ),
             ),
           ],

@@ -14,4 +14,5 @@ abstract class BaseColors {
   static const orange = Color(0xEDFFB183);
 
   static const pink = Color(0xFFFF8C8D);
+  static const purple = Color.fromARGB(255, 238, 235, 255);
 }

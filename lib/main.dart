@@ -2,11 +2,16 @@ import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
 import 'package:evenza/screens/Login.dart';
 import 'package:evenza/screens/breakfast_buffet_screen.dart';
+import 'package:evenza/screens/onboarding_screen.dart';
+import 'package:evenza/screens/onboarding_screen1.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/screens/east_buffet_screen.dart';
+import 'package:evenza/screens/splash_screen.dart';
+import 'package:evenza/screens/welcome_screen.dart';
+import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/buffet_details_widget.dart';
-
+import 'package:evenza/widgets/decoration_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -42,11 +47,10 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) => GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        locale: DevicePreview.locale(context),
-        builder: DevicePreview.appBuilder,
-        home: const SelectTypeBuffet(),
-      ),
+          debugShowCheckedModeBanner: false,
+          locale: DevicePreview.locale(context),
+          builder: DevicePreview.appBuilder,
+          home: const EventTypesScreen()),
     );
   }
 }

@@ -7,8 +7,8 @@ class CategoryService {
   Future<List<Category>> getAll() async {
     final response = await apiHelper.dio.get('categories');
 
-    return ((response.data as Map<String, dynamic>)['data'] as List)
-        .map((e) => Category.fromJson(e))
-        .toList();
+    return ((response.data as Map<String, dynamic>)['data'] as List).map((e) {
+      return Category.fromJson(e);
+    }).toList();
   }
 }

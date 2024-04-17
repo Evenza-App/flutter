@@ -1,6 +1,7 @@
 import 'package:evenza/screens/breakfast_buffet_screen.dart';
 import 'package:evenza/screens/breakfast_buffet_west_screen%20.dart';
 import 'package:evenza/hooks/categories_hook.dart';
+import 'package:evenza/screens/buffets_screen.dart';
 import 'package:evenza/screens/east_buffet_screen.dart';
 import 'package:evenza/screens/login.dart';
 import 'package:evenza/screens/west_buffet_screen%20.dart';
@@ -9,6 +10,7 @@ import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
 import 'package:evenza/widgets/base_loading.dart';
 import 'package:evenza/widgets/login_signup_widget.dart';
+import 'package:evenza/widgets/types_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,10 +25,27 @@ class SelectTypeBuffet extends HookWidget {
     final (loading, categories) = useCategories();
     return BackGroundWidget(
       title: 'اختر الضيافة',
-      onback: () => Get.to(const ()),
-      content: Column(
-        children: [],
-      ),
+      onback: () => Get.off(null),
+      content:
+       loading
+          ? BaseLoading(
+              color: BaseColors.primary,
+            )
+            
+          : Column(
+            
+              children:
+              
+               categories
+                  .map((category) => TypesWidget(
+                        title: category.name,
+                        imagePath: category.image,
+                        ontap: () {
+                          Get.to(BuffetsScreen(category: category));
+                        },
+                      ))
+                  .toList(),
+            ),
     );
   }
 }
@@ -85,30 +104,7 @@ class SelectTypeBuffet extends HookWidget {
           //                         ),
           //                       ),
           //                     ),
-          //                     Positioned(
-          //                       left: 0.w,
-          //                       top: 51.h,
-          //                       child: SizedBox(
-          //                           width: 151.66.w,
-          //                           height: 41.61.h,
-          //                           child: TextButton(
-          //                             onPressed: () {
-          //                               Get.to(const EastBuffetScreen());
-          //                             },
-          //                             child: Text(
-          //                               'شرقي',
-          //                               textAlign: TextAlign.center,
-          //                               style: TextStyle(
-          //                                 color: Colors.white,
-          //                                 fontSize: 14.sp,
-          //                                 fontFamily: 'Cairo',
-          //                                 fontWeight: FontWeight.w700,
-          //                                 height: 0,
-          //                                 letterSpacing: -0.33.sp,
-          //                               ),
-          //                             ),
-          //                           )),
-          //                     ),
+                              
           //                   ],
           //                 ),
           //               ),

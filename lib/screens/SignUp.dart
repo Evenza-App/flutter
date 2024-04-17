@@ -86,6 +86,7 @@ class SignUpScreen extends StatelessWidget {
                   Icons.email_rounded,
                   color: Color.fromARGB(255, 247, 186, 151),
                 ),
+                
                 label: Text('البريد الالكتروني',
                     style: TextStyle(
                         fontSize: 17.h,
@@ -170,7 +171,6 @@ class SignUpScreen extends StatelessWidget {
                         fontSize: 11.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w700,
-                        height: 0,
                       ),
                     ),
                   )

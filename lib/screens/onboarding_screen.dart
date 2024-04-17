@@ -12,19 +12,18 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnBoardingWidget(
-      onNext: () => Get.to(OnboardingScreen1()),
+      onNext: () => Get.to(const OnboardingScreen1()),
       imagePath: BaseImages.birthday,
       text: Text.rich(
         TextSpan(
           children: [
             TextSpan(
-              text: 'للعد التنازلي لمناسبة\n لن ترغب ',
+              text: 'للعد التنازلي لمناسبة \n لن ترغب ',
               style: TextStyle(
                 color: BaseColors.primaryDark,
                 fontSize: 19.h,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
-                height: 0,
               ),
             ),
             TextSpan(
@@ -34,7 +33,6 @@ class OnboardingScreen extends StatelessWidget {
                 fontSize: 19.h,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
-                height: 0,
               ),
             ),
           ],
