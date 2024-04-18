@@ -1,3 +1,5 @@
+import 'package:evenza/screens/home.dart';
+
 abstract class BaseImages {
   static const logo = 'assets/logos/logo.png';
 
@@ -18,6 +20,20 @@ abstract class BaseImages {
   static const like = 'assets/images/LIKE.png';
   static const swearab1 = 'assets/images/swearab1.png';
   static const backgroundarab = 'assets/images/backgroundarab.png';
+  static const search = 'assets/images/search.png';
+  static const hebaProfile = 'assets/photographers/heba_profile.png';
+  static const saeedProfile = 'assets/photographers/saeed_profile.png';
+  static const saherProfile = 'assets/photographers/saher_profile.png';
+  static const lilianProfile = 'assets/photographers/lilian_profile.png';
+  static const home='assets/images/home.png';
+  static const menu = 'assets/images/menu.png';
+  static const bell = 'assets/images/bell.png';
+  static const event1 = 'assets/catagory/birthday.png';
+  static const event2 = 'assets/catagory/event2.png';
+  static const event3 = 'assets/catagory/event3.png';
+  static const event4 = 'assets/catagory/event4.png';
+
+
   
   
 }

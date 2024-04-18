@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
 import 'package:evenza/screens/Login.dart';
+import 'package:evenza/screens/home.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/screens/splash_screen.dart';
 import 'package:evenza/widgets/buffet_details_widget.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:evenza/screens/select_photographer.dart';
+import 'package:evenza/screens/lilian_profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: SelectTypeBuffet(),
+        home: const Home(),
       ),
     );
   }
