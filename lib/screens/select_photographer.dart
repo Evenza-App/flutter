@@ -1,5 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
+import 'package:evenza/hooks/photographers_hook.dart';
+import 'package:evenza/models/photographer.dart';
 import 'package:evenza/screens/onboarding_screen1.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
@@ -7,6 +9,7 @@ import 'package:evenza/widgets/back_ground_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
@@ -15,11 +18,12 @@ import 'package:evenza/screens/saher_profile.dart';
 import 'package:evenza/screens/heba_profile.dart';
 import 'package:evenza/screens/saeed_profile.dart';
 
-class select_photographer extends StatelessWidget {
-  const select_photographer({super.key});
-
+class SelectPhotographer extends HookWidget {
+  const SelectPhotographer({super.key, required this.photographer});
+  final Photographer photographer;
   @override
   Widget build(BuildContext context) {
+    final (loading, photographers) = usePhotographer(id: photographer.id);
     return BackGroundWidget(
       title: 'اختر المصور',
       onback: () => Get.off(const SelectTypeBuffet()),
@@ -106,7 +110,9 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/lilian.png'),
                     ),
                     onTap: () {
-                      Get.to(const LilianProfile());
+                      Get.to(LilianProfile(
+                        photographer: photographer,
+                      ));
                     },
                   ),
                   ListTile(
@@ -120,7 +126,9 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/saeed.png'),
                     ),
                     onTap: () {
-                      Get.to(const SaeedProfile());
+                      Get.to(SaeedProfile(
+                        photographer: photographer,
+                      ));
                     },
                   ),
                   ListTile(
@@ -134,7 +142,7 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/heba.png'),
                     ),
                     onTap: () {
-                      Get.to(const HebaProfile());
+                      Get.to(HebaProfile(photographer: photographer));
                     },
                   ),
                   ListTile(
@@ -148,7 +156,9 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/saher.png'),
                     ),
                     onTap: () {
-                      Get.to(const SaherProfile());
+                      Get.to(SaherProfile(
+                        photographer: photographer,
+                      ));
                     },
                   ),
                   ListTile(
@@ -162,7 +172,9 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/saher.png'),
                     ),
                     onTap: () {
-                      Get.to(const SaherProfile());
+                      Get.to(SaherProfile(
+                        photographer: photographer,
+                      ));
                     },
                   ),
                   ListTile(
@@ -176,7 +188,9 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/saher.png'),
                     ),
                     onTap: () {
-                      Get.to(const SaherProfile());
+                      Get.to(SaherProfile(
+                        photographer: photographer,
+                      ));
                     },
                   ),
                   ListTile(
@@ -190,7 +204,9 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/saher.png'),
                     ),
                     onTap: () {
-                      Get.to(const SaherProfile());
+                      Get.to(SaherProfile(
+                        photographer: photographer,
+                      ));
                     },
                   ),
                   ListTile(
@@ -204,7 +220,9 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/saher.png'),
                     ),
                     onTap: () {
-                      Get.to(const SaherProfile());
+                      Get.to(SaherProfile(
+                        photographer: photographer,
+                      ));
                     },
                   ),
                   ListTile(
@@ -218,7 +236,9 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/saher.png'),
                     ),
                     onTap: () {
-                      Get.to(const SaherProfile());
+                      Get.to(SaherProfile(
+                        photographer: photographer,
+                      ));
                     },
                   ),
                   ListTile(
@@ -232,7 +252,9 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/saher.png'),
                     ),
                     onTap: () {
-                      Get.to(const SaherProfile());
+                      Get.to(SaherProfile(
+                        photographer: photographer,
+                      ));
                     },
                   ),
                   ListTile(
@@ -246,7 +268,9 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/saher.png'),
                     ),
                     onTap: () {
-                      Get.to(const SaherProfile());
+                      Get.to(SaherProfile(
+                        photographer: photographer,
+                      ));
                     },
                   ),
                   ListTile(
@@ -260,7 +284,9 @@ class select_photographer extends StatelessWidget {
                       child: Image.asset('assets/photographers/saher.png'),
                     ),
                     onTap: () {
-                      Get.to(const SaherProfile());
+                      Get.to(SaherProfile(
+                        photographer: photographer,
+                      ));
                     },
                   ),
                 ],

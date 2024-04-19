@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class BackGroundWidgetHome extends StatelessWidget {
-  const BackGroundWidgetHome({
+class BackGroundWidgetS extends StatelessWidget {
+  const BackGroundWidgetS({
     super.key,
     required this.title,
     required this.onback,
@@ -21,7 +21,7 @@ class BackGroundWidgetHome extends StatelessWidget {
             textDirection: TextDirection.rtl,
             child: Stack(children: [
               Image.asset(
-                BaseImages.home,
+                'assets/images/settingback.png',
                 fit: BoxFit.cover,
                 height: double.infinity,
                 width: double.infinity,
@@ -43,19 +43,18 @@ class BackGroundWidgetHome extends StatelessWidget {
                               textDirection: TextDirection.ltr,
                             ))),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                                      Text(
-                  title,
-                  style: TextStyle(
-                      fontSize: 27.h,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.start,
-                                      ),
-                                      content
-                                    ]),
+                  Center(
+                      child: Column(children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                          fontSize: 27.h,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                    content
+                  ])),
                 ]),
               )
             ])));

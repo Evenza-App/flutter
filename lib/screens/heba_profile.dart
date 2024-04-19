@@ -1,28 +1,40 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
+import 'package:evenza/hooks/photographers_hook.dart';
+import 'package:evenza/models/photographer.dart';
 import 'package:evenza/screens/heba_projects.dart';
 import 'package:evenza/screens/select_photographer.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
+import 'package:evenza/widgets/base_loading.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-class HebaProfile extends StatelessWidget {
-  const HebaProfile({super.key});
+class HebaProfile extends HookWidget {
+  const HebaProfile({super.key,required this.photographer});
+
+  final Photographer photographer;
 
   @override
   Widget build(BuildContext context) {
+    final(loading,photographers)=usePhotographer(id: photographer.id);
     return BackGroundWidget(
       title: '',
-      onback: () => Get.off(const select_photographer()),
-      content: Padding(
+      onback: () => Get.off( SelectPhotographer(photographer: photographer,)),
+      content: 
+      loading
+      ?BaseLoading(
+        color: BaseColors.primary,
+      ):
+      Padding(
         padding: EdgeInsets.only(left: 10.h, right: 15.h, top: 30.h),
         child: Column(
           children: [
@@ -35,7 +47,7 @@ class HebaProfile extends StatelessWidget {
             Positioned(
                 child: Container(
               child: Text(
-                'هبة جويد',
+                photographer.name,
                 style: TextStyle(
                   fontSize: 20.h,
                   color: Colors.black,

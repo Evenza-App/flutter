@@ -1,5 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
+import 'package:evenza/hooks/photographers_hook.dart';
+import 'package:evenza/models/photographer.dart';
 import 'package:evenza/screens/saeed_projects.dart';
 import 'package:evenza/screens/select_photographer.dart';
 import 'package:evenza/styles/color.dart';
@@ -14,13 +16,14 @@ import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SaeedProfile extends StatelessWidget {
-  const SaeedProfile({super.key});
-
+  const SaeedProfile({super.key,required this.photographer});
+final Photographer photographer;
   @override
   Widget build(BuildContext context) {
+    final(loading,photographers)=usePhotographer(id: photographer.id);
     return BackGroundWidget(
       title: '',
-      onback: () => Get.off(const select_photographer()),
+      onback: () => Get.off( SelectPhotographer(photographer:photographer,)),
       content: Padding(
         padding: EdgeInsets.only(left: 10.h, right: 15.h, top: 30.h),
         child: Column(
