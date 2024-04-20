@@ -1,7 +1,5 @@
 import 'package:evenza/hooks/events_details_hook.dart';
 import 'package:evenza/models/event.dart';
-import 'package:evenza/screens/breakfast_buffet_screen.dart';
-import 'package:evenza/screens/east_buffet_screen.dart';
 import 'package:evenza/screens/login.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/color.dart';
@@ -27,37 +25,38 @@ class DecorationScreen extends HookWidget {
   Widget build(BuildContext context) {
     final (loading, event) = useEventDetails(id: this.event.id);
     return DecorationWidget(
-        title: this.event.name,
-        imagePath: BaseImages.decorbirth,
-        content: Padding(
-          padding: EdgeInsets.only(left: 30.h, right: 30.h),
-          child: loading
-              ? BaseLoading(
-                  color: BaseColors.primary,
-                )
-              : Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Column(
-                    children: event.details!.map((detail) {
-                      if (detail.type == 'string') {
-                        return DecorationTextFormField(
-                          hintText: detail.name,
-                          isRequired: detail.isrequired,
-                        );
-                      }
-                      if (detail.type == 'number') {
-                        return DecorationTextFormField(
-                          hintText: detail.name,
-                          isRequired: detail.isrequired,
-                          keyboardType: TextInputType.number,
-                        );
-                      }
-                      return SelectRadio(
-                          name: detail.name, options: detail.options);
-                    }).toList(),
-                  ),
+      title: this.event.name,
+      imagePath: BaseImages.decorbirth,
+      content: Padding(
+        padding: EdgeInsets.only(left: 30.h, right: 30.h),
+        child: loading
+            ? BaseLoading(
+                color: BaseColors.primary,
+              )
+            : Directionality(
+                textDirection: TextDirection.rtl,
+                child: Column(
+                  children: event.details!.map((detail) {
+                    if (detail.type == 'string') {
+                      return DecorationTextFormField(
+                        hintText: detail.name,
+                        isRequired: detail.isrequired,
+                      );
+                    }
+                    if (detail.type == 'number') {
+                      return DecorationTextFormField(
+                        hintText: detail.name,
+                        isRequired: detail.isrequired,
+                        keyboardType: TextInputType.number,
+                      );
+                    }
+                    return SelectRadio(
+                        name: detail.name, options: detail.options);
+                  }).toList(),
                 ),
-        ));
+              ),
+      ),
+    );
   }
 }
 

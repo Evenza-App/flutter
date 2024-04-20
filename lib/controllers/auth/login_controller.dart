@@ -1,4 +1,6 @@
-import 'package:evenza/screens/east_buffet_screen.dart';
+import 'package:evenza/screens/event_reservation_screen.dart';
+import 'package:evenza/screens/event_reservation_screen.dart';
+import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/services/authentication_service.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,6 +23,6 @@ class LoginController extends GetxController {
     await sharedPreferences.setString('token', token);
     loading.value = false;
 
-    Get.to(EastBuffetScreen());
+    Get.to(EventTypesScreen());
   }
 }

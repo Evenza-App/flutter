@@ -1,5 +1,6 @@
 import 'package:evenza/hooks/events_hook.dart';
 import 'package:evenza/screens/decoration_screen.dart';
+import 'package:evenza/screens/event_reservation_screen.dart';
 import 'package:evenza/screens/login.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/color.dart';
@@ -41,7 +42,7 @@ class EventTypesScreen extends HookWidget {
                       child: TypesWidget(
                           imagePath: event.image,
                           ontap: () {
-                            Get.to(DecorationScreen(event: event));
+                            Get.to(EventReservationScreen(event: event));
                           },
                           title: event.name),
                     );

@@ -1,5 +1,5 @@
 import 'package:evenza/screens/Login.dart';
-import 'package:evenza/screens/east_buffet_screen.dart';
+
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/screens/welcome_screen.dart';
 import 'package:get/get.dart';

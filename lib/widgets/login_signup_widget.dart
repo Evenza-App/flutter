@@ -54,6 +54,7 @@ class LoginSignupWidget extends StatelessWidget {
                   ),
                   Container(
                     height: 600.h,
+                    width: double.infinity,
                     margin: EdgeInsets.only(top: 20.h),
                     padding: EdgeInsets.only(top: 40.h),
                     decoration: BoxDecoration(

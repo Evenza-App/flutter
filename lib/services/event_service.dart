@@ -6,7 +6,7 @@ class EventService {
   final ApiHelper apiHelper = ApiHelper();
   Future<Event> geteventdetails(int id) async {
     final response = await apiHelper.dio.get('events/$id');
-    return Event.fromJson((response.data as Map<String, dynamic>)['data']);
+    return Event.fromJson ((response.data as Map<String, dynamic>)['data']);
   }
 
   Future<List<Event>> getAll() async {

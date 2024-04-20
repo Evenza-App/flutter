@@ -1,6 +1,8 @@
 import 'package:evenza/helpers/api/api_helper.dart';
+import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
+import 'package:evenza/widgets/base_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -85,8 +87,12 @@ class DecorationWidget extends StatelessWidget {
                   Builder(builder: (context) {
                     return TextButton(
                       onPressed: () {
+                        BaseLoading(
+                          color: BaseColors.primary,
+                        );
                         if (Form.of(context).validate()) {
                           Form.of(context).save();
+                          Get.off(SelectTypeBuffet());
                         }
                       },
                       child: Container(
@@ -95,7 +101,7 @@ class DecorationWidget extends StatelessWidget {
                         decoration: ShapeDecoration(
                           color: BaseColors.primaryDark,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(19),
+                            borderRadius: BorderRadius.circular(19.r),
                           ),
                         ),
                         child: Center(
@@ -104,7 +110,7 @@ class DecorationWidget extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
                             ),

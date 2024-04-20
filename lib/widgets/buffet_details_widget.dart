@@ -10,12 +10,15 @@ class BuffetDetailsWidget extends StatelessWidget {
     required this.imagePath,
     required this.onback,
     required this.title,
+    required this.price,
+    required this.ingredient,
     //  required this.onback,
   });
   // final void Function() onback;
   final String imagePath;
-
-  final Widget title;
+  final String price;
+  final String ingredient;
+  final String title;
 
   final void Function() onback;
 
@@ -72,70 +75,78 @@ class BuffetDetailsWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 10),
                       child: Column(
                         children: [
-                          title,
+                           Text(
+       title,
+        style: TextStyle(
+          color: Color(0xEDFFB183),
+          fontSize: 17.sp,
+          fontFamily: 'Cairo',
+          fontWeight: FontWeight.w700,
+        ),
+      ),
                           Text(
                             'الأطباق المتوافرة في البوفيه :',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 15,
+                              fontSize: 15.sp,
                               fontFamily: 'Cairo',
                               fontWeight: FontWeight.w600,
                               height: 0,
                             ),
                           ),
                           Text(
-                            'الأطباق الرئيسية :',
+                            ingredient,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 13,
+                              fontSize: 13.sp,
                               fontFamily: 'Cairo',
                               fontWeight: FontWeight.w600,
                               height: 0,
                               letterSpacing: -0.33,
                             ),
                           ),
-                          Text(
-                            'الأطباق الجانبية :',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 13,
-                              fontFamily: 'Cairo',
-                              fontWeight: FontWeight.w600,
-                              height: 0,
-                              letterSpacing: -0.33,
-                            ),
-                          ),
-                          Text(
-                            'المقبلات :',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 13,
-                              fontFamily: 'Cairo',
-                              fontWeight: FontWeight.w600,
-                              height: 0,
-                              letterSpacing: -0.33,
-                            ),
-                          ),
+                          // Text(
+                          //   'الأطباق الجانبية :',
+                          //   textAlign: TextAlign.center,
+                          //   style: TextStyle(
+                          //     color: Colors.black,
+                          //     fontSize: 13,
+                          //     fontFamily: 'Cairo',
+                          //     fontWeight: FontWeight.w600,
+                          //     height: 0,
+                          //     letterSpacing: -0.33,
+                          //   ),
+                          // ),
+                          // Text(
+                          //   'المقبلات :',
+                          //   textAlign: TextAlign.center,
+                          //   style: TextStyle(
+                          //     color: Colors.black,
+                          //     fontSize: 13,
+                          //     fontFamily: 'Cairo',
+                          //     fontWeight: FontWeight.w600,
+                          //     height: 0,
+                          //     letterSpacing: -0.33,
+                          //   ),
+                          // ),
                           Text(
                             'السعر:',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 15,
+                              fontSize: 15.sp,
                               fontFamily: 'Cairo',
                               fontWeight: FontWeight.w600,
-                              height: 0,
-                              letterSpacing: -0.33,
+                              // height: 0,
+                              // letterSpacing: -0.33,
                             ),
                           ),
                           Text(
-                            '30,000000 ل,س',
+                            price,
                             style: TextStyle(
                               color: Color(0xFFFF8C8D),
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontFamily: 'Cairo',
                               fontWeight: FontWeight.w700,
                               height: 0,
@@ -166,7 +177,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 16,
+                                        fontSize: 16.sp,
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
                                       ),
