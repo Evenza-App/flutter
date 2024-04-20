@@ -1,14 +1,14 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
 import 'package:evenza/screens/Login.dart';
-import 'package:evenza/screens/breakfast_buffet_screen.dart';
 import 'package:evenza/screens/onboarding_screen.dart';
 import 'package:evenza/screens/onboarding_screen1.dart';
+import 'package:evenza/screens/profile_screen.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/screens/event_types_screen.dart';
-import 'package:evenza/screens/east_buffet_screen.dart';
 import 'package:evenza/screens/splash_screen.dart';
 import 'package:evenza/screens/welcome_screen.dart';
+import 'package:evenza/screens/event_reservation_screen.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/buffet_details_widget.dart';
 import 'package:evenza/widgets/decoration_widget.dart';
