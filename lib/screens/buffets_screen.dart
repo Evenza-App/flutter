@@ -1,20 +1,13 @@
 import 'package:evenza/hooks/buffets_hook.dart';
-import 'package:evenza/hooks/categories_hook.dart';
-import 'package:evenza/models/buffet.dart';
 import 'package:evenza/models/category.dart';
-import 'package:evenza/screens/buffet_details.screen.dart';
-import 'package:evenza/screens/login.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
-import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
 import 'package:evenza/widgets/buffet_widget.dart';
-import 'package:evenza/widgets/login_signup_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
 
 class BuffetsScreen extends HookWidget {
   const BuffetsScreen({
@@ -34,7 +27,7 @@ class BuffetsScreen extends HookWidget {
             padding: EdgeInsets.only(left: 10.h, right: 15.h, top: 30.h),
             child: Column(
               children: [
-                Container(
+                SizedBox(
                   width: 335.w,
                   height: 48.h,
                   child: Stack(
@@ -49,7 +42,7 @@ class BuffetsScreen extends HookWidget {
                             color: Colors.white,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
-                                  width: 1.w, color: Color(0xEDFFB183)),
+                                  width: 1.w, color: const Color(0xEDFFB183)),
                               borderRadius: BorderRadius.circular(14.r),
                             ),
                             shadows: const [
@@ -87,7 +80,7 @@ class BuffetsScreen extends HookWidget {
                             'ابحث هنا',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Color(0xFFBEBEBE),
+                              color: const Color(0xFFBEBEBE),
                               fontSize: 12.sp,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w400,
@@ -239,7 +232,7 @@ class BuffetsScreen extends HookWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                         height: 400.h,
                         child: SingleChildScrollView(
                           child: Column(

@@ -14,27 +14,27 @@ class ProfileScreen extends StatelessWidget {
       title: 'حسابك الشخصي',
       content: Column(
         children: [
-          FormFeildWidget(
+          const FormFeildWidget(
             hinttext: 'الاسم',
             icon: Icon(Icons.person),
           ),
-          FormFeildWidget(
+          const FormFeildWidget(
             hinttext: 'البريد الالكتروني',
             icon: Icon(Icons.email_rounded),
           ),
-          FormFeildWidget(
+          const FormFeildWidget(
             hinttext: 'الهاتف المحمول',
             icon: Icon(Icons.phone_android_outlined),
           ),
-          FormFeildWidget(
+          const FormFeildWidget(
             hinttext: 'عيد الميلاد',
             icon: Icon(Icons.date_range_rounded),
           ),
-          FormFeildWidget(
+          const FormFeildWidget(
             hinttext: 'العنوان ',
             icon: Icon(Icons.person),
           ),
-          FormFeildWidget(
+          const FormFeildWidget(
             hinttext: 'كلمة سر جديدة',
             icon: Icon(Icons.password_rounded),
           ),
@@ -54,7 +54,7 @@ class ProfileScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(19),
                 ),
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   'تم',
                   textAlign: TextAlign.center,

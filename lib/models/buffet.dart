@@ -1,5 +1,4 @@
 import 'package:evenza/helpers/api/api_helper.dart';
-import 'package:evenza/models/event_detail.dart';
 
 class Buffet {
   final int id;

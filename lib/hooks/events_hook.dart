@@ -1,6 +1,5 @@
 
 
-import 'dart:html';
 
 import 'package:evenza/models/event.dart';
 import 'package:evenza/services/event_service.dart';

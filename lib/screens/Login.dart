@@ -63,7 +63,7 @@ class Login extends HookWidget {
                   ),
                   child: Center(
                     child: Obx(() => loginController.loading.value
-                        ? BaseLoading()
+                        ? const BaseLoading()
                         : Text(
                             'تسجيل الدخول',
                             style: TextStyle(

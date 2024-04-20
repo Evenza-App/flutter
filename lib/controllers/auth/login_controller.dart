@@ -1,5 +1,3 @@
-import 'package:evenza/screens/event_reservation_screen.dart';
-import 'package:evenza/screens/event_reservation_screen.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/services/authentication_service.dart';
 import 'package:get/get.dart';
@@ -23,6 +21,6 @@ class LoginController extends GetxController {
     await sharedPreferences.setString('token', token);
     loading.value = false;
 
-    Get.to(EventTypesScreen());
+    Get.to(const EventTypesScreen());
   }
 }

@@ -1,5 +1,4 @@
 import 'package:evenza/styles/color.dart';
-import 'package:evenza/styles/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -78,7 +77,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                            Text(
        title,
         style: TextStyle(
-          color: Color(0xEDFFB183),
+          color: const Color(0xEDFFB183),
           fontSize: 17.sp,
           fontFamily: 'Cairo',
           fontWeight: FontWeight.w700,
@@ -145,7 +144,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                           Text(
                             price,
                             style: TextStyle(
-                              color: Color(0xFFFF8C8D),
+                              color: const Color(0xFFFF8C8D),
                               fontSize: 14.sp,
                               fontFamily: 'Cairo',
                               fontWeight: FontWeight.w700,
@@ -156,7 +155,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                             onPressed: () {
                               Get.off(());
                             },
-                            child: Container(
+                            child: SizedBox(
                               width: 213,
                               height: 46,
                               child: Stack(

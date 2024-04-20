@@ -1,4 +1,3 @@
-import 'package:evenza/screens/welcome_screen.dart';
 
 abstract class BaseImages {
   static const logo = 'assets/logos/finallogo.png';

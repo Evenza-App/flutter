@@ -1,4 +1,3 @@
-import 'package:evenza/screens/Login.dart';
 
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/screens/welcome_screen.dart';
@@ -18,9 +17,9 @@ class SplashController extends GetxController {
     final token = sharedPreferences.getString('token');
 
     if (token != null) {
-      Get.to(SelectTypeBuffet());
+      Get.to(const SelectTypeBuffet());
     } else {
-      Get.to(WelcomeScreen());
+      Get.to(const WelcomeScreen());
     }
   }
 }

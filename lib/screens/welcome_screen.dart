@@ -5,7 +5,6 @@ import 'package:evenza/styles/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -26,7 +25,7 @@ class WelcomeScreen extends StatelessWidget {
             right: 0,
             left: 0,
             child: Container(
-              padding: EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 40),
               height: 276.h,
               decoration: BoxDecoration(
                 color: BaseColors.backgroundCard,

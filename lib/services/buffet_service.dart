@@ -1,8 +1,6 @@
 import 'package:evenza/helpers/api/api_helper.dart';
 import 'package:evenza/models/Buffet_detail.dart';
 import 'package:evenza/models/buffet.dart';
-import 'package:evenza/models/category.dart';
-import 'package:evenza/models/event.dart';
 
 class BuffetService {
   final ApiHelper apiHelper = ApiHelper();

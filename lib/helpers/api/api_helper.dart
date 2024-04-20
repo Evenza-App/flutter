@@ -8,7 +8,7 @@ class ApiHelper {
 
   static const String domain = 'https://3b8c-169-150-218-9.ngrok-free.app';
 
-  static const String _baseUrl = '${domain}/api/';
+  static const String _baseUrl = '$domain/api/';
 
   static const Map<String, String> ngrokHeaders = {
     "ngrok-skip-browser-warning": "69420"

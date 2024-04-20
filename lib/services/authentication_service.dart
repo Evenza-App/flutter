@@ -1,7 +1,5 @@
 import 'package:evenza/controllers/auth/singup_controller.dart';
 import 'package:evenza/helpers/api/api_helper.dart';
-import 'package:evenza/screens/SignUp.dart';
-import 'package:get/get.dart';
 
 class AutheticationService {
   final ApiHelper apiHelper = ApiHelper();

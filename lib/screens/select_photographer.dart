@@ -1,12 +1,4 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:evenza/firebase_options.dart';
-import 'package:evenza/styles/color.dart';
-import 'package:evenza/styles/images.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class select_photographer extends StatelessWidget {
   const select_photographer({super.key});

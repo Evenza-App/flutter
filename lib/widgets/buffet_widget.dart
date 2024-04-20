@@ -1,9 +1,6 @@
 import 'package:evenza/helpers/api/api_helper.dart';
-import 'package:evenza/styles/color.dart';
-import 'package:evenza/styles/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class BuffetWidget extends StatelessWidget {
   const BuffetWidget({
@@ -24,7 +21,7 @@ class BuffetWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: ontap,
-      child: Container(
+      child: SizedBox(
         width: 264.w,
         height: 248.h,
         child: Stack(
@@ -36,7 +33,7 @@ class BuffetWidget extends StatelessWidget {
                 width: 264.w,
                 height: 248.h,
                 decoration: ShapeDecoration(
-                  color: Color(0xFFFFF1EE),
+                  color: const Color(0xFFFFF1EE),
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
                       width: 1.w,
@@ -88,7 +85,7 @@ class BuffetWidget extends StatelessWidget {
               child: Text(
                 price,
                 style: TextStyle(
-                  color: Color(0xFFFF8C8D),
+                  color: const Color(0xFFFF8C8D),
                   fontSize: 14.sp,
                   fontFamily: 'Cairo',
                   fontWeight: FontWeight.w700,
@@ -98,7 +95,7 @@ class BuffetWidget extends StatelessWidget {
             Positioned(
               left: 215.h,
               top: 162.h,
-              child: Container(
+              child: SizedBox(
                 width: 45.83.w,
                 height: 25.h,
                 child: Row(
@@ -106,15 +103,15 @@ class BuffetWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 45.83.w,
                       height: 25.h,
-                      child: Stack(
+                      child: const Stack(
                         children: [
                           Positioned(
                             left: 0,
                             top: 1.94,
-                            child: Container(
+                            child: SizedBox(
                               width: 49.40,
                               height: 23.06,
                             ),

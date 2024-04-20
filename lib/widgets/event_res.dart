@@ -1,10 +1,7 @@
-import 'package:evenza/helpers/api/api_helper.dart';
 import 'package:evenza/hooks/events_hook.dart';
-import 'package:evenza/screens/decoration_screen.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
-import 'package:evenza/widgets/base_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,7 +47,7 @@ class EventReservationWidget extends HookWidget {
                         alignment: Alignment.topLeft,
                         child: TextButton(
                             onPressed: () {
-                              Get.off(EventTypesScreen());
+                              Get.off(const EventTypesScreen());
                             },
                             child: const Icon(
                               Icons.arrow_back_ios_new,
@@ -72,10 +69,10 @@ class EventReservationWidget extends HookWidget {
                       child: Container(
                         width: 335.w,
                         height: 201.h,
-                        child: Image.asset(imagebath),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14.r),
                             color: BaseColors.purple),
+                        child: Image.asset(imagebath),
                       ),
                     ),
                     Row(
@@ -108,7 +105,7 @@ class EventReservationWidget extends HookWidget {
                     ),
                     Column(
                       children: [
-                        FormFeildWidget(
+                        const FormFeildWidget(
                           hinttext: 'تاريخ المناسبة',
                           icon: Icon(Icons.date_range_outlined),
                         ),
@@ -117,36 +114,36 @@ class EventReservationWidget extends HookWidget {
                             Padding(
                               padding: const EdgeInsets.only(
                                   right: 40, left: 2, top: 10, bottom: 10),
-                              child: Container(
+                              child: SizedBox(
                                 width: 150.w,
                                 height: 45.h,
                                 child: TextFormField(
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
-                                    icon: Icon(Icons.av_timer_rounded),
+                                    icon: const Icon(Icons.av_timer_rounded),
                                     iconColor: BaseColors.orange,
                                     border: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: BaseColors.primaryDark),
                                         borderRadius:
                                             BorderRadius.circular(30.r)),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: BaseColors.primaryDark),
                                         borderRadius:
                                             BorderRadius.circular(30.r)),
                                     disabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: BaseColors.primaryDark),
                                         borderRadius:
                                             BorderRadius.circular(30.r)),
                                     errorBorder: OutlineInputBorder(
                                         borderSide:
-                                            BorderSide(color: Colors.red),
+                                            const BorderSide(color: Colors.red),
                                         borderRadius:
                                             BorderRadius.circular(30.r)),
                                     enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: BaseColors.primaryDark),
                                         borderRadius:
                                             BorderRadius.circular(30.r)),
@@ -154,7 +151,7 @@ class EventReservationWidget extends HookWidget {
                                     labelStyle: TextStyle(
                                         fontSize: 14.sp,
                                         color:
-                                            Color.fromARGB(255, 161, 145, 162)),
+                                            const Color.fromARGB(255, 161, 145, 162)),
                                   ),
                                 ),
                               ),
@@ -162,36 +159,36 @@ class EventReservationWidget extends HookWidget {
                             Padding(
                               padding: const EdgeInsets.only(
                                   right: 2, left: 4, top: 10, bottom: 10),
-                              child: Container(
+                              child: SizedBox(
                                 width: 150.w,
                                 height: 45.h,
                                 child: TextFormField(
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
-                                    icon: Icon(Icons.av_timer_sharp),
+                                    icon: const Icon(Icons.av_timer_sharp),
                                     iconColor: BaseColors.orange,
                                     border: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: BaseColors.primaryDark),
                                         borderRadius:
                                             BorderRadius.circular(30.r)),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: BaseColors.primaryDark),
                                         borderRadius:
                                             BorderRadius.circular(30.r)),
                                     disabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: BaseColors.primaryDark),
                                         borderRadius:
                                             BorderRadius.circular(30.r)),
                                     errorBorder: OutlineInputBorder(
                                         borderSide:
-                                            BorderSide(color: Colors.red),
+                                            const BorderSide(color: Colors.red),
                                         borderRadius:
                                             BorderRadius.circular(30.r)),
                                     enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: BaseColors.primaryDark),
                                         borderRadius:
                                             BorderRadius.circular(30.r)),
@@ -199,18 +196,18 @@ class EventReservationWidget extends HookWidget {
                                     labelStyle: TextStyle(
                                         fontSize: 14.sp,
                                         color:
-                                            Color.fromARGB(255, 161, 145, 162)),
+                                            const Color.fromARGB(255, 161, 145, 162)),
                                   ),
                                 ),
                               ),
                             )
                           ],
                         ),
-                        FormFeildWidget(
+                        const FormFeildWidget(
                           hinttext: 'عدد الاشخاص',
                           icon: Icon(Icons.people_rounded),
                         ),
-                        FormFeildWidget(
+                        const FormFeildWidget(
                             hinttext: 'رابط موقع المكان',
                             icon: Icon(Icons.location_on_outlined)),
                         SizedBox(
@@ -240,7 +237,7 @@ class FormFeildWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
+      child: SizedBox(
         width: 300.w,
         height: 50.h,
         child: TextFormField(
@@ -249,23 +246,23 @@ class FormFeildWidget extends StatelessWidget {
             icon: icon,
             iconColor: BaseColors.orange,
             border: OutlineInputBorder(
-                borderSide: BorderSide(color: BaseColors.primaryDark),
+                borderSide: const BorderSide(color: BaseColors.primaryDark),
                 borderRadius: BorderRadius.circular(30.r)),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: BaseColors.primaryDark),
+                borderSide: const BorderSide(color: BaseColors.primaryDark),
                 borderRadius: BorderRadius.circular(30.r)),
             disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: BaseColors.primaryDark),
+                borderSide: const BorderSide(color: BaseColors.primaryDark),
                 borderRadius: BorderRadius.circular(30.r)),
             errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red),
+                borderSide: const BorderSide(color: Colors.red),
                 borderRadius: BorderRadius.circular(30.r)),
             enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: BaseColors.primaryDark),
+                borderSide: const BorderSide(color: BaseColors.primaryDark),
                 borderRadius: BorderRadius.circular(30.r)),
             labelText: hinttext,
             labelStyle: TextStyle(
-                fontSize: 14.sp, color: Color.fromARGB(255, 161, 145, 162)),
+                fontSize: 14.sp, color: const Color.fromARGB(255, 161, 145, 162)),
           ),
         ),
       ),

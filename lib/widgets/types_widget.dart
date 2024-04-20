@@ -1,9 +1,6 @@
 import 'package:evenza/helpers/api/api_helper.dart';
-import 'package:evenza/styles/color.dart';
-import 'package:evenza/styles/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class TypesWidget extends StatelessWidget {
   const TypesWidget({
@@ -32,7 +29,7 @@ class TypesWidget extends StatelessWidget {
           fit: BoxFit.fill,
         ),
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1.w, color: Color(0xFF7A7A7A)),
+          side: BorderSide(width: 1.w, color: const Color(0xFF7A7A7A)),
           borderRadius: BorderRadius.circular(14),
         ),
       ),

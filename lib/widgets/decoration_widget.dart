@@ -1,7 +1,5 @@
-import 'package:evenza/helpers/api/api_helper.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/color.dart';
-import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/base_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +8,7 @@ import 'package:get/get.dart';
 List<String> options = ['option 1', 'option 2'];
 
 class DecorationWidget extends StatelessWidget {
-  DecorationWidget(
+  const DecorationWidget(
       {super.key,
       required this.imagePath,
       required this.title,
@@ -87,12 +85,12 @@ class DecorationWidget extends StatelessWidget {
                   Builder(builder: (context) {
                     return TextButton(
                       onPressed: () {
-                        BaseLoading(
+                        const BaseLoading(
                           color: BaseColors.primary,
                         );
                         if (Form.of(context).validate()) {
                           Form.of(context).save();
-                          Get.off(SelectTypeBuffet());
+                          Get.off(const SelectTypeBuffet());
                         }
                       },
                       child: Container(

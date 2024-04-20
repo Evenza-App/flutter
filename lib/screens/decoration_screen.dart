@@ -1,21 +1,13 @@
 import 'package:evenza/hooks/events_details_hook.dart';
 import 'package:evenza/models/event.dart';
-import 'package:evenza/screens/login.dart';
-import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
-import 'package:evenza/widgets/back_ground_widget.dart';
 import 'package:evenza/widgets/base_loading.dart';
-import 'package:evenza/widgets/buffet_details_widget.dart';
 import 'package:evenza/widgets/decoration_widget.dart';
-import 'package:evenza/widgets/login_signup_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_laravel_form_validation/validator.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class DecorationScreen extends HookWidget {
   const DecorationScreen({super.key, required this.event});
@@ -30,7 +22,7 @@ class DecorationScreen extends HookWidget {
       content: Padding(
         padding: EdgeInsets.only(left: 30.h, right: 30.h),
         child: loading
-            ? BaseLoading(
+            ? const BaseLoading(
                 color: BaseColors.primary,
               )
             : Directionality(
@@ -75,7 +67,7 @@ class DecorationTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 70.h,
       width: 300.w,
       child: Padding(
@@ -88,23 +80,23 @@ class DecorationTextFormField extends StatelessWidget {
           keyboardType: keyboardType ?? TextInputType.text,
           decoration: InputDecoration(
             border: OutlineInputBorder(
-                borderSide: BorderSide(color: BaseColors.primaryDark),
+                borderSide: const BorderSide(color: BaseColors.primaryDark),
                 borderRadius: BorderRadius.circular(30.r)),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: BaseColors.primaryDark),
+                borderSide: const BorderSide(color: BaseColors.primaryDark),
                 borderRadius: BorderRadius.circular(30.r)),
             disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: BaseColors.primaryDark),
+                borderSide: const BorderSide(color: BaseColors.primaryDark),
                 borderRadius: BorderRadius.circular(30.r)),
             errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red),
+                borderSide: const BorderSide(color: Colors.red),
                 borderRadius: BorderRadius.circular(30.r)),
             enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: BaseColors.primaryDark),
+                borderSide: const BorderSide(color: BaseColors.primaryDark),
                 borderRadius: BorderRadius.circular(30.r)),
             labelText: hintText,
             labelStyle: TextStyle(
-                fontSize: 10.sp, color: Color.fromARGB(255, 161, 145, 162)),
+                fontSize: 10.sp, color: const Color.fromARGB(255, 161, 145, 162)),
           ),
         ),
       ),

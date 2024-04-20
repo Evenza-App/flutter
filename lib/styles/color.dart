@@ -9,7 +9,7 @@ abstract class BaseColors {
 
   static const backgroundCard = Color(0xFFFFF1EE);
 
-  static const shadowc = Color(0x000000);
+  static const shadowc = Color(0x00000000);
 
   static const orange = Color(0xEDFFB183);
 

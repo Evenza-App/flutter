@@ -1,8 +1,5 @@
 import 'package:evenza/models/Buffet_detail.dart';
-import 'package:evenza/models/buffet.dart';
-import 'package:evenza/models/event.dart';
 import 'package:evenza/services/buffet_service.dart';
-import 'package:evenza/services/event_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
