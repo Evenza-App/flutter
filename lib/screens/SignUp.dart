@@ -51,7 +51,7 @@ class SignUpScreen extends StatelessWidget {
                     Icons.phone,
                     color: Color.fromARGB(255, 247, 186, 151),
                   ),
-                  label: Text('الرقم',
+                  label: Text('رقم الهاتف',
                       style: TextStyle(
                           fontSize: 17.h,
                           fontWeight: FontWeight.bold,
@@ -85,12 +85,11 @@ class SignUpScreen extends StatelessWidget {
                   Icons.email_rounded,
                   color: Color.fromARGB(255, 247, 186, 151),
                 ),
-                
                 label: Text('البريد الالكتروني',
                     style: TextStyle(
                         fontSize: 17.h,
                         fontWeight: FontWeight.bold,
-                        color: BaseColors.primaryDark)),
+                        color: const Color(0xFFAF75B2))),
               ),
             ),
             PasswordField(
@@ -204,7 +203,7 @@ class PasswordField extends HookWidget {
               color: Color.fromARGB(255, 247, 186, 151),
             ),
           ),
-          label: Text(' كلمة السر ',
+          label: Text(' كلمة المرور ',
               style: TextStyle(
                   fontSize: 17.h,
                   fontWeight: FontWeight.bold,

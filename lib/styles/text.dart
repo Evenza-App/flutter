@@ -24,4 +24,23 @@ abstract class BaseTextStyles {
     fontWeight: FontWeight.w700,
     letterSpacing: 8.sp,
   );
+  static final font = GoogleFonts.cairo(
+    color: BaseColors.black,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.bold,
+
+    //TODO:: fix shadow
+  );
+  static final fonto = GoogleFonts.cairo(
+    color: BaseColors.orange,
+    fontSize: 20.sp,
+
+    //TODO:: fix shadow
+  );
+  static final finalbro = GoogleFonts.cairo(
+    color: BaseColors.black,
+    fontSize: 27.sp, fontWeight: FontWeight.bold,
+
+    //TODO:: fix shadow
+  );
 }

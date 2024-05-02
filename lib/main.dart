@@ -1,20 +1,28 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
 import 'package:evenza/screens/event_types_screen.dart';
+import 'package:evenza/screens/final_broduct_screen.dart';
+import 'package:evenza/screens/select_type_buffet.dart';
+import 'package:evenza/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (GetPlatform.isMobile) {
+  
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-  }
+  
+    await dotenv.load(fileName: ".env");
+
+    Stripe.publishableKey = dotenv.env['STRIPE_PUBLISHABLE_KEY']!;
 
   runApp(
     DevicePreview(
@@ -38,7 +46,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           locale: DevicePreview.locale(context),
           builder: DevicePreview.appBuilder,
-          home: const EventTypesScreen()),
+          home: FinalBroduct()),
     );
   }
 }

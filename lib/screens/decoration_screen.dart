@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
+import 'package:get/get.dart';
+
+import '../controllers/reservation/reservation_controller.dart';
 
 class DecorationScreen extends HookWidget {
   const DecorationScreen({super.key, required this.event});
@@ -16,6 +19,8 @@ class DecorationScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final (loading, event) = useEventDetails(id: this.event.id);
+    final ObjectRef(value: ReservationController reservationController) =
+        useRef(Get.find<ReservationController>());
     return DecorationWidget(
       title: this.event.name,
       imagePath: BaseImages.decorbirth,
@@ -33,6 +38,9 @@ class DecorationScreen extends HookWidget {
                       return DecorationTextFormField(
                         hintText: detail.name,
                         isRequired: detail.isrequired,
+                        onSaved: (value) => reservationController
+                            .reservation.details
+                            .add({detail.id: value}),
                       );
                     }
                     if (detail.type == 'number') {
@@ -40,10 +48,18 @@ class DecorationScreen extends HookWidget {
                         hintText: detail.name,
                         isRequired: detail.isrequired,
                         keyboardType: TextInputType.number,
+                        onSaved: (value) => reservationController
+                            .reservation.details
+                            .add({detail.id: value}),
                       );
                     }
                     return SelectRadio(
-                        name: detail.name, options: detail.options);
+                      name: detail.name,
+                      options: detail.options,
+                      onChanged: (value) => reservationController
+                          .reservation.details
+                          .add({detail.id: value}),
+                    );
                   }).toList(),
                 ),
               ),
@@ -57,13 +73,16 @@ class DecorationTextFormField extends StatelessWidget {
       {super.key,
       required this.hintText,
       this.keyboardType,
-      this.isRequired = false});
+      this.isRequired = false,
+      required this.onSaved});
 
   final String hintText;
 
   final TextInputType? keyboardType;
 
   final bool isRequired;
+
+  final void Function(String?) onSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +92,7 @@ class DecorationTextFormField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: TextFormField(
+          onSaved: onSaved,
           validator: 'required|details'.validate(customMessages: {
             'required': 'أدخل بياناتك هنا رجاءا',
             'details': 'نسيت ان تدخل بياناتك هنا'
@@ -96,7 +116,8 @@ class DecorationTextFormField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30.r)),
             labelText: hintText,
             labelStyle: TextStyle(
-                fontSize: 10.sp, color: const Color.fromARGB(255, 161, 145, 162)),
+                fontSize: 10.sp,
+                color: const Color.fromARGB(255, 161, 145, 162)),
           ),
         ),
       ),
@@ -105,11 +126,18 @@ class DecorationTextFormField extends StatelessWidget {
 }
 
 class SelectRadio extends HookWidget {
-  const SelectRadio({super.key, required this.name, required this.options});
+  const SelectRadio({
+    super.key,
+    required this.name,
+    required this.options,
+    required this.onChanged,
+  });
 
   final String name;
 
   final List<String> options;
+
+  final void Function(String) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +156,10 @@ class SelectRadio extends HookWidget {
                         Radio<String>(
                           value: option,
                           groupValue: selectedValue.value,
-                          onChanged: (value) => selectedValue.value = value!,
+                          onChanged: (value) {
+                            selectedValue.value = value!;
+                            onChanged(value);
+                          },
                         ),
                         Container(
                             width: 70.w,

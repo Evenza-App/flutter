@@ -29,6 +29,7 @@ class Login extends HookWidget {
                 'email': ' يجب ان تدخل بريد فعال'
               }),
               decoration: InputDecoration(
+                hintText: '',
                 suffixIcon: const Icon(
                   Icons.email_rounded,
                   color: Color.fromARGB(255, 247, 186, 151),
@@ -37,7 +38,7 @@ class Login extends HookWidget {
                     style: TextStyle(
                         fontSize: 17.h,
                         fontWeight: FontWeight.bold,
-                        color: BaseColors.primaryDark)),
+                        color: const Color(0xFFAF75B2))),
               ),
             ),
             PasswordField(
@@ -95,7 +96,7 @@ class Login extends HookWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Get.off( SignUpScreen());
+                      Get.off(SignUpScreen());
                     },
                     child: Text(
                       'أنشئ حساب',
@@ -144,7 +145,7 @@ class PasswordField extends HookWidget {
               color: Color.fromARGB(255, 247, 186, 151),
             ),
           ),
-          label: Text(' كلمة السر ',
+          label: Text(' كلمة المرور ',
               style: TextStyle(
                   fontSize: 17.h,
                   fontWeight: FontWeight.bold,

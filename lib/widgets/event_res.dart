@@ -261,6 +261,7 @@ class FormFeildWidget extends StatelessWidget {
                 borderSide: const BorderSide(color: BaseColors.primaryDark),
                 borderRadius: BorderRadius.circular(30.r)),
             labelText: hinttext,
+            
             labelStyle: TextStyle(
                 fontSize: 14.sp, color: const Color.fromARGB(255, 161, 145, 162)),
           ),

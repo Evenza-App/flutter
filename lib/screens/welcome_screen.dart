@@ -41,16 +41,26 @@ class WelcomeScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: BaseTextStyles.title,
                   ),
-                  Text(
-                    "EVENZA",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                        color: BaseColors.primaryDark),
-                  ),
                   SizedBox(
-                    height: 50.h,
+                    height: 0.h,
+                  ),
+
+                  Image(
+                    image: const AssetImage(BaseImages.logo2),
+                    height: 100.h,
+                    width: 100.w,
+                  ),
+                  // Text(
+                  //   "EVENZA",
+                  //   textAlign: TextAlign.center,
+                  //   style: TextStyle(
+                  //       fontSize: 25.sp,
+                  //       fontWeight: FontWeight.bold,
+                  //       letterSpacing: 7.sp,
+                  //       color: BaseColors.orange),
+                  // ),
+                  SizedBox(
+                    height: 0.h,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15.w),
@@ -58,20 +68,9 @@ class WelcomeScreen extends StatelessWidget {
                       children: [
                         Expanded(
                             child: Center(
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'تخطي',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 18.h,
-                                  color: BaseColors.primary),
-                            ),
-                          ),
-                        )),
-                        Expanded(
                           child: Container(
-                            padding: EdgeInsets.all(10.h),
+                            width: 200.h,
+                            padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
                             decoration: BoxDecoration(
                               color: BaseColors.primary,
                               borderRadius: BorderRadius.circular(32.r),
@@ -82,7 +81,7 @@ class WelcomeScreen extends StatelessWidget {
                                   Get.off(const OnboardingScreen());
                                 },
                                 child: Text(
-                                  'التالي',
+                                  'إبدأ رحلتك',
                                   style: TextStyle(
                                       fontWeight: FontWeight.normal,
                                       fontSize: 18.sp,
@@ -91,7 +90,7 @@ class WelcomeScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                        ),
+                        )),
                       ],
                     ),
                   ),

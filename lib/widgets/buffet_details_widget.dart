@@ -1,18 +1,22 @@
+import 'package:evenza/controllers/reservation/reservation_controller.dart';
+import 'package:evenza/models/Buffet_detail.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class BuffetDetailsWidget extends StatelessWidget {
-  const BuffetDetailsWidget({
-    super.key,
-    required this.imagePath,
-    required this.onback,
-    required this.title,
-    required this.price,
-    required this.ingredient,
-    //  required this.onback,
-  });
+  const BuffetDetailsWidget(
+      {super.key,
+      required this.imagePath,
+      required this.onback,
+      required this.title,
+      required this.price,
+      required this.ingredient,
+      //  required this.onback,
+      required this.id});
+  final int id;
   // final void Function() onback;
   final String imagePath;
   final String price;
@@ -23,6 +27,9 @@ class BuffetDetailsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ObjectRef(value: ReservationController reservationController) =
+        useRef(Get.find<ReservationController>());
+
     return Scaffold(
         body: Directionality(
             textDirection: TextDirection.rtl,
@@ -74,15 +81,15 @@ class BuffetDetailsWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 10),
                       child: Column(
                         children: [
-                           Text(
-       title,
-        style: TextStyle(
-          color: const Color(0xEDFFB183),
-          fontSize: 17.sp,
-          fontFamily: 'Cairo',
-          fontWeight: FontWeight.w700,
-        ),
-      ),
+                          Text(
+                            title,
+                            style: TextStyle(
+                              color: const Color(0xEDFFB183),
+                              fontSize: 17.sp,
+                              fontFamily: 'Cairo',
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
                           Text(
                             'الأطباق المتوافرة في البوفيه :',
                             style: TextStyle(
@@ -153,6 +160,8 @@ class BuffetDetailsWidget extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
+                              reservationController.reservation.buffetIds
+                                  .add(id);
                               Get.off(());
                             },
                             child: SizedBox(

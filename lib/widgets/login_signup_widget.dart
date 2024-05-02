@@ -1,4 +1,5 @@
 import 'package:evenza/styles/images.dart';
+import 'package:evenza/styles/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,18 +35,12 @@ class LoginSignupWidget extends StatelessWidget {
                       children: [
                         Text(
                           title,
-                          style: TextStyle(
-                              fontSize: 27.h,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                          style: BaseTextStyles.font,
                           textAlign: TextAlign.center,
                         ),
                         Text(
                           'أهلاٌ و سهلاٌ بك',
-                          style: TextStyle(
-                              fontSize: 23.h,
-                              color: const Color.fromARGB(255, 255, 177, 131),
-                              fontWeight: FontWeight.normal),
+                          style: BaseTextStyles.fonto,
                           textAlign: TextAlign.center,
                           textDirection: TextDirection.rtl,
                         ),
@@ -56,7 +51,7 @@ class LoginSignupWidget extends StatelessWidget {
                     height: 600.h,
                     width: double.infinity,
                     margin: EdgeInsets.only(top: 20.h),
-                    padding: EdgeInsets.only(top: 40.h),
+                    padding: EdgeInsets.only(top: 80.h),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(

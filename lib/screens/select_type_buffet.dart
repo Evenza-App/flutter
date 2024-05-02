@@ -1,4 +1,7 @@
+import 'package:evenza/controllers/reservation/reservation_controller.dart';
 import 'package:evenza/hooks/categories_hook.dart';
+import 'package:evenza/models/buffet.dart';
+import 'package:evenza/models/category.dart';
 import 'package:evenza/screens/buffets_screen.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
@@ -12,8 +15,18 @@ class SelectTypeBuffet extends HookWidget {
   const SelectTypeBuffet({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
+    
+
     final (loading, categories) = useCategories();
+
+    //    useEffect(() {
+    //   final ReservationController reservationController =
+    //       Get.put(ReservationController());
+    //   reservationController.reservation.buffetIds =Map(buffet)=>buffet.id;
+    // }, const []);
+    
+
     return BackGroundWidget(
       title: 'اختر الضيافة',
       onback: () => Get.off(null),
@@ -29,11 +42,14 @@ class SelectTypeBuffet extends HookWidget {
               
                categories
                   .map((category) => TypesWidget(
+                    
                         title: category.name,
                         imagePath: category.image,
+                        
                         ontap: () {
                           Get.to(BuffetsScreen(category: category,));
                         },
+                        
                       ))
                   .toList(),
             ),

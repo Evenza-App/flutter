@@ -88,10 +88,10 @@ class DecorationWidget extends StatelessWidget {
                         const BaseLoading(
                           color: BaseColors.primary,
                         );
-                        if (Form.of(context).validate()) {
-                          Form.of(context).save();
-                          Get.off(const SelectTypeBuffet());
-                        }
+                        // if (Form.of(context).validate()) {
+                        //   Form.of(context).save();
+                        Get.to(const SelectTypeBuffet());
+                        // }
                       },
                       child: Container(
                         width: 250.73.w,

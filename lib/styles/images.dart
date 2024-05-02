@@ -1,4 +1,3 @@
-
 abstract class BaseImages {
   static const logo = 'assets/logos/finallogo.png';
 
@@ -45,4 +44,6 @@ abstract class BaseImages {
   static const breakfast1 = 'assets/images/breakfast1.png';
   static const welcome = 'assets/images/welcome.png';
   static const event_res = 'assets/images/event_res.png';
+  static const logo2 = 'assets/logos/logo.png';
+  static const background2 = 'assets/logos/select_things.png';
 }

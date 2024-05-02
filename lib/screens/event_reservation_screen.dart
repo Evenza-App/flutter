@@ -9,18 +9,27 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../controllers/reservation/reservation_controller.dart';
+
 class EventReservationScreen extends HookWidget {
   const EventReservationScreen({super.key, required this.event});
+
   final Event event;
   @override
   Widget build(BuildContext context) {
+    useEffect(() {
+      final ReservationController reservationController =
+          Get.put(ReservationController());
+      reservationController.reservation.eventId = event.id;
+    }, const []);
 
     return EventReservationWidget(
       title: event.name,
       imagebath: event.image,
       name: event.name,
       content: TextButton(
-        onPressed: () { Get.to(DecorationScreen(event: event));
+        onPressed: () {
+          Get.to(DecorationScreen(event: event));
         },
         child: Container(
           width: 250.73.w,
