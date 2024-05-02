@@ -1,25 +1,10 @@
-import 'dart:html';
-
-import 'package:device_preview/device_preview.dart';
-import 'package:evenza/firebase_options.dart';
-import 'package:evenza/hooks/photographers_hook.dart';
-import 'package:evenza/models/photographer.dart';
-import 'package:evenza/screens/heba_projects.dart';
 import 'package:evenza/screens/home.dart';
+import 'package:evenza/screens/home2.dart';
 import 'package:evenza/screens/notification.dart';
-import 'package:evenza/screens/select_photographer.dart';
-import 'package:evenza/styles/color.dart';
-import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
-import 'package:evenza/widgets/base_loading.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:evenza/screens/select_type_buffet.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MyEvent extends StatelessWidget {
   const MyEvent({super.key});
@@ -28,13 +13,13 @@ class MyEvent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackGroundWidget(
         title: 'مناسباتي',
-        onback: () => Get.off(const Home()),
+        onback: () => Get.off(const HomeScreen()),
         content: Column(
           children: [
             Padding(
                 padding: EdgeInsets.only(left: 10.h, right: 10.h, top: 65.h),
                 child: Column(children: [
-                  Container(
+                  SizedBox(
                     height: 550.h,
                     child: SingleChildScrollView(
                       child: Positioned(
@@ -53,26 +38,30 @@ class MyEvent extends StatelessWidget {
                                 ),
                                 shape: RoundedRectangleBorder(
                                   side: BorderSide(
-                                      width: 1.w, color: Color(0xFF7A7A7A)),
+                                      width: 1.w,
+                                      color: const Color(0xFF7A7A7A)),
                                   borderRadius: BorderRadius.circular(14),
                                 ),
                               ),
                               child: Column(
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.only(
+                                    padding: const EdgeInsets.only(
                                         top: 37, right: 140, left: 44),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                    child: const Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           'احتفال عيد ميلاد',
                                           style: TextStyle(color: Colors.white),
                                         ),
                                         Text('دمشق ,سوريا',
-                                            style: TextStyle(color: Colors.white)),
+                                            style:
+                                                TextStyle(color: Colors.white)),
                                         Text('2022-2-22',
-                                            style: TextStyle(color: Colors.white)),
+                                            style:
+                                                TextStyle(color: Colors.white)),
                                       ],
                                     ),
                                   )
@@ -86,31 +75,36 @@ class MyEvent extends StatelessWidget {
                               height: 157.h,
                               decoration: ShapeDecoration(
                                 image: const DecorationImage(
-                                  image: AssetImage('assets/myEvents/myEvent2.png'),
+                                  image: AssetImage(
+                                      'assets/myEvents/myEvent2.png'),
                                   fit: BoxFit.fill,
                                 ),
                                 shape: RoundedRectangleBorder(
                                   side: BorderSide(
-                                      width: 1.w, color: Color(0xFF7A7A7A)),
+                                      width: 1.w,
+                                      color: const Color(0xFF7A7A7A)),
                                   borderRadius: BorderRadius.circular(14),
                                 ),
                               ),
                               child: Column(
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.only(
+                                    padding: const EdgeInsets.only(
                                         top: 37, right: 120, left: 44),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                    child: const Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           'احتفال تخرج',
                                           style: TextStyle(color: Colors.white),
                                         ),
                                         Text('دمشق ,سوريا',
-                                            style: TextStyle(color: Colors.white)),
+                                            style:
+                                                TextStyle(color: Colors.white)),
                                         Text('2022-2-22',
-                                            style: TextStyle(color: Colors.white)),
+                                            style:
+                                                TextStyle(color: Colors.white)),
                                       ],
                                     ),
                                   )
@@ -123,12 +117,11 @@ class MyEvent extends StatelessWidget {
                     ),
                   )
                 ])),
-
-                Container(
+            Container(
               width: 375,
               height: 75,
               margin: EdgeInsets.only(top: 12.w),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(35),
                     topRight: Radius.circular(35)),
@@ -154,7 +147,7 @@ class MyEvent extends StatelessWidget {
                   ),
                   Container(
                     // padding: EdgeInsets.only(left: 20),
-                    margin: EdgeInsets.only(right: 20),
+                    margin: const EdgeInsets.only(right: 20),
                     child: Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
@@ -169,7 +162,7 @@ class MyEvent extends StatelessWidget {
                   ),
                   Container(
                     // padding: EdgeInsets.only(left: 20),
-                    margin: EdgeInsets.only(right: 20),
+                    margin: const EdgeInsets.only(right: 20),
                     child: Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
@@ -185,7 +178,7 @@ class MyEvent extends StatelessWidget {
                   ),
                   Container(
                     // padding: EdgeInsets.only(left: 20),
-                    margin: EdgeInsets.only(right: 20),
+                    margin: const EdgeInsets.only(right: 20),
                     child: Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
@@ -198,7 +191,6 @@ class MyEvent extends StatelessWidget {
                               height: 24.h,
                             ))),
                   ),
-                  
                 ],
               ),
             )

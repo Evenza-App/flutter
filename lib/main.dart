@@ -1,30 +1,26 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
-import 'package:evenza/models/photographer.dart';
-import 'package:evenza/screens/Login.dart';
-import 'package:evenza/screens/home.dart';
-import 'package:evenza/screens/notification.dart';
-import 'package:evenza/screens/select_type_buffet.dart';
-import 'package:evenza/screens/setting.dart';
-import 'package:evenza/screens/splash_screen.dart';
-import 'package:evenza/widgets/buffet_details_widget.dart';
+import 'package:evenza/helpers/fcm_helper.dart';
+import 'package:evenza/screens/home2.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:evenza/screens/select_photographer.dart';
-import 'package:evenza/screens/lilian_profile.dart';
-import 'package:evenza/screens/notification.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (GetPlatform.isMobile) {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-  }
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // await dotenv.load(fileName: ".env");
+
+  // Stripe.publishableKey =
+  //     'pk_test_51PBXH2RxkZxt0A5caJkYQAuBC09eEtyRRSOzEchcoj41QqyVkRgEF3Lw3FOyB7JFNVr1lHTQ09LlSz0E0FeYyIWc00POmpI91y';
 
   runApp(
     DevicePreview(
@@ -34,12 +30,17 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MyApp extends HookWidget {
+  const MyApp({
+    super.key,
+  });
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    useEffect(() {
+      FcmHelper.init(context);
+      return null;
+    }, const []);
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
@@ -48,8 +49,11 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: const Notificationn(),
+        home:const HomeScreen(),
       ),
     );
   }
 }
+// EventWidget(
+//       title:'' ,location: '',date: '',image: '',
+//         ),

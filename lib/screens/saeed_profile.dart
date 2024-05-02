@@ -1,5 +1,3 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:evenza/firebase_options.dart';
 import 'package:evenza/hooks/photographers_hook.dart';
 import 'package:evenza/models/photographer.dart';
 import 'package:evenza/screens/saeed_projects.dart';
@@ -7,13 +5,9 @@ import 'package:evenza/screens/select_photographer.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:evenza/screens/select_type_buffet.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SaeedProfile extends StatelessWidget {
   const SaeedProfile({super.key,required this.photographer});
@@ -49,7 +43,7 @@ final Photographer photographer;
 Positioned(
                 child: Container(
               padding: EdgeInsets.only(top: 20.h),
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('تصوير جميع المناسبات'),
@@ -101,7 +95,7 @@ Positioned(
                         fit: BoxFit.fill,
                       ),
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 1.w, color: Color(0xFF7A7A7A)),
+                        side: BorderSide(width: 1.w, color: const Color(0xFF7A7A7A)),
                         borderRadius: BorderRadius.circular(14),
                       ),
                     ),
@@ -117,7 +111,7 @@ Positioned(
                         fit: BoxFit.fill,
                       ),
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 1.w, color: Color(0xFF7A7A7A)),
+                        side: BorderSide(width: 1.w, color: const Color(0xFF7A7A7A)),
                         borderRadius: BorderRadius.circular(14),
                       ),
                     ),
@@ -133,7 +127,7 @@ Positioned(
                         fit: BoxFit.fill,
                       ),
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 1.w, color: Color(0xFF7A7A7A)),
+                        side: BorderSide(width: 1.w, color: const Color(0xFF7A7A7A)),
                         borderRadius: BorderRadius.circular(14),
                       ),
                     ),

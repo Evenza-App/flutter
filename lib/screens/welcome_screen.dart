@@ -23,7 +23,7 @@ class WelcomeScreen extends StatelessWidget {
             right: 0,
             left: 0,
             child: Container(
-              padding: EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 40),
               height: 276.h,
               decoration: BoxDecoration(
                 color: BaseColors.backgroundCard,

@@ -1,8 +1,6 @@
-import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class BuffetDetailsWidget extends StatelessWidget {
   const BuffetDetailsWidget({super.key});
@@ -25,7 +23,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                   left: 0,
                   child: Column(
                     children: [
-                      Container(
+                      SizedBox(
                         width: 500,
                         height: 460,
                         child: Stack(
@@ -37,14 +35,14 @@ class BuffetDetailsWidget extends StatelessWidget {
                                 width: 500,
                                 height: 460,
                                 decoration: ShapeDecoration(
-                                  color: Color(0xFFFFF1EE),
+                                  color: const Color(0xFFFFF1EE),
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
                                       width: 1,
                                       color: Colors.black
                                           .withOpacity(0.2800000011920929),
                                     ),
-                                    borderRadius: BorderRadius.only(
+                                    borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(15),
                                       topRight: Radius.circular(15),
                                     ),
@@ -52,7 +50,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Positioned(
+                            const Positioned(
                               left: 145,
                               top: 28,
                               child: SizedBox(
@@ -68,7 +66,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Positioned(
+                            const Positioned(
                               left: 164,
                               top: 107,
                               child: Text(
@@ -87,7 +85,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                               top: 260,
                               child: Padding(
                                 padding: EdgeInsets.only(left: 10.h),
-                                child: SizedBox(
+                                child: const SizedBox(
                                   child: Text(
                                     'السعر:',
                                     textAlign: TextAlign.left,
@@ -101,7 +99,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Positioned(
+                            const Positioned(
                               left: 253,
                               top: 290,
                               child: SizedBox(
@@ -122,7 +120,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                               top: 381,
                               child: Padding(
                                 padding: const EdgeInsets.all(10),
-                                child: Container(
+                                child: SizedBox(
                                   width: 213,
                                   height: 46,
                                   child: Stack(
@@ -134,7 +132,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                                           width: 200.73,
                                           height: 46,
                                           decoration: ShapeDecoration(
-                                            color: Color(0xEDFFB183),
+                                            color: const Color(0xEDFFB183),
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(19),
@@ -142,7 +140,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      Positioned(
+                                      const Positioned(
                                         left: 27.99,
                                         top: 4,
                                         child: SizedBox(
@@ -166,7 +164,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Positioned(
+                            const Positioned(
                               left: 249,
                               top: 142,
                               child: Text(
@@ -181,7 +179,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Positioned(
+                            const Positioned(
                               left: 253,
                               top: 176,
                               child: Text(
@@ -195,7 +193,7 @@ class BuffetDetailsWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Positioned(
+                            const Positioned(
                               left: 287,
                               top: 208,
                               child: Text(

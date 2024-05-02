@@ -1,22 +1,16 @@
-import 'dart:html';
 
-import 'package:device_preview/device_preview.dart';
-import 'package:evenza/firebase_options.dart';
+
 import 'package:evenza/screens/lilian_projects.dart';
 import 'package:evenza/screens/my_evevt.dart';
 import 'package:evenza/screens/notification.dart';
-import 'package:evenza/screens/select_photographer.dart';
+
 import 'package:evenza/screens/setting.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
-import 'package:evenza/widgets/back_ground_widget.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
+import 'package:evenza/widgets/event_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:evenza/screens/select_type_buffet.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -40,8 +34,8 @@ class Home extends StatelessWidget {
                   child: Column(children: [
                     Positioned(
                       //bottom: 700.h,
-                      right: 0,
-                      left: 0,
+                      right: 0.w,
+                      left: 0.w,
                       top: 40.h,
                       child: Column(children: [
                         Row(
@@ -49,7 +43,7 @@ class Home extends StatelessWidget {
                           children: [
                             Container(
                               // padding: EdgeInsets.only(left: 10),
-                              margin: EdgeInsets.only(left: 241),
+                              margin: EdgeInsets.only(left: 241.w),
                               child: Align(
                                   alignment: Alignment.topLeft,
                                   child: TextButton(
@@ -83,7 +77,7 @@ class Home extends StatelessWidget {
                         ),
                         Container(
                           child: Padding(
-                            padding: EdgeInsets.only(left: 200, top: 20),
+                            padding: EdgeInsets.only(left: 200.w, top: 20.h),
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -112,7 +106,7 @@ class Home extends StatelessWidget {
                         children: [
                           Positioned(
                               child: Container(
-                            padding: EdgeInsets.only(top: 60),
+                            padding: EdgeInsets.only(top: 50.h),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -126,7 +120,7 @@ class Home extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                    padding: EdgeInsets.only(right: 225),
+                                    padding: EdgeInsets.only(right: 225.w),
                                     child: TextButton(
                                         onPressed: () {
                                           Get.to(const LilianProjects());
@@ -143,182 +137,204 @@ class Home extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      width: 100,
-                      //alignment: Alignment.centerRight,
-                      // width: double.infinity,
-                      // padding: EdgeInsets.only(right: 20, left: 20),
-                      //margin: EdgeInsets.only(left: 20),
-                      child: SingleChildScrollView(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.only(top: 5.w),
-                              width: 266.w,
-                              height: 130.h,
-                              decoration: ShapeDecoration(
-                                image: const DecorationImage(
-                                  image: AssetImage(
-                                      'assets/projects/project1.png'),
-                                  fit: BoxFit.fill,
+                    Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: SizedBox(
+                        width: 100.w,
+                        //alignment: Alignment.centerRight,
+                        // width: double.infinity,
+                        // padding: EdgeInsets.only(right: 20, left: 20),
+                        //margin: EdgeInsets.only(left: 20),
+                        child: SingleChildScrollView(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              // Container(
+                              //   padding: EdgeInsets.only(top: 5.w),
+                              //   width: 266.w,
+                              //   height: 130.h,
+                              //   decoration: ShapeDecoration(
+                              //     image: const DecorationImage(
+                              //       image: AssetImage(
+                              //           'assets/projects/project1.png'),
+                              //       fit: BoxFit.fill,
+                              //     ),
+                              //     shape: RoundedRectangleBorder(
+                              //       side: BorderSide(
+                              //           width: 1.w, color: Color(0xFF7A7A7A)),
+                              //       borderRadius: BorderRadius.circular(14),
+                              //     ),
+                              //   ),
+                              //   child: Column(
+                              //     children: [
+                              //       Container(
+                              //         padding: EdgeInsets.only(top: 37, right: 125, left: 44),
+                              //         child: Column(
+                              //           crossAxisAlignment:
+                              //               CrossAxisAlignment.start,
+                              //           children: [
+                              //             Text(
+                              //               'احتفال عيد ميلاد',
+                              //               style:
+                              //                   TextStyle(color: Colors.white),
+                              //             ),
+                              //             Text('دمشق ,سوريا',
+                              //                 style: TextStyle(
+                              //                     color: Colors.white)),
+                              //             Text('2022-2-22',
+                              //                 style: TextStyle(
+                              //                     color: Colors.white)),
+                              //           ],
+                              //         ),
+                              //       )
+                              //     ],
+                              //   ),
+                              // ),
+                              // EventWidget(
+                              //   title: 'عيد ميلاد',
+                              //   date: '5-2-2022',
+                              //   location: 'دمشق',
+                              //   image: BaseImages.birthday,
+                              // ),
+                               EventWidget(
+                                title: 'عيد ميلاد',
+                                date: '5-2-2022',
+                                location: 'دمشق',
+                                image: BaseImages.birthday,
+                                onNext:() {
+                                Get.to( const Setting());
+                              },
+                              ),
+
+                              // Container(
+                              //   padding: EdgeInsets.only(top: 5.w),
+                              //   width: 266.w,
+                              //   height: 130.h,
+                              //   decoration: ShapeDecoration(
+                              //     image: const DecorationImage(
+                              //       image: AssetImage(
+                              //           'assets/projects/project2.png'),
+                              //       fit: BoxFit.fill,
+                              //     ),
+                              //     shape: RoundedRectangleBorder(
+                              //       side: BorderSide(
+                              //           width: 1.w, color: Color(0xFF7A7A7A)),
+                              //       borderRadius: BorderRadius.circular(14),
+                              //     ),
+                              //   ),
+                              //   child: Column(
+                              //     children: [
+                              //       Container(
+                              //         padding: EdgeInsets.only(
+                              //             top: 37, right: 125, left: 44),
+                              //         child: Column(
+                              //           crossAxisAlignment:
+                              //               CrossAxisAlignment.start,
+                              //           children: [
+                              //             Text(
+                              //               'احتفال عيد ميلاد',
+                              //               style:
+                              //                   TextStyle(color: Colors.white),
+                              //             ),
+                              //             Text('دمشق ,سوريا',
+                              //                 style: TextStyle(
+                              //                     color: Colors.white)),
+                              //             Text('2022-2-22',
+                              //                 style: TextStyle(
+                              //                     color: Colors.white)),
+                              //           ],
+                              //         ),
+                              //       )
+                              //     ],
+                              //   ),
+                              // ),
+                              Container(
+                                padding: EdgeInsets.only(top: 5.w),
+                                width: 266.w,
+                                height: 130.h,
+                                decoration: ShapeDecoration(
+                                  image: const DecorationImage(
+                                    image: AssetImage(
+                                        'assets/projects/project3.png'),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                        width: 1.w, color: const Color(0xFF7A7A7A)),
+                                    borderRadius: BorderRadius.circular(14),
+                                  ),
                                 ),
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                      width: 1.w, color: Color(0xFF7A7A7A)),
-                                  borderRadius: BorderRadius.circular(14),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.only(
+                                          top: 37.h, right: 125.w, left: 44.w),
+                                      child: const Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'احتفال عيد ميلاد',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                          Text('دمشق ,سوريا',
+                                              style: TextStyle(
+                                                  color: Colors.white)),
+                                          Text('2022-2-22',
+                                              style: TextStyle(
+                                                  color: Colors.white)),
+                                        ],
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.only(
-                                        top: 37, right: 125, left: 44),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'احتفال عيد ميلاد',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        Text('دمشق ,سوريا',
-                                            style:
-                                                TextStyle(color: Colors.white)),
-                                        Text('2022-2-22',
-                                            style:
-                                                TextStyle(color: Colors.white)),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(top: 5.w),
-                              width: 266.w,
-                              height: 130.h,
-                              decoration: ShapeDecoration(
-                                image: const DecorationImage(
-                                  image: AssetImage(
-                                      'assets/projects/project2.png'),
-                                  fit: BoxFit.fill,
+                              Container(
+                                padding: EdgeInsets.only(top: 5.w),
+                                width: 266.w,
+                                height: 130.h,
+                                decoration: ShapeDecoration(
+                                  image: const DecorationImage(
+                                    image: AssetImage(
+                                        'assets/projects/project4.png'),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                        width: 1.w, color: const Color(0xFF7A7A7A)),
+                                    borderRadius: BorderRadius.circular(14),
+                                  ),
                                 ),
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                      width: 1.w, color: Color(0xFF7A7A7A)),
-                                  borderRadius: BorderRadius.circular(14),
-                                ),
-                              ),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.only(
-                                        top: 37, right: 125, left: 44),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'احتفال عيد ميلاد',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        Text('دمشق ,سوريا',
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.only(
+                                          top: 37.h, right: 125.w, left: 44.w),
+                                      child: const Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'احتفال عيد ميلاد',
                                             style:
-                                                TextStyle(color: Colors.white)),
-                                        Text('2022-2-22',
-                                            style:
-                                                TextStyle(color: Colors.white)),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(top: 5.w),
-                              width: 266.w,
-                              height: 130.h,
-                              decoration: ShapeDecoration(
-                                image: const DecorationImage(
-                                  image: AssetImage(
-                                      'assets/projects/project3.png'),
-                                  fit: BoxFit.fill,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                      width: 1.w, color: Color(0xFF7A7A7A)),
-                                  borderRadius: BorderRadius.circular(14),
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                          Text('دمشق ,سوريا',
+                                              style: TextStyle(
+                                                  color: Colors.white)),
+                                          Text('2022-2-22',
+                                              style: TextStyle(
+                                                  color: Colors.white)),
+                                        ],
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.only(
-                                        top: 37, right: 125, left: 44),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'احتفال عيد ميلاد',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        Text('دمشق ,سوريا',
-                                            style:
-                                                TextStyle(color: Colors.white)),
-                                        Text('2022-2-22',
-                                            style:
-                                                TextStyle(color: Colors.white)),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(top: 5.w),
-                              width: 266.w,
-                              height: 130.h,
-                              decoration: ShapeDecoration(
-                                image: const DecorationImage(
-                                  image: AssetImage(
-                                      'assets/projects/project4.png'),
-                                  fit: BoxFit.fill,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                      width: 1.w, color: Color(0xFF7A7A7A)),
-                                  borderRadius: BorderRadius.circular(14),
-                                ),
-                              ),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.only(
-                                        top: 37, right: 125, left: 44),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'احتفال عيد ميلاد',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        Text('دمشق ,سوريا',
-                                            style:
-                                                TextStyle(color: Colors.white)),
-                                        Text('2022-2-22',
-                                            style:
-                                                TextStyle(color: Colors.white)),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -327,7 +343,7 @@ class Home extends StatelessWidget {
                         children: [
                           Positioned(
                               child: Container(
-                            padding: EdgeInsets.only(top: 20),
+                            padding: EdgeInsets.only(top: 20.h),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -341,7 +357,7 @@ class Home extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                    padding: EdgeInsets.only(right: 160),
+                                    padding: EdgeInsets.only(right: 160.w),
                                     child: TextButton(
                                         onPressed: () {
                                           Get.to(const LilianProjects());
@@ -359,12 +375,12 @@ class Home extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                        child: Container(
+                        child: SizedBox(
                             width: double.infinity,
                             child: SingleChildScrollView(
                                 child: Row(children: [
                               Container(
-                                padding: EdgeInsets.only(top: 20.w),
+                                padding: EdgeInsets.only(top: 20.h),
                                 width: 266.w,
                                 height: 130.h,
                                 decoration: ShapeDecoration(
@@ -374,7 +390,7 @@ class Home extends StatelessWidget {
                                   ),
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
-                                        width: 1.w, color: Color(0xFF7A7A7A)),
+                                        width: 1.w, color: const Color(0xFF7A7A7A)),
                                     borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
@@ -390,7 +406,7 @@ class Home extends StatelessWidget {
                                   ),
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
-                                        width: 1.w, color: Color(0xFF7A7A7A)),
+                                        width: 1.w, color: const Color(0xFF7A7A7A)),
                                     borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
@@ -406,7 +422,7 @@ class Home extends StatelessWidget {
                                   ),
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
-                                        width: 1.w, color: Color(0xFF7A7A7A)),
+                                        width: 1.w, color: const Color(0xFF7A7A7A)),
                                     borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
@@ -422,7 +438,7 @@ class Home extends StatelessWidget {
                                   ),
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
-                                        width: 1.w, color: Color(0xFF7A7A7A)),
+                                        width: 1.w, color: const Color(0xFF7A7A7A)),
                                     borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
@@ -430,10 +446,10 @@ class Home extends StatelessWidget {
                             ])))),
                   ])),
               Container(
-                width: 375,
-                height: 75,
-                margin: EdgeInsets.only(top: 130.w),
-                decoration: BoxDecoration(
+                width: 375.w,
+                height: 75.h,
+                margin: EdgeInsets.only(top: 130.h),
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(35),
                       topRight: Radius.circular(35)),
@@ -454,13 +470,13 @@ class Home extends StatelessWidget {
                               child: Image(
                                 image:
                                     const AssetImage('assets/icons/userN.png'),
-                                width: 24.h,
+                                width: 24.w,
                                 height: 24.h,
                               ))),
                     ),
                     Container(
                       // padding: EdgeInsets.only(left: 20),
-                      margin: EdgeInsets.only(right: 20),
+                      margin: EdgeInsets.only(right: 20.w),
                       child: Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
@@ -470,13 +486,13 @@ class Home extends StatelessWidget {
                               child: Image(
                                 image:
                                     const AssetImage('assets/icons/grid.png'),
-                                width: 24.h,
+                                width: 24.w,
                                 height: 24.h,
                               ))),
                     ),
                     Container(
                       // padding: EdgeInsets.only(left: 20),
-                      margin: EdgeInsets.only(right: 20),
+                      margin: EdgeInsets.only(right: 20.w),
                       child: Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
@@ -492,7 +508,7 @@ class Home extends StatelessWidget {
                     ),
                     Container(
                       // padding: EdgeInsets.only(left: 20),
-                      margin: EdgeInsets.only(right: 20),
+                      margin: EdgeInsets.only(right: 20.w),
                       child: Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
@@ -502,7 +518,7 @@ class Home extends StatelessWidget {
                               child: Image(
                                 image:
                                     const AssetImage('assets/icons/HomeN.png'),
-                                width: 24.h,
+                                width: 24.w,
                                 height: 24.h,
                               ))),
                     ),

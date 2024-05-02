@@ -1,22 +1,11 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:evenza/firebase_options.dart';
-import 'package:evenza/screens/home.dart';
-import 'package:evenza/screens/lilian_projects.dart';
+
+import 'package:evenza/screens/home2.dart';
 import 'package:evenza/screens/my_evevt.dart';
 import 'package:evenza/screens/notification.dart';
-import 'package:evenza/screens/select_photographer.dart';
-import 'package:evenza/styles/color.dart';
-import 'package:evenza/styles/images.dart';
-import 'package:evenza/widgets/back_ground_widget.dart';
 import 'package:evenza/widgets/back_ground_widgetS.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:evenza/screens/select_type_buffet.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:evenza/styles/text.dart';
 
 class Setting extends StatelessWidget {
   const Setting({super.key});
@@ -25,7 +14,7 @@ class Setting extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackGroundWidgetS(
         title: 'الضبط',
-        onback: () => Get.off(const Home()),
+        onback: () => Get.off(const HomeScreen()),
         content: Column(
           children: [
             Padding(
@@ -33,7 +22,7 @@ class Setting extends StatelessWidget {
               child: Column(
                 children: [
                   Positioned(
-                      child: Container(
+                      child: SizedBox(
                           height: 550.h,
                           child: SingleChildScrollView(
                               child: Column(children: [
@@ -46,7 +35,8 @@ class Setting extends StatelessWidget {
                               ),
 
                               leading: Image(
-                                image: AssetImage('assets/icons/user.png'),
+                                image:
+                                    const AssetImage('assets/icons/user.png'),
                                 width: 28.w,
                                 height: 28.h,
                               ),
@@ -55,7 +45,7 @@ class Setting extends StatelessWidget {
                               // Get.to( profile())
                             ),
                             Container(
-                              padding: EdgeInsets.only(top: 12),
+                              padding: const EdgeInsets.only(top: 12),
                               child: ListTile(
                                 title: Text(
                                   " الوضع",
@@ -65,7 +55,8 @@ class Setting extends StatelessWidget {
                                 ),
 
                                 leading: Image(
-                                  image: AssetImage('assets/icons/color.png'),
+                                  image: const AssetImage(
+                                      'assets/icons/color.png'),
                                   width: 28.w,
                                   height: 28.h,
                                 ),
@@ -75,7 +66,7 @@ class Setting extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(top: 12),
+                              padding: const EdgeInsets.only(top: 12),
                               child: ListTile(
                                 title: Text(
                                   "اللغة",
@@ -85,7 +76,8 @@ class Setting extends StatelessWidget {
                                 ),
 
                                 leading: Image(
-                                  image: AssetImage('assets/icons/globe.png'),
+                                  image: const AssetImage(
+                                      'assets/icons/globe.png'),
                                   width: 28.w,
                                   height: 28.h,
                                 ),
@@ -95,7 +87,7 @@ class Setting extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(top: 12),
+                              padding: const EdgeInsets.only(top: 12),
                               child: ListTile(
                                 title: Text(
                                   " الإشعارات",
@@ -104,15 +96,16 @@ class Setting extends StatelessWidget {
                                       fontWeight: FontWeight.normal),
                                 ),
                                 leading: Image(
-                                  image: AssetImage('assets/icons/bell.png'),
+                                  image:
+                                      const AssetImage('assets/icons/bell.png'),
                                   width: 28.w,
                                   height: 28.h,
                                 ),
-                                onTap: () => Get.to(Notificationn()),
+                                onTap: () => Get.to(const Notificationn()),
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(top: 12),
+                              padding: const EdgeInsets.only(top: 12),
                               child: ListTile(
                                   title: Text(
                                     " مناسباتي",
@@ -121,17 +114,17 @@ class Setting extends StatelessWidget {
                                         fontWeight: FontWeight.normal),
                                   ),
                                   leading: Image(
-                                    image: AssetImage(
+                                    image: const AssetImage(
                                         'assets/icons/myevents1.png'),
                                     width: 28.w,
                                     height: 28.h,
                                   ),
                                   onTap: () {
-                                    Get.to(MyEvent());
+                                    Get.to(const MyEvent());
                                   }),
                             ),
                             Container(
-                              padding: EdgeInsets.only(top: 12),
+                              padding: const EdgeInsets.only(top: 12),
                               child: ListTile(
                                 title: Text(
                                   " تواصل معنا",
@@ -141,8 +134,8 @@ class Setting extends StatelessWidget {
                                 ),
 
                                 leading: Image(
-                                  image:
-                                      AssetImage('assets/icons/phone-call.png'),
+                                  image: const AssetImage(
+                                      'assets/icons/phone-call.png'),
                                   width: 28.w,
                                   height: 28.h,
                                 ),
@@ -152,7 +145,7 @@ class Setting extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(top: 12),
+                              padding: const EdgeInsets.only(top: 12),
                               child: ListTile(
                                 title: Text(
                                   " تسجيل الخروج",
@@ -162,7 +155,8 @@ class Setting extends StatelessWidget {
                                 ),
 
                                 leading: Image(
-                                  image: AssetImage('assets/icons/log-out.png'),
+                                  image: const AssetImage(
+                                      'assets/icons/log-out.png'),
                                   width: 28.w,
                                   height: 28.h,
                                 ),
@@ -175,100 +169,25 @@ class Setting extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: 375,
-              height: 75,
-              margin: EdgeInsets.only(top: 12.w),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(35),
-                    topRight: Radius.circular(35)),
-                color: Color.fromARGB(255, 222, 216, 255),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    // padding: EdgeInsets.only(left: 20),
-                    child: Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                            onPressed: () {
-                              Get.to(const Notificationn());
-                            },
-                            child: Image(
-                              image: const AssetImage('assets/icons/userN.png'),
-                              width: 24.h,
-                              height: 24.h,
-                            ))),
-                  ),
-                  Container(
-                    // padding: EdgeInsets.only(left: 20),
-                    margin: EdgeInsets.only(right: 20),
-                    child: Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                            onPressed: () {
-                              Get.to(const Notificationn());
-                            },
-                            child: Image(
-                              image: const AssetImage('assets/icons/grid.png'),
-                              width: 24.h,
-                              height: 24.h,
-                            ))),
-                  ),
-                  Container(
-                    // padding: EdgeInsets.only(left: 20),
-                    margin: EdgeInsets.only(right: 20),
-                    child: Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                            onPressed: () {
-                              Get.to(const MyEvent());
-                            },
-                            child: Image(
-                              image: const AssetImage(
-                                  'assets/icons/myeventn1.png'),
-                              width: 24.h,
-                              height: 24.h,
-                            ))),
-                  ),
-                  Container(
-                    // padding: EdgeInsets.only(left: 20),
-                    margin: EdgeInsets.only(right: 20),
-                    child: Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                            onPressed: () {
-                              Get.to(const Home());
-                            },
-                            child: Image(
-                              image: const AssetImage('assets/icons/HomeN.png'),
-                              width: 24.h,
-                              height: 24.h,
-                            ))),
-                  ),
-                  // Image(
-                  //   image: AssetImage('assets/icons/userN.png'),
-                  //   width: 24.h,
-                  //   height: 24.h,
-                  // ),
-                  // Image(
-                  //     image: AssetImage('assets/icons/grid.png'),
-                  //     width: 24.h,
-                  //     height: 24.h),
-                  // Image(
-                  //     image: AssetImage('assets/icons/HomeN.png'),
-                  //     width: 24.h,
-                  //     height: 24.h),
-                  // Image(
-                  //     image: AssetImage('assets/icons/HomeN.png'),
-                  //     width: 24.h,
-                  //     height: 24.h),
-                ],
-              ),
-            )
+
+            // Image(
+            //   image: AssetImage('assets/icons/userN.png'),
+            //   width: 24.h,
+            //   height: 24.h,
+            // ),
+            // Image(
+            //     image: AssetImage('assets/icons/grid.png'),
+            //     width: 24.h,
+            //     height: 24.h),
+            // Image(
+            //     image: AssetImage('assets/icons/HomeN.png'),
+            //     width: 24.h,
+            //     height: 24.h),
+            // Image(
+            //     image: AssetImage('assets/icons/HomeN.png'),
+            //     width: 24.h,
+            //     height: 24.h),
+
             // Positioned(
             //   left: 0.h,
             //   right: 0.h,

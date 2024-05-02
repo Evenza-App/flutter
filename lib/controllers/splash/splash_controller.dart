@@ -16,7 +16,7 @@ class SplashController extends GetxController {
     final token = sharedPreferences.getString('token');
 
     if (token != null) {
-      Get.to(EastBuffetScreen());
+      Get.to(const EastBuffetScreen());
     } else {
       Get.to(Login());
     }

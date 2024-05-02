@@ -1,7 +1,6 @@
 import 'package:evenza/styles/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class BackGroundWidget extends StatelessWidget {
   const BackGroundWidget({
@@ -41,6 +40,7 @@ class BackGroundWidget extends StatelessWidget {
                             child: const Icon(
                               Icons.arrow_back_ios_new,
                               textDirection: TextDirection.ltr,
+                              
                             ))),
                   ),
                   Center(

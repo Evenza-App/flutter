@@ -1,7 +1,5 @@
-import 'package:evenza/styles/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class BackGroundWidgetS extends StatelessWidget {
   const BackGroundWidgetS({

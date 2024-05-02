@@ -12,7 +12,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnBoardingWidget(
-      onNext: () => Get.to(OnboardingScreen1()),
+      onNext: () => Get.to(const OnboardingScreen1()),
       imagePath: BaseImages.birthday,
       text: Text.rich(
         TextSpan(

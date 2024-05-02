@@ -1,14 +1,9 @@
-import 'package:evenza/screens/login.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
-import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
-import 'package:evenza/widgets/login_signup_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
 
 class EastBuffetScreen extends StatelessWidget {
   const EastBuffetScreen({super.key});
@@ -22,7 +17,7 @@ class EastBuffetScreen extends StatelessWidget {
             padding: EdgeInsets.only(left: 10.h, right: 15.h, top: 30.h),
             child: Column(
               children: [
-                Container(
+                SizedBox(
                   width: 335.w,
                   height: 48.h,
                   child: Stack(
@@ -37,7 +32,7 @@ class EastBuffetScreen extends StatelessWidget {
                             color: Colors.white,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
-                                  width: 1.w, color: Color(0xEDFFB183)),
+                                  width: 1.w, color: const Color(0xEDFFB183)),
                               borderRadius: BorderRadius.circular(14.r),
                             ),
                             shadows: const [
@@ -75,7 +70,7 @@ class EastBuffetScreen extends StatelessWidget {
                             'ابحث هنا',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Color(0xFFBEBEBE),
+                              color: const Color(0xFFBEBEBE),
                               fontSize: 12.sp,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w400,
@@ -107,7 +102,7 @@ class EastBuffetScreen extends StatelessWidget {
                                       width: 112.w,
                                       height: 108.h,
                                       decoration: ShapeDecoration(
-                                        image: DecorationImage(
+                                        image: const DecorationImage(
                                           image:
                                               AssetImage(BaseImages.breakfast),
                                           fit: BoxFit.fill,
@@ -115,7 +110,7 @@ class EastBuffetScreen extends StatelessWidget {
                                         shape: RoundedRectangleBorder(
                                           side: BorderSide(
                                               width: 1.w,
-                                              color: Color(0xFF7A7A7A)),
+                                              color: const Color(0xFF7A7A7A)),
                                           borderRadius:
                                               BorderRadius.circular(14.r),
                                         ),
@@ -172,7 +167,7 @@ class EastBuffetScreen extends StatelessWidget {
                                         shape: RoundedRectangleBorder(
                                           side: BorderSide(
                                               width: 1.w,
-                                              color: Color(0xFF7A7A7A)),
+                                              color: const Color(0xFF7A7A7A)),
                                           borderRadius:
                                               BorderRadius.circular(14.r),
                                         ),
@@ -227,14 +222,14 @@ class EastBuffetScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
+                SizedBox(
                     height: 400.h,
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
                           Column(
                             children: [
-                              Container(
+                              SizedBox(
                                 width: 264.w,
                                 height: 248.h,
                                 child: Stack(
@@ -246,7 +241,7 @@ class EastBuffetScreen extends StatelessWidget {
                                         width: 264.w,
                                         height: 248.h,
                                         decoration: ShapeDecoration(
-                                          color: Color(0xFFFFF1EE),
+                                          color: const Color(0xFFFFF1EE),
                                           shape: RoundedRectangleBorder(
                                             side: BorderSide(
                                               width: 1.w,
@@ -301,7 +296,7 @@ class EastBuffetScreen extends StatelessWidget {
                                       child: Text(
                                         '30,000000 ل,س',
                                         style: TextStyle(
-                                          color: Color(0xFFFF8C8D),
+                                          color: const Color(0xFFFF8C8D),
                                           fontSize: 14.sp,
                                           fontFamily: 'Cairo',
                                           fontWeight: FontWeight.w700,
@@ -311,7 +306,7 @@ class EastBuffetScreen extends StatelessWidget {
                                     Positioned(
                                       left: 215.h,
                                       top: 162.h,
-                                      child: Container(
+                                      child: SizedBox(
                                         width: 45.83.w,
                                         height: 25.h,
                                         child: Row(
@@ -321,7 +316,7 @@ class EastBuffetScreen extends StatelessWidget {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            Container(
+                                            SizedBox(
                                               width: 45.83.w,
                                               height: 25.h,
                                               child: Stack(
@@ -334,17 +329,17 @@ class EastBuffetScreen extends StatelessWidget {
                                                         height: 25.h,
                                                         //  child:TextButton.icon(onPressed: , icon: Icons.)
                                                         decoration:
-                                                            BoxDecoration(
+                                                            const BoxDecoration(
                                                           image: DecorationImage(
                                                               image: AssetImage(
                                                                   BaseImages
                                                                       .like)),
                                                         )),
                                                   ),
-                                                  Positioned(
+                                                  const Positioned(
                                                     left: 0,
                                                     top: 1.94,
-                                                    child: Container(
+                                                    child: SizedBox(
                                                       width: 49.40,
                                                       height: 23.06,
                                                     ),
@@ -379,7 +374,7 @@ class EastBuffetScreen extends StatelessWidget {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(top: 20.h),
-                                child: Container(
+                                child: SizedBox(
                                   width: 264,
                                   height: 248,
                                   child: Stack(
@@ -391,7 +386,7 @@ class EastBuffetScreen extends StatelessWidget {
                                           width: 264,
                                           height: 248,
                                           decoration: ShapeDecoration(
-                                            color: Color(0xFFFFF1EE),
+                                            color: const Color(0xFFFFF1EE),
                                             shape: RoundedRectangleBorder(
                                               side: BorderSide(
                                                 width: 1,
@@ -447,7 +442,7 @@ class EastBuffetScreen extends StatelessWidget {
                                         child: Text(
                                           '30,000000 ل,س',
                                           style: TextStyle(
-                                            color: Color(0xFFFF8C8D),
+                                            color: const Color(0xFFFF8C8D),
                                             fontSize: 14.sp,
                                             fontFamily: 'Cairo',
                                             fontWeight: FontWeight.w700,
@@ -457,7 +452,7 @@ class EastBuffetScreen extends StatelessWidget {
                                       Positioned(
                                         left: 215.h,
                                         top: 162.h,
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 45.83.w,
                                           height: 25.h,
                                           child: Row(
@@ -467,7 +462,7 @@ class EastBuffetScreen extends StatelessWidget {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
                                             children: [
-                                              Container(
+                                              SizedBox(
                                                 width: 45.83.w,
                                                 height: 25.h,
                                                 child: Stack(
@@ -480,17 +475,17 @@ class EastBuffetScreen extends StatelessWidget {
                                                           height: 25.h,
                                                           //  child:TextButton.icon(onPressed: , icon: Icons.)
                                                           decoration:
-                                                              BoxDecoration(
+                                                              const BoxDecoration(
                                                             image: DecorationImage(
                                                                 image: AssetImage(
                                                                     BaseImages
                                                                         .like)),
                                                           )),
                                                     ),
-                                                    Positioned(
+                                                    const Positioned(
                                                       left: 0,
                                                       top: 1.94,
-                                                      child: Container(
+                                                      child: SizedBox(
                                                         width: 49.40,
                                                         height: 23.06,
                                                       ),

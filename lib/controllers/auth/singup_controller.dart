@@ -29,6 +29,6 @@ class SingupController extends GetxController {
     await sharedPreferences.setString('token', token);
     loading.value = false;
 
-    Get.to(EastBuffetScreen());
+    Get.to(const EastBuffetScreen());
   }
 }

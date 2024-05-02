@@ -1,13 +1,8 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:evenza/firebase_options.dart';
 import 'package:evenza/hooks/photographers_hook.dart';
 import 'package:evenza/models/photographer.dart';
-import 'package:evenza/screens/onboarding_screen1.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -82,7 +77,7 @@ class SelectPhotographer extends HookWidget {
                       'ابحث هنا',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Color(0xFFBEBEBE),
+                        color: const Color(0xFFBEBEBE),
                         fontSize: 12.sp,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w400,
@@ -94,7 +89,7 @@ class SelectPhotographer extends HookWidget {
             ),
           ),
           Positioned(
-              child: Container(
+              child: SizedBox(
             height: 550.h,
             child: SingleChildScrollView(
               child: Column(

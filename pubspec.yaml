@@ -46,6 +46,9 @@ dependencies:
   firebase_core: ^2.27.0
   firebase_messaging: ^14.7.19
   google_fonts: 6.1.0
+  flutter_dotenv: ^5.1.0
+  flutter_stripe: ^10.1.1
+  flutter_local_notifications: ^17.1.0
 
 dev_dependencies:
 
@@ -89,6 +92,7 @@ flutter:
     - assets/catagory/
     - assets/icons/
     - assets/myEvents/
+    - .env
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

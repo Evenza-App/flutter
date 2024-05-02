@@ -1,6 +1,5 @@
 import 'package:evenza/helpers/api/api_helper.dart';
 import 'package:evenza/models/photographer.dart';
-import 'package:get/get.dart';
 
 class PhotographerService{
   final ApiHelper apiHelper=ApiHelper();

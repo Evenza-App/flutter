@@ -1,16 +1,13 @@
 import 'package:evenza/hooks/categories_hook.dart';
 import 'package:evenza/screens/east_buffet_screen.dart';
-import 'package:evenza/screens/login.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
 import 'package:evenza/widgets/base_loading.dart';
-import 'package:evenza/widgets/login_signup_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
 
 class SelectTypeBuffet extends HookWidget {
   const SelectTypeBuffet({super.key});
@@ -22,7 +19,7 @@ class SelectTypeBuffet extends HookWidget {
       title: 'اختر الضيافة',
       onback: () => Get.to(const ()),
       content: loading
-          ? Center(
+          ? const Center(
               child: BaseLoading(
                 color: BaseColors.primary,
               ),
@@ -35,7 +32,7 @@ class SelectTypeBuffet extends HookWidget {
                       padding: EdgeInsets.only(top: 100.h),
                       child: Padding(
                         padding: EdgeInsets.only(bottom: 10.h),
-                        child: Container(
+                        child: SizedBox(
                           width: 151.66.w,
                           height: 144.95.h,
                           child: Stack(
@@ -53,7 +50,7 @@ class SelectTypeBuffet extends HookWidget {
                                     ),
                                     shape: RoundedRectangleBorder(
                                       side: BorderSide(
-                                          width: 1.w, color: Color(0xFF7A7A7A)),
+                                          width: 1.w, color: const Color(0xFF7A7A7A)),
                                       borderRadius: BorderRadius.circular(14),
                                     ),
                                   ),
@@ -68,7 +65,7 @@ class SelectTypeBuffet extends HookWidget {
                                   decoration: ShapeDecoration(
                                     shape: RoundedRectangleBorder(
                                       side: BorderSide(
-                                          width: 1.w, color: Color(0xFF7A7A7A)),
+                                          width: 1.w, color: const Color(0xFF7A7A7A)),
                                       borderRadius: BorderRadius.circular(14.r),
                                     ),
                                   ),
@@ -112,7 +109,7 @@ class SelectTypeBuffet extends HookWidget {
                   children: [
                     Padding(
                       padding: EdgeInsets.only(bottom: 10.h),
-                      child: Container(
+                      child: SizedBox(
                         width: 151.66.w,
                         height: 144.95.h,
                         child: Stack(
@@ -130,7 +127,7 @@ class SelectTypeBuffet extends HookWidget {
                                   ),
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
-                                        width: 1.w, color: Color(0xFF7A7A7A)),
+                                        width: 1.w, color: const Color(0xFF7A7A7A)),
                                     borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
@@ -145,7 +142,7 @@ class SelectTypeBuffet extends HookWidget {
                                 decoration: ShapeDecoration(
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
-                                        width: 1.w, color: Color(0xFF7A7A7A)),
+                                        width: 1.w, color: const Color(0xFF7A7A7A)),
                                     borderRadius: BorderRadius.circular(14.r),
                                   ),
                                 ),
@@ -188,7 +185,7 @@ class SelectTypeBuffet extends HookWidget {
                   children: [
                     Padding(
                       padding: EdgeInsets.only(bottom: 10.h),
-                      child: Container(
+                      child: SizedBox(
                         width: 151.66.w,
                         height: 144.95.h,
                         child: Stack(
@@ -206,7 +203,7 @@ class SelectTypeBuffet extends HookWidget {
                                   ),
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
-                                        width: 1.w, color: Color(0xFF7A7A7A)),
+                                        width: 1.w, color: const Color(0xFF7A7A7A)),
                                     borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
@@ -221,7 +218,7 @@ class SelectTypeBuffet extends HookWidget {
                                 decoration: ShapeDecoration(
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
-                                        width: 1.w, color: Color(0xFF7A7A7A)),
+                                        width: 1.w, color: const Color(0xFF7A7A7A)),
                                     borderRadius: BorderRadius.circular(14.r),
                                   ),
                                 ),
