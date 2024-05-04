@@ -15,14 +15,13 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-  
-    await dotenv.load(fileName: ".env");
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
-    Stripe.publishableKey = dotenv.env['STRIPE_PUBLISHABLE_KEY']!;
+  // await dotenv.load(fileName: ".env");
+
+  // Stripe.publishableKey = dotenv.env['STRIPE_PUBLISHABLE_KEY']!;
 
   runApp(
     DevicePreview(
