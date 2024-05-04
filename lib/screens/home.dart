@@ -18,7 +18,7 @@ class Home extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (loading, homes) = useHomes();
+    final (loading, home) = useHome();
     return Directionality(
         textDirection: TextDirection.rtl,
         child: Stack(children: [
@@ -107,7 +107,7 @@ class Home extends HookWidget {
                           color: BaseColors.primary,
                         )
                       : Row(
-                          children: homes
+                          children: home.latestevents
                               .map(
                                 (home) => EventWidget(
                                   title: '',
@@ -198,7 +198,7 @@ class Home extends HookWidget {
                             color: BaseColors.primary,
                           )
                         : Row(
-                            children: homes
+                            children: home.trends
                                 .map(
                                   (home) => EventWidget(
                                     title: '',

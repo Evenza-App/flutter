@@ -5,12 +5,10 @@ import '../models/home.dart';
 class HomeService {
   final ApiHelper apiHelper = ApiHelper();
 
-  Future<List<Home>> getAll() async {
-    final response = await apiHelper.dio.get('homes');
+  Future<Home> getAll() async {
+    final response = await apiHelper.dio.get('home');
 
-    return ((response.data as Map<String, dynamic>)['data'] as List)
-        .map((e) => Home.fromJson(e))
-        .toList();
+    return Home.fromJson(response.data);
   }
 }
 

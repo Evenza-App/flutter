@@ -1,3 +1,4 @@
+import 'package:evenza/helpers/api/api_helper.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,7 +25,7 @@ class EventWidget extends StatelessWidget {
       height: 130.h,
       decoration: ShapeDecoration(
         image: DecorationImage(
-          image: AssetImage(image),
+          image: NetworkImage(image, headers: ApiHelper.ngrokHeaders),
           // image: AssetImage('assets/projects/project2.png'),
           fit: BoxFit.cover,
         ),
