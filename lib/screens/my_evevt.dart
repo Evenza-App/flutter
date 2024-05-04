@@ -1,8 +1,6 @@
 import 'package:evenza/screens/home.dart';
-import 'package:evenza/screens/home2.dart';
 import 'package:evenza/screens/notification.dart';
 import 'package:evenza/styles/images.dart';
-import 'package:evenza/widgets/back_ground_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -30,7 +28,7 @@ class MyEvent extends StatelessWidget {
             child: Column(children: [
               Padding(
                 padding: EdgeInsets.only(left: 18.h),
-                child: Align(
+                child: const Align(
                   alignment: Alignment.topLeft,
                   child: DrawerIconWidget(),
                   // child: TextButton(

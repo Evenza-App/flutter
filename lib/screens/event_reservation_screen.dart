@@ -1,4 +1,3 @@
-import 'package:evenza/hooks/events_details_hook.dart';
 import 'package:evenza/models/event.dart';
 import 'package:evenza/screens/decoration_screen.dart';
 import 'package:evenza/styles/color.dart';
@@ -21,6 +20,7 @@ class EventReservationScreen extends HookWidget {
       final ReservationController reservationController =
           Get.put(ReservationController());
       reservationController.reservation.eventId = event.id;
+      return null;
     }, const []);
 
     return EventReservationWidget(

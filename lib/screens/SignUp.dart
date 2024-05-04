@@ -1,6 +1,5 @@
 import 'package:evenza/controllers/auth/singup_controller.dart';
 import 'package:evenza/screens/login.dart';
-import 'package:evenza/styles/color.dart';
 import 'package:evenza/widgets/base_loading.dart';
 import 'package:evenza/widgets/login_signup_widget.dart';
 import 'package:flutter/material.dart';

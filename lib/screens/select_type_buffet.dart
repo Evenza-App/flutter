@@ -1,7 +1,4 @@
-import 'package:evenza/controllers/reservation/reservation_controller.dart';
 import 'package:evenza/hooks/categories_hook.dart';
-import 'package:evenza/models/buffet.dart';
-import 'package:evenza/models/category.dart';
 import 'package:evenza/screens/buffets_screen.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';

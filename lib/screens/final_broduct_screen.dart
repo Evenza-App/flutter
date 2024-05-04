@@ -2,9 +2,7 @@ import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/event_res.dart';
 import 'package:evenza/widgets/final_broduct_widget.dart';
-import 'package:evenza/widgets/text_formfeild_widget.dart';
 import 'package:evenza/widgets/types_widget.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -47,7 +45,7 @@ class FinalBroduct extends StatelessWidget {
           ),
           Column(
             children: [
-              FormFeildWidget(
+              const FormFeildWidget(
                 validationText: 'أدخل عدد الأشخاص رجاءا',
                 hinttext: 'تاريخ المناسبة',
                 icon: Icon(Icons.date_range_outlined),
@@ -199,11 +197,11 @@ class FinalBroduct extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(right: 18.h),
                 child: ListTile(
-                  title: Text('data'),
+                  title: const Text('data'),
                   onTap: () {},
                   leading: const CircleAvatar(
                       backgroundImage: AssetImage(BaseImages.birthday)),
-                  trailing: Icon(Icons.arrow_back_ios_new),
+                  trailing: const Icon(Icons.arrow_back_ios_new),
                 ),
               )
             ],

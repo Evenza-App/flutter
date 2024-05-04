@@ -1,7 +1,6 @@
 import 'package:evenza/controllers/drawer/drawer_controller.dart';
 import 'package:evenza/hooks/homes_hook.dart';
 import 'package:evenza/screens/lilian_projects.dart';
-import 'package:evenza/screens/my_evevt.dart';
 import 'package:evenza/screens/notification.dart';
 
 import 'package:evenza/screens/setting.dart';
@@ -46,7 +45,7 @@ class Home extends HookWidget {
                             width: 20.h,
                             height: 20.h,
                           )),
-                      DrawerIconWidget(),
+                      const DrawerIconWidget(),
                     ],
                   ),
                 ),
@@ -116,7 +115,7 @@ class Home extends HookWidget {
                                   location: '',
                                   image: home.image,
                                   onNext: () {
-                                    Get.to(Setting());
+                                    Get.to(const Setting());
                                   },
                                 ),
                               )
@@ -207,7 +206,7 @@ class Home extends HookWidget {
                                     location: '',
                                     image: home.image,
                                     onNext: () {
-                                      Get.to(Setting());
+                                      Get.to(const Setting());
                                     },
                                   ),
                                 )

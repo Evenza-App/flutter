@@ -1,4 +1,3 @@
-import 'package:evenza/controllers/reservation/reservation_controller.dart';
 import 'package:evenza/hooks/buffets_details_hook.dart';
 import 'package:evenza/models/Buffet_detail.dart';
 import 'package:evenza/widgets/buffet_details_widget.dart';

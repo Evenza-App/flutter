@@ -1,12 +1,6 @@
 import 'package:evenza/controllers/bottom_nav/bottom_nav_controller.dart';
 import 'package:evenza/controllers/drawer/drawer_controller.dart';
-import 'package:evenza/screens/lilian_projects.dart';
-import 'package:evenza/screens/my_evevt.dart';
-import 'package:evenza/screens/notification.dart';
 import 'package:evenza/screens/setting.dart';
-import 'package:evenza/styles/color.dart';
-import 'package:evenza/styles/images.dart';
-import 'package:evenza/widgets/event_widget.dart';
 import 'package:flutter/material.dart' hide DrawerController;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -23,7 +17,7 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         key: drawerContoller.scaffoldKey,
-        drawer: Setting(),
+        drawer: const Setting(),
         bottomNavigationBar: Obx(() => CustomBottonNavigationBar(
               selectindex: bottomContoller.selectedIndex.value,
               onChange: bottomContoller.onChange,

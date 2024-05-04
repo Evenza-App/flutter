@@ -1,8 +1,6 @@
 import 'package:evenza/controllers/drawer/drawer_controller.dart';
-import 'package:evenza/screens/home2.dart';
 import 'package:evenza/screens/my_evevt.dart';
 import 'package:evenza/screens/notification.dart';
-import 'package:evenza/widgets/back_ground_widgetS.dart';
 import 'package:flutter/material.dart' hide DrawerController;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

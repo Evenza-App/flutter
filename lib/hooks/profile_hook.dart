@@ -1,14 +1,8 @@
-import 'package:evenza/models/event.dart';
 import 'package:evenza/models/profile.dart';
-import 'package:evenza/services/event_service.dart';
 import 'package:evenza/services/profile_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import 'package:evenza/models/event.dart';
-import 'package:evenza/services/event_service.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
 (bool, Profile) useProfile({required int id}) {
   return use(_ProfileHook(id: id));

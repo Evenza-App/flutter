@@ -1,6 +1,4 @@
-import 'package:evenza/controllers/reservation/reservation_controller.dart';
 import 'package:evenza/hooks/events_hook.dart';
-import 'package:evenza/models/event.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
@@ -122,7 +120,7 @@ class EventReservationWidget extends HookWidget {
                                 child: SizedBox(
                                   width: 150.w,
                                   height: 50.h,
-                                  child: TimePickerWidget(
+                                  child: const TimePickerWidget(
                                       validationtext: 'أدخل وقت البدء رجاءا'),
                                 ),
                               ),
@@ -132,7 +130,7 @@ class EventReservationWidget extends HookWidget {
                                 child: SizedBox(
                                   width: 150.w,
                                   height: 50.h,
-                                  child: TimePickerWidget(
+                                  child: const TimePickerWidget(
                                       validationtext:
                                           'أدخل وقت الانتهاء رجاءا'),
                                 ),
