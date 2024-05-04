@@ -1,4 +1,3 @@
-
 import 'package:evenza/screens/home2.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
 import 'package:evenza/helpers/fcm_helper.dart';
+import 'package:evenza/screens/SignUp.dart';
 import 'package:evenza/screens/home2.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -49,7 +50,7 @@ class MyApp extends HookWidget {
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home:const HomeScreen(),
+        home: const HomeScreen(),
       ),
     );
   }

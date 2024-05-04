@@ -1,8 +1,6 @@
-
 import 'package:evenza/styles/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class EventWidget extends StatelessWidget {
   const EventWidget({
@@ -66,7 +64,7 @@ class EventWidget extends StatelessWidget {
                 child: InkWell(
                   onTap: onNext,
                   child: Text(
-                    'التفاصيل',
+                    'إنشاء',
                     style: TextStyle(
                       fontWeight: FontWeight.normal,
                       fontSize: 8.sp,
