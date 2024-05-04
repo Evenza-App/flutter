@@ -18,23 +18,30 @@ class OnboardingScreen extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(
-              text: 'للعد التنازلي لمناسبة\n لن ترغب ',
+              text: ' استعدو ',
               style: TextStyle(
-                color: BaseColors.primaryDark,
-                fontSize: 19.h,
+                color: BaseColors.orange,
+                fontSize: 20.h,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
-                height: 0,
+              ),
+            ),
+            TextSpan(
+              text: 'للعد التنازلي لمناسبة \n لن ترغب ',
+              style: TextStyle(
+                color: BaseColors.primaryDark,
+                fontSize: 20.h,
+                fontFamily: 'Inter',
+                fontWeight: FontWeight.w700,
               ),
             ),
             TextSpan(
               text: 'في تفويتها ',
               style: TextStyle(
                 color: BaseColors.orange,
-                fontSize: 19.h,
+                fontSize: 20.h,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
-                height: 0,
               ),
             ),
           ],

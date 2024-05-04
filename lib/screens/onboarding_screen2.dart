@@ -24,10 +24,9 @@ class OnboardingScreen2 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: BaseColors.primary,
-                  fontSize: 17.h,
+                  fontSize: 20.h,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
-                  height: 0,
                 ),
               ),
             ),
@@ -39,10 +38,9 @@ class OnboardingScreen2 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: BaseColors.orange,
-                  fontSize: 19.h,
+                  fontSize: 20.h,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
-                  height: 0,
                 ),
               ),
             ),

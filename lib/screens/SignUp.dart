@@ -51,7 +51,7 @@ class SignUpScreen extends StatelessWidget {
                     Icons.phone,
                     color: Color.fromARGB(255, 247, 186, 151),
                   ),
-                  label: Text('الرقم',
+                  label: Text('رقم الهاتف',
                       style: TextStyle(
                           fontSize: 17.h,
                           fontWeight: FontWeight.bold,
@@ -89,7 +89,7 @@ class SignUpScreen extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 17.h,
                         fontWeight: FontWeight.bold,
-                        color: BaseColors.primaryDark)),
+                        color: const Color(0xFFAF75B2))),
               ),
             ),
             PasswordField(
@@ -169,7 +169,6 @@ class SignUpScreen extends StatelessWidget {
                         fontSize: 11.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w700,
-                        height: 0,
                       ),
                     ),
                   )
@@ -194,7 +193,8 @@ class PasswordField extends HookWidget {
       onSaved: onSaved,
       validator: 'required|min:8|max:25'.validate(customMessages: {
         'min': 'الرجاء ادخال كلمة مرور تتكون من 5 محارف على الاقل',
-        'max': 'الرجاء ادخال كلمة مرور تتكون من 25 محارف على الاكثر'
+        'max': 'الرجاء ادخال كلمة مرور تتكون من 25 محارف على الاكثر',
+        'required': ' أدخل كلمة المرور رجاءا ',
       }),
       decoration: InputDecoration(
           suffixIcon: GestureDetector(
@@ -204,7 +204,7 @@ class PasswordField extends HookWidget {
               color: Color.fromARGB(255, 247, 186, 151),
             ),
           ),
-          label: Text(' كلمة السر ',
+          label: Text(' كلمة المرور ',
               style: TextStyle(
                   fontSize: 17.h,
                   fontWeight: FontWeight.bold,

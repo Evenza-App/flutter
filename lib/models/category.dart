@@ -1,3 +1,5 @@
+import 'package:evenza/helpers/api/api_helper.dart';
+
 class Category {
   final int id;
 
@@ -11,8 +13,12 @@ class Category {
     required this.image,
   });
 
-  Category.fromJson(Map<String, dynamic> data)
-      : id = int.parse(data['id']),
-        name = data['name'],
-        image = data['image'];
+  factory Category.fromJson(Map<String, dynamic> data) {
+    final id = int.parse(data['id'].toString());
+    final name = data['name'];
+    final image = data['image']
+        .toString()
+        .replaceFirst('http://localhost:8000', ApiHelper.domain);
+    return Category(id: id, name: name, image: image);
+  }
 }

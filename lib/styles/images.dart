@@ -1,6 +1,6 @@
 
 abstract class BaseImages {
-  static const logo = 'assets/logos/logo.png';
+  static const logo = 'assets/logos/finallogo.png';
 
   static const balloon = 'assets/images/balloon.png';
 
@@ -35,4 +35,32 @@ abstract class BaseImages {
   static const reserevent = 'assets/projects/project2.png';
   static const gradevent = 'assets/projects/project3.png';
   static const ingevent = 'assets/projects/project4.png';
+  static const birthdayevent = 'assets/images/birthdayevent.png';
+  static const weddingevent = 'assets/images/weddingevent.png';
+  static const genderreveal = 'assets/images/genderreveal.png';
+  static const openingevent = 'assets/images/openingevent.png';
+  static const engagmentevent = 'assets/images/engagmentevent.png';
+  static const graduationevent = 'assets/images/graduationevent.png';
+  static const buffetarabiclebanon = 'assets/images/buffet_arabic_lebanon.png';
+  static const buffetarabicaseel = 'assets/images/buffetarabicaseel.png';
+  static const buffetarabicperfect = 'assets/images/buffet_arabic_perfect.png';
+  static const buffetarabicdinneraseel =
+      'assets/images/buffet_arabic_dinneraseel.png';
+  static const buffetarabicdinner1 = 'assets/images/buffet_arabic_dinner1.png';
+  static const decorbirth = 'assets/images/decor_birth.png';
+
+  static const buffetarabicdinnerperfect =
+      'assets/images/buffet_arabic_dinnerperfect.png';
+  static const buffetwestbreak1 = 'assets/images/buffet_west_break1.png';
+  static const buffetwestbreak2 = 'assets/images/buffet_west_break2.png';
+  static const buffetwestbreak3 = 'assets/images/buffet_west_break3.png';
+  static const buffetwestdinn1 = 'assets/images/buffet_west_dinn1.png';
+  static const buffetwestdinn2 = 'assets/images/buffet_west_dinn2.png';
+  static const buffetwestdinn3 = 'assets/images/buffet_west_dinn3.png';
+  static const dinnwest = 'assets/images/dinnwest.png';
+  static const breakfast1 = 'assets/images/breakfast1.png';
+  static const welcome = 'assets/images/welcome.png';
+  static const event_res = 'assets/images/event_res.png';
+  static const logo2 = 'assets/logos/logo.png';
+  static const background2 = 'assets/logos/select_things.png';
 }

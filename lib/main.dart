@@ -3,13 +3,14 @@ import 'package:evenza/firebase_options.dart';
 import 'package:evenza/helpers/fcm_helper.dart';
 import 'package:evenza/screens/SignUp.dart';
 import 'package:evenza/screens/home2.dart';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

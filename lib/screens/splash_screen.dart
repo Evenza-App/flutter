@@ -2,6 +2,7 @@ import 'package:evenza/controllers/splash/splash_controller.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class SplashScreen extends HookWidget {
@@ -16,8 +17,11 @@ class SplashScreen extends HookWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(BaseImages.balloon),
-            Image.asset(BaseImages.logo),
+            Image(
+              image: const AssetImage(BaseImages.logo),
+              height: 200.h,
+              width: 200.w,
+            )
           ],
         ),
       ),

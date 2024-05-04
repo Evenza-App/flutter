@@ -1,4 +1,5 @@
-import 'package:evenza/screens/east_buffet_screen.dart';
+import 'package:evenza/helpers/fcm_helper.dart';
+import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/services/authentication_service.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,7 +14,9 @@ class LoginController extends GetxController {
 
   void login() async {
     loading.value = true;
-    final token = await autheticationService.login(email!, password!);
+    final fcmToken = await FcmHelper.createToken();
+    final token =
+        await autheticationService.login(email!, password!, fcmToken!);
 
     final SharedPreferences sharedPreferences =
         await SharedPreferences.getInstance();
@@ -21,6 +24,6 @@ class LoginController extends GetxController {
     await sharedPreferences.setString('token', token);
     loading.value = false;
 
-    Get.to(const EastBuffetScreen());
+    Get.to(const EventTypesScreen());
   }
 }
