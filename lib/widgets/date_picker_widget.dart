@@ -1,0 +1,32 @@
+import 'package:evenza/controllers/auth/singup_controller.dart';
+import 'package:evenza/widgets/event_res.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+
+class DatePickerWidget extends HookWidget {
+  const DatePickerWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final date = useState<String?>(null);
+    return FormFeildWidget(
+      validationText: 'أدخل تاريخ المناسبة رجاءا',
+      hinttext: 'تاريخ المناسبة',
+      initValue: date.value,
+      icon: GestureDetector(
+        onTap: () async {
+          final d = await showDatePicker(
+            context: context,
+            firstDate: DateTime(1950),
+            lastDate: DateTime(2050),
+          );
+
+          if (d != null) {
+            date.value = d.toDateString();
+          }
+        },
+        child: Icon(Icons.date_range_outlined),
+      ),
+    );
+  }
+}

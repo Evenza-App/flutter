@@ -1,20 +1,26 @@
+import 'package:evenza/controllers/reservation/reservation_controller.dart';
 import 'package:evenza/hooks/events_hook.dart';
+import 'package:evenza/models/event.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
+import 'package:evenza/widgets/date_picker_widget.dart';
+import 'package:evenza/widgets/time_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class EventReservationWidget extends HookWidget {
-  const EventReservationWidget(
-      {super.key,
-      required this.title,
-      // required this.content,
-      required this.imagebath,
-      required this.name,
-      required this.content});
+  const EventReservationWidget({
+    super.key,
+    required this.title,
+    // required this.content,
+    required this.imagebath,
+    required this.name,
+    required this.content,
+  });
 
   final String title;
   // final Widget content;
@@ -103,119 +109,52 @@ class EventReservationWidget extends HookWidget {
                         ),
                       ],
                     ),
-                    Column(
-                      children: [
-                        const FormFeildWidget(
-                          hinttext: 'تاريخ المناسبة',
-                          icon: Icon(Icons.date_range_outlined),
-                        ),
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 40, left: 2, top: 10, bottom: 10),
-                              child: SizedBox(
-                                width: 150.w,
-                                height: 45.h,
-                                child: TextFormField(
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    icon: const Icon(Icons.av_timer_rounded),
-                                    iconColor: BaseColors.orange,
-                                    border: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: BaseColors.primaryDark),
-                                        borderRadius:
-                                            BorderRadius.circular(30.r)),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: BaseColors.primaryDark),
-                                        borderRadius:
-                                            BorderRadius.circular(30.r)),
-                                    disabledBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: BaseColors.primaryDark),
-                                        borderRadius:
-                                            BorderRadius.circular(30.r)),
-                                    errorBorder: OutlineInputBorder(
-                                        borderSide:
-                                            const BorderSide(color: Colors.red),
-                                        borderRadius:
-                                            BorderRadius.circular(30.r)),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: BaseColors.primaryDark),
-                                        borderRadius:
-                                            BorderRadius.circular(30.r)),
-                                    labelText: 'وقت البدء',
-                                    labelStyle: TextStyle(
-                                        fontSize: 14.sp,
-                                        color:
-                                            const Color.fromARGB(255, 161, 145, 162)),
-                                  ),
+                    Form(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const DatePickerWidget(),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    right: 40, left: 2, top: 10, bottom: 10),
+                                child: SizedBox(
+                                  width: 150.w,
+                                  height: 50.h,
+                                  child: TimePickerWidget(
+                                      validationtext: 'أدخل وقت البدء رجاءا'),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 2, left: 4, top: 10, bottom: 10),
-                              child: SizedBox(
-                                width: 150.w,
-                                height: 45.h,
-                                child: TextFormField(
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    icon: const Icon(Icons.av_timer_sharp),
-                                    iconColor: BaseColors.orange,
-                                    border: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: BaseColors.primaryDark),
-                                        borderRadius:
-                                            BorderRadius.circular(30.r)),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: BaseColors.primaryDark),
-                                        borderRadius:
-                                            BorderRadius.circular(30.r)),
-                                    disabledBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: BaseColors.primaryDark),
-                                        borderRadius:
-                                            BorderRadius.circular(30.r)),
-                                    errorBorder: OutlineInputBorder(
-                                        borderSide:
-                                            const BorderSide(color: Colors.red),
-                                        borderRadius:
-                                            BorderRadius.circular(30.r)),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: BaseColors.primaryDark),
-                                        borderRadius:
-                                            BorderRadius.circular(30.r)),
-                                    labelText: 'وقت الانتهاء',
-                                    labelStyle: TextStyle(
-                                        fontSize: 14.sp,
-                                        color:
-                                            const Color.fromARGB(255, 161, 145, 162)),
-                                  ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    right: 2, left: 4, top: 10, bottom: 10),
+                                child: SizedBox(
+                                  width: 150.w,
+                                  height: 50.h,
+                                  child: TimePickerWidget(
+                                      validationtext:
+                                          'أدخل وقت الانتهاء رجاءا'),
                                 ),
-                              ),
-                            )
-                          ],
-                        ),
-                        const FormFeildWidget(
-                          hinttext: 'عدد الاشخاص',
-                          icon: Icon(Icons.people_rounded),
-                        ),
-                        const FormFeildWidget(
-                            hinttext: 'رابط موقع المكان',
-                            icon: Icon(Icons.location_on_outlined)),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        content,
-                      ],
-                    )
+                              )
+                            ],
+                          ),
+                          const FormFeildWidget(
+                            validationText: 'أدخل عدد الأشخاص رجاءا',
+                            hinttext: 'عدد الاشخاص',
+                            icon: Icon(Icons.people_rounded),
+                          ),
+                          const FormFeildWidget(
+                              validationText: 'أدخل رابط موقع المكان رجاءا',
+                              hinttext: 'رابط موقع المكان',
+                              icon: Icon(Icons.location_on_outlined)),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          content,
+                        ],
+                      ),
+                    ),
                   ])),
                 ]),
               )
@@ -228,11 +167,17 @@ class FormFeildWidget extends StatelessWidget {
     super.key,
     required this.hinttext,
     this.keyboardType,
+    this.initValue,
     required this.icon,
+    required this.validationText,
   });
+
   final String hinttext;
   final TextInputType? keyboardType;
   final Widget icon;
+  final String validationText;
+  final String? initValue;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -241,7 +186,12 @@ class FormFeildWidget extends StatelessWidget {
         width: 300.w,
         height: 50.h,
         child: TextFormField(
+          controller:
+              initValue != null ? TextEditingController(text: initValue) : null,
+          validator:
+              'required'.validate(customMessages: {'required': validationText}),
           keyboardType: keyboardType ?? TextInputType.text,
+          readOnly: initValue != null,
           decoration: InputDecoration(
             icon: icon,
             iconColor: BaseColors.orange,
@@ -261,9 +211,9 @@ class FormFeildWidget extends StatelessWidget {
                 borderSide: const BorderSide(color: BaseColors.primaryDark),
                 borderRadius: BorderRadius.circular(30.r)),
             labelText: hinttext,
-            
             labelStyle: TextStyle(
-                fontSize: 14.sp, color: const Color.fromARGB(255, 161, 145, 162)),
+                fontSize: 14.sp,
+                color: const Color.fromARGB(255, 161, 145, 162)),
           ),
         ),
       ),

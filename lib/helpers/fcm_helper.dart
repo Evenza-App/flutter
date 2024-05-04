@@ -102,7 +102,7 @@ abstract class FcmHelper {
 
   static Future<String?> createToken() async {
     //TODO:: check if it's working on production
-    return await FirebaseMessaging.instance.getToken(vapidKey:  dotenv.env['STRIPE_PUBLISHABLE_KEY']!).then((value) {
+    return await FirebaseMessaging.instance.getToken(vapidKey:  '').then((value) {
       print(value);
       return value;
     });

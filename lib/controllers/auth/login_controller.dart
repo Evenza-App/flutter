@@ -1,3 +1,4 @@
+import 'package:evenza/helpers/fcm_helper.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/services/authentication_service.dart';
 import 'package:get/get.dart';
@@ -13,7 +14,8 @@ class LoginController extends GetxController {
 
   void login() async {
     loading.value = true;
-    final token = await autheticationService.login(email!, password!);
+    final fcmToken = await FcmHelper.createToken();
+    final token = await autheticationService.login(email!, password!, fcmToken!);
 
     final SharedPreferences sharedPreferences =
         await SharedPreferences.getInstance();

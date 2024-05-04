@@ -48,6 +48,7 @@ class FinalBroduct extends StatelessWidget {
           Column(
             children: [
               FormFeildWidget(
+                validationText: 'أدخل عدد الأشخاص رجاءا',
                 hinttext: 'تاريخ المناسبة',
                 icon: Icon(Icons.date_range_outlined),
               ),
@@ -132,10 +133,12 @@ class FinalBroduct extends StatelessWidget {
                 ],
               ),
               const FormFeildWidget(
+                validationText: 'أدخل عدد الأشخاص رجاءا',
                 hinttext: 'عدد الاشخاص',
                 icon: Icon(Icons.people_rounded),
               ),
               const FormFeildWidget(
+                  validationText: 'أدخل عدد الأشخاص رجاءا',
                   hinttext: 'رابط موقع المكان',
                   icon: Icon(Icons.location_on_outlined)),
               SizedBox(

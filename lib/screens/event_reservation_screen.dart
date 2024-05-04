@@ -27,32 +27,41 @@ class EventReservationScreen extends HookWidget {
       title: event.name,
       imagebath: event.image,
       name: event.name,
-      content: TextButton(
-        onPressed: () {
-          Get.to(DecorationScreen(event: event));
-        },
-        child: Container(
-          width: 250.73.w,
-          height: 46.h,
-          decoration: ShapeDecoration(
-            color: BaseColors.primary,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(19.r),
-            ),
-          ),
-          child: Center(
-            child: Text(
-              'المرحلة التالية',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16.sp,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+      content: Container(
+        width: 250.73.w,
+        height: 46.h,
+        decoration: ShapeDecoration(
+          color: BaseColors.primary,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(19.r),
           ),
         ),
+        child: Builder(builder: (context) {
+          return Center(
+            child: TextButton(
+              onPressed: () {
+                const BaseLoading(
+                  color: BaseColors.primary,
+                );
+                if (Form.of(context).validate()) {
+                  Form.of(context).save();
+
+                  Get.to(DecorationScreen(event: event));
+                }
+              },
+              child: Text(
+                'المرحلة التالية',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.sp,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          );
+        }),
       ),
     );
   }

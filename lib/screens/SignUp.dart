@@ -193,7 +193,8 @@ class PasswordField extends HookWidget {
       onSaved: onSaved,
       validator: 'required|min:8|max:25'.validate(customMessages: {
         'min': 'الرجاء ادخال كلمة مرور تتكون من 5 محارف على الاقل',
-        'max': 'الرجاء ادخال كلمة مرور تتكون من 25 محارف على الاكثر'
+        'max': 'الرجاء ادخال كلمة مرور تتكون من 25 محارف على الاكثر',
+        'required': ' أدخل كلمة المرور رجاءا ',
       }),
       decoration: InputDecoration(
           suffixIcon: GestureDetector(

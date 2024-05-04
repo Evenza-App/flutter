@@ -21,9 +21,11 @@ class DecorationScreen extends HookWidget {
     final (loading, event) = useEventDetails(id: this.event.id);
     final ObjectRef(value: ReservationController reservationController) =
         useRef(Get.find<ReservationController>());
+
     return DecorationWidget(
       title: this.event.name,
       imagePath: BaseImages.decorbirth,
+      onChooseImage: (image) => reservationController.reservation.image = image,
       content: Padding(
         padding: EdgeInsets.only(left: 30.h, right: 30.h),
         child: loading

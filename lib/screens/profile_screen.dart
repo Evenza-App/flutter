@@ -19,26 +19,32 @@ class ProfileScreen extends HookWidget {
       content: Column(
         children: [
           FormFeildWidget(
+            validationText: 'أدخل عدد الأشخاص رجاءا',
             hinttext: profile.name,
             icon: Icon(Icons.person),
           ),
           FormFeildWidget(
+            validationText: 'أدخل عدد الأشخاص رجاءا',
             hinttext: 'البريد الالكتروني',
             icon: Icon(Icons.email_rounded),
           ),
           FormFeildWidget(
+            validationText: 'أدخل عدد الأشخاص رجاءا',
             hinttext: '',
             icon: Icon(Icons.phone_android_outlined),
           ),
           const FormFeildWidget(
+            validationText: 'أدخل عدد الأشخاص رجاءا',
             hinttext: 'عيد الميلاد',
             icon: Icon(Icons.date_range_rounded),
           ),
           const FormFeildWidget(
+            validationText: 'أدخل عدد الأشخاص رجاءا',
             hinttext: 'العنوان ',
             icon: Icon(Icons.person),
           ),
           const FormFeildWidget(
+            validationText: 'أدخل عدد الأشخاص رجاءا',
             hinttext: 'كلمة سر جديدة',
             icon: Icon(Icons.password_rounded),
           ),
