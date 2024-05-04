@@ -1,5 +1,6 @@
 import 'package:evenza/helpers/api/api_helper.dart';
 import 'package:evenza/styles/color.dart';
+import 'package:evenza/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,9 +26,9 @@ class EventWidget extends StatelessWidget {
       height: 130.h,
       decoration: ShapeDecoration(
         image: DecorationImage(
-          image: NetworkImage(image, headers: ApiHelper.ngrokHeaders),
+          image: CustomImageWidget.provider(image),
           // image: AssetImage('assets/projects/project2.png'),
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
         shape: RoundedRectangleBorder(
           //   side: BorderSide(width: 1.w, color: Color(0xFF7A7A7A)),

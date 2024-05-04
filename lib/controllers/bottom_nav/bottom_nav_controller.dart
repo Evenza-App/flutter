@@ -1,3 +1,4 @@
+import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/screens/home.dart';
 import 'package:evenza/screens/my_evevt.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class BottomNavController extends GetxController {
 
   static const _screens = [
     Home(),
-    Home(),
+    EventTypesScreen(),
     MyEvent(),
     MyEvent(),
   ];

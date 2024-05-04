@@ -109,14 +109,17 @@ class Home extends HookWidget {
                       : Row(
                           children: home.latestevents
                               .map(
-                                (home) => EventWidget(
-                                  title: '',
-                                  date: '',
-                                  location: '',
-                                  image: home.image,
-                                  onNext: () {
-                                    Get.to(const Setting());
-                                  },
+                                (home) => Padding(
+                                  padding: EdgeInsets.only(right: 10.w),
+                                  child: EventWidget(
+                                    title: '',
+                                    date: '',
+                                    location: '',
+                                    image: home.image,
+                                    onNext: () {
+                                      Get.to(const Setting());
+                                    },
+                                  ),
                                 ),
                               )
                               .toList(),
@@ -200,14 +203,17 @@ class Home extends HookWidget {
                         : Row(
                             children: home.trends
                                 .map(
-                                  (home) => EventWidget(
-                                    title: '',
-                                    date: '',
-                                    location: '',
-                                    image: home.image,
-                                    onNext: () {
-                                      Get.to(const Setting());
-                                    },
+                                  (home) => Padding(
+                                    padding: EdgeInsets.only(right: 10.w),
+                                    child: EventWidget(
+                                      title: '',
+                                      date: '',
+                                      location: '',
+                                      image: home.image,
+                                      onNext: () {
+                                        Get.to(const Setting());
+                                      },
+                                    ),
                                   ),
                                 )
                                 .toList(),

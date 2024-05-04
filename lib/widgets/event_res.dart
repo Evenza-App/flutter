@@ -2,6 +2,7 @@ import 'package:evenza/hooks/events_hook.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
+import 'package:evenza/widgets/custom_image_widget.dart';
 import 'package:evenza/widgets/date_picker_widget.dart';
 import 'package:evenza/widgets/time_picker_widget.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +77,7 @@ class EventReservationWidget extends HookWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14.r),
                             color: BaseColors.purple),
-                        child: Image.asset(imagebath),
+                        child: CustomImageWidget(imageUrl: imagebath),
                       ),
                     ),
                     Row(
