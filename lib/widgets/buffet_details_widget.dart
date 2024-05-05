@@ -1,16 +1,19 @@
 import 'package:evenza/controllers/reservation/reservation_controller.dart';
+import 'package:evenza/models/Buffet_detail.dart';
+import 'package:evenza/models/buffet.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class BuffetDetailsWidget extends StatelessWidget {
+class BuffetDetailsWidget extends HookWidget {
   const BuffetDetailsWidget(
       {super.key,
       required this.imagePath,
       required this.onback,
       required this.title,
+      required this.type,
       required this.price,
       required this.ingredient,
       //  required this.onback,
@@ -21,6 +24,7 @@ class BuffetDetailsWidget extends StatelessWidget {
   final String price;
   final String ingredient;
   final String title;
+  final String type;
 
   final void Function() onback;
 
@@ -266,11 +270,11 @@ class BuffetDetailsWidget extends StatelessWidget {
                         topRight: Radius.circular(19.r),
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Column(
-                        children: [
-                          Text(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 200.h),
+                          child: Text(
                             title,
                             style: TextStyle(
                               color: const Color(0xEDFFB183),
@@ -279,113 +283,124 @@ class BuffetDetailsWidget extends StatelessWidget {
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          Text(
-                            'الأطباق المتوافرة في البوفيه :',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15.sp,
-                              fontFamily: 'Cairo',
-                              fontWeight: FontWeight.w600,
-                              height: 0,
-                            ),
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(
+                          'الأطباق المتوافرة في البوفيه :',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.sp,
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.w600,
+                            height: 0,
                           ),
-                          Text(
-                            ingredient,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 13.sp,
-                              fontFamily: 'Cairo',
-                              fontWeight: FontWeight.w600,
-                              height: 0,
-                              letterSpacing: -0.33,
-                            ),
+                        ),
+                        Text(
+                          ingredient,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 13.sp,
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.w600,
+                            height: 0,
+                            letterSpacing: -0.33,
                           ),
-                          // Text(
-                          //   'الأطباق الجانبية :',
-                          //   textAlign: TextAlign.center,
-                          //   style: TextStyle(
-                          //     color: Colors.black,
-                          //     fontSize: 13,
-                          //     fontFamily: 'Cairo',
-                          //     fontWeight: FontWeight.w600,
-                          //     height: 0,
-                          //     letterSpacing: -0.33,
-                          //   ),
-                          // ),
-                          // Text(
-                          //   'المقبلات :',
-                          //   textAlign: TextAlign.center,
-                          //   style: TextStyle(
-                          //     color: Colors.black,
-                          //     fontSize: 13,
-                          //     fontFamily: 'Cairo',
-                          //     fontWeight: FontWeight.w600,
-                          //     height: 0,
-                          //     letterSpacing: -0.33,
-                          //   ),
-                          // ),
-                          Text(
-                            'السعر:',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15.sp,
-                              fontFamily: 'Cairo',
-                              fontWeight: FontWeight.w600,
-                              // height: 0,
-                              // letterSpacing: -0.33,
-                            ),
+                        ),
+                        // Text(
+                        //   'الأطباق الجانبية :',
+                        //   textAlign: TextAlign.center,
+                        //   style: TextStyle(
+                        //     color: Colors.black,
+                        //     fontSize: 13,
+                        //     fontFamily: 'Cairo',
+                        //     fontWeight: FontWeight.w600,
+                        //     height: 0,
+                        //     letterSpacing: -0.33,
+                        //   ),
+                        // ),
+                        // Text(
+                        //   'المقبلات :',
+                        //   textAlign: TextAlign.center,
+                        //   style: TextStyle(
+                        //     color: Colors.black,
+                        //     fontSize: 13,
+                        //     fontFamily: 'Cairo',
+                        //     fontWeight: FontWeight.w600,
+                        //     height: 0,
+                        //     letterSpacing: -0.33,
+                        //   ),
+                        // ),
+                        Text(
+                          'السعر:',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.sp,
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.w600,
+                            // height: 0,
+                            // letterSpacing: -0.33,
                           ),
-                          Text(
-                            price,
-                            style: TextStyle(
-                              color: const Color(0xFFFF8C8D),
-                              fontSize: 14.sp,
-                              fontFamily: 'Cairo',
-                              fontWeight: FontWeight.w700,
-                              height: 0,
-                            ),
+                        ),
+                        Text(
+                          price,
+                          style: TextStyle(
+                            color: const Color(0xFFFF8C8D),
+                            fontSize: 14.sp,
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.w700,
+                            height: 0,
                           ),
-                          TextButton(
-                            onPressed: () {
-                              reservationController.reservation.buffetIds
-                                  .add(id);
-                              Get.off(());
-                            },
-                            child: SizedBox(
-                              width: 213,
-                              height: 46,
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    width: 200.73,
-                                    height: 46,
-                                    decoration: ShapeDecoration(
-                                      color: BaseColors.orange,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(19),
-                                      ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            final buffet = Buffet(
+                              id: id,
+                              name: title,
+                              price: int.parse(price),
+                              image: imagePath,
+                              type: type,
+                            );
+                            print(reservationController.reservation.buffets);
+                            reservationController.reservation.buffets
+                                .add(buffet);
+                            Get.off(());
+                          },
+                          child: SizedBox(
+                            width: 213,
+                            height: 46,
+                            child: Stack(
+                              children: [
+                                Container(
+                                  width: 200.73,
+                                  height: 46,
+                                  decoration: ShapeDecoration(
+                                    color: BaseColors.orange,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(19),
                                     ),
                                   ),
-                                  Center(
-                                    child: Text(
-                                      'اختيار البوفيه',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16.sp,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                ),
+                                Center(
+                                  child: Text(
+                                    'اختيار البوفيه',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16.sp,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   )),
             ])));

@@ -47,16 +47,18 @@ class BuffetWidget extends StatelessWidget {
             Positioned(
               left: 88,
               top: 200,
-              child: Text(
-                name,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14.h,
-                  fontFamily: 'Cairo',
-                  fontWeight: FontWeight.w600,
-                  height: 0,
+              child: Center(
+                child: Text(
+                  name,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14.h,
+                    fontFamily: 'Cairo',
+                    fontWeight: FontWeight.w600,
+                    height: 0,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
             ),
             Positioned(

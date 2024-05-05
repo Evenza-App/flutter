@@ -42,7 +42,7 @@ class DecorationScreen extends HookWidget {
                         isRequired: detail.isrequired,
                         onSaved: (value) => reservationController
                             .reservation.details
-                            .add({detail.id: value}),
+                            .add({detail: value}),
                       );
                     }
                     if (detail.type == 'number') {
@@ -52,7 +52,7 @@ class DecorationScreen extends HookWidget {
                         keyboardType: TextInputType.number,
                         onSaved: (value) => reservationController
                             .reservation.details
-                            .add({detail.id: value}),
+                            .add({detail: value}),
                       );
                     }
                     return SelectRadio(
@@ -60,7 +60,7 @@ class DecorationScreen extends HookWidget {
                       options: detail.options,
                       onChanged: (value) => reservationController
                           .reservation.details
-                          .add({detail.id: value}),
+                          .add({detail: value}),
                     );
                   }).toList(),
                 ),
@@ -95,10 +95,8 @@ class DecorationTextFormField extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: TextFormField(
           onSaved: onSaved,
-          validator: 'required|details'.validate(customMessages: {
-            'required': 'أدخل بياناتك هنا رجاءا',
-            'details': 'نسيت ان تدخل بياناتك هنا'
-          }),
+          validator: 'required'
+              .validate(customMessages: {'required': 'أدخل بياناتك هنا رجاءا'}),
           keyboardType: keyboardType ?? TextInputType.text,
           decoration: InputDecoration(
             border: OutlineInputBorder(

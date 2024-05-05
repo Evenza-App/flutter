@@ -24,6 +24,7 @@ class Buffet {
         id: id,
         image: image,
         name: name,
+        type: type,
         price: price.toDouble(),
         ingredients: '',
       );

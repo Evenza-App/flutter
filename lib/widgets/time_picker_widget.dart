@@ -5,19 +5,31 @@ import 'package:flutter_laravel_form_validation/flutter_laravel_form_validation.
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TimePickerWidget extends HookWidget {
-  const TimePickerWidget({super.key, required this.validationtext});
+  const TimePickerWidget({
+    super.key,
+    required this.validationtext,
+    required this.onSaved,
+    required this.text,
+  });
   final String validationtext;
+  final void Function(DateTime?) onSaved;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
-    final time = useState<String?>(null);
+    final time = useState<TimeOfDay?>(null);
     return TextFormField(
+      onSaved: (_) => onSaved(DateTime.now().copyWith(
+        hour: time.value!.hour,
+        minute: time.value!.minute,
+      )),
       validator:
           'required'.validate(customMessages: {'required': validationtext}),
       keyboardType: TextInputType.number,
       //initialValue: time.value,
-      controller:
-          time.value != null ? TextEditingController(text: time.value) : null,
+      controller: time.value != null
+          ? TextEditingController(text: time.value?.format(context))
+          : null,
       decoration: InputDecoration(
         icon: GestureDetector(
           child: const Icon(Icons.av_timer_sharp),
@@ -28,7 +40,7 @@ class TimePickerWidget extends HookWidget {
             );
 
             if (t != null) {
-              time.value = t.format(context);
+              time.value = t;
             }
           },
         ),
@@ -48,7 +60,7 @@ class TimePickerWidget extends HookWidget {
         enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: BaseColors.primaryDark),
             borderRadius: BorderRadius.circular(30.r)),
-        labelText: 'وقت الانتهاء',
+        labelText: text,
         labelStyle: TextStyle(
             fontSize: 14.sp, color: const Color.fromARGB(255, 161, 145, 162)),
       ),

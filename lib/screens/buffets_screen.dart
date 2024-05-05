@@ -221,6 +221,9 @@ class BuffetsScreen extends HookWidget {
                 //     ],
                 //   ),
                 // ),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Column(
                   children: [
                     Padding(

@@ -1,15 +1,20 @@
 import 'dart:io';
 
+import 'package:evenza/models/buffet.dart';
+import 'package:evenza/models/event.dart';
+import 'package:evenza/models/event_detail.dart';
+import 'package:evenza/models/photographer.dart';
+
 class Reservation {
   DateTime startTime;
   DateTime endTime;
   DateTime date;
   int numberOfPeople;
   String location;
-  int eventId;
-  int photographerId;
-  List<int> buffetIds;
-  List<Map<int, dynamic>> details;
+  Event event;
+  Photographer? photographer;
+  List<Buffet> buffets;
+  List<Map<EventDetail, dynamic>> details;
   File? image;
 
   Reservation({
@@ -18,9 +23,9 @@ class Reservation {
     required this.date,
     required this.numberOfPeople,
     required this.location,
-    required this.eventId,
-    required this.photographerId,
-    required this.buffetIds,
+    required this.event,
+    this.photographer,
+    this.buffets = const [],
     required this.details,
     this.image,
   });
