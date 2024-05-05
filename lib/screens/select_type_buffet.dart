@@ -47,7 +47,7 @@ class SelectTypeBuffet extends HookWidget {
                         imagePath: category.image,
                         
                         ontap: () {
-                          Get.to(BuffetsScreen(category: category,));
+                          Get.to(BuffetsScreen(category: category));
                         },
                         
                       ))

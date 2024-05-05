@@ -83,44 +83,7 @@ class DecorationWidget extends StatelessWidget {
                     height: 20.h,
                   ),
                   content,
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Builder(builder: (context) {
-                    return TextButton(
-                      onPressed: () {
-                        const BaseLoading(
-                          color: BaseColors.primary,
-                        );
-                        if (Form.of(context).validate()) {
-                          Form.of(context).save();
-                          Get.to(const SelectTypeBuffet());
-                        }
-                      },
-                      child: Container(
-                        width: 250.73.w,
-                        height: 46.h,
-                        decoration: ShapeDecoration(
-                          color: BaseColors.primaryDark,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(19.r),
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'المرحلة التالية',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.sp,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }),
+                 
                 ],
               ),
             ),

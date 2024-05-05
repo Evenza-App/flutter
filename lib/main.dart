@@ -4,8 +4,10 @@ import 'package:evenza/screens/event_reservation_screen.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/screens/final_broduct_screen.dart';
 import 'package:evenza/screens/login.dart';
+import 'package:evenza/screens/profile_screen.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/screens/splash_screen.dart';
+import 'package:evenza/widgets/text_form_data.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           locale: DevicePreview.locale(context),
           builder: DevicePreview.appBuilder,
-          home: SelectTypeBuffet()),
+          home: const EventTypesScreen()),
     );
   }
 }
