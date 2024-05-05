@@ -1,6 +1,3 @@
-import 'package:evenza/helpers/api/api_helper.dart';
-import 'package:evenza/models/event_detail.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
 
 class Profile {
   final int id;

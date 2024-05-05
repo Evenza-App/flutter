@@ -1,5 +1,4 @@
 import 'package:evenza/helpers/api/api_helper.dart';
-import 'package:evenza/models/event.dart';
 import 'package:evenza/models/profile.dart';
 
 class ProfileService {

@@ -25,7 +25,7 @@ class DatePickerWidget extends HookWidget {
             date.value = d.toDateString();
           }
         },
-        child: Icon(Icons.date_range_outlined),
+        child: const Icon(Icons.date_range_outlined),
       ),
     );
   }

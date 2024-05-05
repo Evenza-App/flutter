@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -102,8 +101,12 @@ abstract class FcmHelper {
 
   static Future<String?> createToken() async {
     //TODO:: check if it's working on production
-    return await FirebaseMessaging.instance.getToken(vapidKey:  '').then((value) {
-      print(value);
+    return await FirebaseMessaging.instance
+        .getToken(
+            vapidKey:
+                'BKK-oODoP8dtH0QjV79XGcBnA5RBMK2-QY8P5tv2rjxzhbLTKO2_7x1HJU3cB6zroLzqRHaS8y3VgZUMlfwTmNg')
+        .then((value) {
+      print('fcm is $value');
       return value;
     });
   }

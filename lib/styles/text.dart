@@ -24,6 +24,12 @@ abstract class BaseTextStyles {
     fontWeight: FontWeight.w700,
     letterSpacing: 8.sp,
   );
+  
+  static final settingfront = GoogleFonts.cairo(
+    color: BaseColors.black,
+    fontSize: 19.sp,
+  );
+
   static final font = GoogleFonts.cairo(
     color: BaseColors.black,
     fontSize: 20.sp,
@@ -40,6 +46,7 @@ abstract class BaseTextStyles {
   static final finalbro = GoogleFonts.cairo(
     color: BaseColors.black,
     fontSize: 27.sp, fontWeight: FontWeight.bold,
+    
 
     //TODO:: fix shadow
   );

@@ -15,7 +15,8 @@ class LoginController extends GetxController {
   void login() async {
     loading.value = true;
     final fcmToken = await FcmHelper.createToken();
-    final token = await autheticationService.login(email!, password!, fcmToken!);
+    final token =
+        await autheticationService.login(email!, password!, fcmToken!);
 
     final SharedPreferences sharedPreferences =
         await SharedPreferences.getInstance();

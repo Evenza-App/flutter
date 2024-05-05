@@ -1,4 +1,5 @@
 import 'package:evenza/helpers/api/api_helper.dart';
+import 'package:evenza/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +26,7 @@ class TypesWidget extends StatelessWidget {
       margin: EdgeInsets.only(top: 10.h),
       decoration: ShapeDecoration(
         image: DecorationImage(
-          image: NetworkImage(imagePath, headers: ApiHelper.ngrokHeaders),
+          image: CustomImageWidget.provider(imagePath),
           fit: BoxFit.fill,
         ),
         shape: RoundedRectangleBorder(

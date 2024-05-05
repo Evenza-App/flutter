@@ -40,6 +40,7 @@ class BackGroundWidget extends StatelessWidget {
                             child: const Icon(
                               Icons.arrow_back_ios_new,
                               textDirection: TextDirection.ltr,
+                              
                             ))),
                   ),
                   Center(

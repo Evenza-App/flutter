@@ -8,13 +8,14 @@ import 'package:evenza/screens/profile_screen.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/screens/splash_screen.dart';
 import 'package:evenza/widgets/text_form_data.dart';
+import 'package:evenza/helpers/fcm_helper.dart';
+import 'package:evenza/screens/home2.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +26,8 @@ void main() async {
 
   // await dotenv.load(fileName: ".env");
 
-  // Stripe.publishableKey = dotenv.env['STRIPE_PUBLISHABLE_KEY']!;
+  // Stripe.publishableKey =
+  //     'pk_test_51PBXH2RxkZxt0A5caJkYQAuBC09eEtyRRSOzEchcoj41QqyVkRgEF3Lw3FOyB7JFNVr1lHTQ09LlSz0E0FeYyIWc00POmpI91y';
 
   runApp(
     DevicePreview(
@@ -35,21 +37,30 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MyApp extends HookWidget {
+  const MyApp({
+    super.key,
+  });
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    useEffect(() {
+      FcmHelper.init(context);
+      return null;
+    }, const []);
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) => GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          locale: DevicePreview.locale(context),
-          builder: DevicePreview.appBuilder,
-          home: const EventTypesScreen()),
+        debugShowCheckedModeBanner: false,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+        home: const HomeScreen(),
+      ),
     );
   }
 }
+// EventWidget(
+//       title:'' ,location: '',date: '',image: '',
+//         ),
