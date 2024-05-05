@@ -6,7 +6,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 class ApiHelper {
   late final Dio dio;
 
-  static const String domain = 'https://abe8-169-150-218-4.ngrok-free.app';
+  static const String domain = 'https://10f8-185-107-80-116.ngrok-free.app';
 
   static const String _baseUrl = '$domain/api/';
 

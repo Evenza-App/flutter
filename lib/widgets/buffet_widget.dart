@@ -2,6 +2,8 @@ import 'package:evenza/helpers/api/api_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'custom_image_widget.dart';
+
 class BuffetWidget extends StatelessWidget {
   const BuffetWidget({
     super.key,
@@ -69,8 +71,7 @@ class BuffetWidget extends StatelessWidget {
                   height: 140.h,
                   decoration: ShapeDecoration(
                     image: DecorationImage(
-                      image:
-                          NetworkImage(image, headers: ApiHelper.ngrokHeaders),
+                      image: CustomImageWidget.provider(image),
                       fit: BoxFit.cover,
                     ),
                     shape: RoundedRectangleBorder(

@@ -36,6 +36,8 @@ class BuffetDetailsWidget extends StatelessWidget {
               const SizedBox(
                 height: double.infinity,
               ),
+              
+        
               Image.asset(
                 imagePath,
                 fit: BoxFit.cover,

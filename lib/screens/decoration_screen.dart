@@ -1,3 +1,4 @@
+import 'package:evenza/helpers/stripe_helper.dart';
 import 'package:evenza/hooks/events_details_hook.dart';
 import 'package:evenza/models/event.dart';
 import 'package:evenza/styles/color.dart';
@@ -25,7 +26,9 @@ class DecorationScreen extends HookWidget {
     return DecorationWidget(
       title: this.event.name,
       imagePath: BaseImages.decorbirth,
-      onChooseImage: (image) => reservationController.reservation.image = image,
+      onChooseImage: (image) {
+        reservationController.reservation.image = image;
+      },
       content: Padding(
         padding: EdgeInsets.only(left: 30.h, right: 30.h),
         child: loading
