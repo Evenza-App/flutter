@@ -1,3 +1,4 @@
+import 'package:evenza/controllers/reservation/reservation_controller.dart';
 import 'package:evenza/hooks/events_hook.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/styles/color.dart';
@@ -30,6 +31,8 @@ class EventReservationWidget extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final (loading, events) = useEvents();
+    final ObjectRef(value: ReservationController reservationController) =
+        useRef(Get.find<ReservationController>());
     return Scaffold(
         body: Directionality(
             textDirection: TextDirection.rtl,
@@ -112,7 +115,10 @@ class EventReservationWidget extends HookWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const DatePickerWidget(),
+                          DatePickerWidget(
+                            onSaved: (date) => reservationController
+                                .reservation.date = DateTime.parse(date!),
+                          ),
                           Row(
                             children: [
                               Padding(
@@ -121,7 +127,10 @@ class EventReservationWidget extends HookWidget {
                                 child: SizedBox(
                                   width: 150.w,
                                   height: 50.h,
-                                  child: const TimePickerWidget(
+                                  child: TimePickerWidget(
+                                      text: 'وقت البدء',
+                                      onSaved: (time) => reservationController
+                                          .reservation.startTime = time!,
                                       validationtext: 'أدخل وقت البدء رجاءا'),
                                 ),
                               ),
@@ -131,19 +140,28 @@ class EventReservationWidget extends HookWidget {
                                 child: SizedBox(
                                   width: 150.w,
                                   height: 50.h,
-                                  child: const TimePickerWidget(
+                                  child: TimePickerWidget(
+                                      text: 'وقت الانتهاء',
+                                      onSaved: (time) => reservationController
+                                          .reservation.endTime = time!,
                                       validationtext:
                                           'أدخل وقت الانتهاء رجاءا'),
                                 ),
                               )
                             ],
                           ),
-                          const FormFeildWidget(
+                          FormFeildWidget(
+                            keyboardType: TextInputType.number,
+                            onSaved: (number) => reservationController
+                                .reservation
+                                .numberOfPeople = int.parse(number!),
                             validationText: 'أدخل عدد الأشخاص رجاءا',
                             hinttext: 'عدد الاشخاص',
                             icon: Icon(Icons.people_rounded),
                           ),
-                          const FormFeildWidget(
+                          FormFeildWidget(
+                              onSaved: (location) => reservationController
+                                  .reservation.location = location!,
                               validationText: 'أدخل رابط موقع المكان رجاءا',
                               hinttext: 'رابط موقع المكان',
                               icon: Icon(Icons.location_on_outlined)),
@@ -169,6 +187,7 @@ class FormFeildWidget extends StatelessWidget {
     this.initValue,
     required this.icon,
     required this.validationText,
+    required this.onSaved,
   });
 
   final String hinttext;
@@ -176,7 +195,7 @@ class FormFeildWidget extends StatelessWidget {
   final Widget icon;
   final String validationText;
   final String? initValue;
-
+  final void Function(String?) onSaved;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -185,6 +204,7 @@ class FormFeildWidget extends StatelessWidget {
         width: 300.w,
         height: 50.h,
         child: TextFormField(
+          onSaved: onSaved,
           controller:
               initValue != null ? TextEditingController(text: initValue) : null,
           validator:

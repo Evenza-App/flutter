@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:evenza/controllers/reservation/reservation_controller.dart';
+import 'package:evenza/models/event.dart';
+import 'package:evenza/screens/event_reservation_screen.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/widgets/base_loading.dart';
@@ -19,6 +22,7 @@ class DecorationWidget extends StatelessWidget {
     required this.content,
     required this.onChooseImage,
   });
+
   final String imagePath;
   final String title;
 
@@ -83,44 +87,45 @@ class DecorationWidget extends StatelessWidget {
                     height: 20.h,
                   ),
                   content,
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Builder(builder: (context) {
-                    return TextButton(
-                      onPressed: () {
-                        const BaseLoading(
-                          color: BaseColors.primary,
-                        );
-                        if (Form.of(context).validate()) {
-                          Form.of(context).save();
-                          Get.to(const SelectTypeBuffet());
-                        }
-                      },
-                      child: Container(
-                        width: 250.73.w,
-                        height: 46.h,
-                        decoration: ShapeDecoration(
-                          color: BaseColors.primaryDark,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(19.r),
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'المرحلة التالية',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.sp,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10.h),
+                    child: Container(
+                      width: 250.73.w,
+                      height: 46.h,
+                      decoration: ShapeDecoration(
+                        color: BaseColors.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(19.r),
                         ),
                       ),
-                    );
-                  }),
+                      child: Builder(builder: (context) {
+                        return Center(
+                          child: TextButton(
+                            onPressed: () {
+                              const BaseLoading(
+                                color: BaseColors.primary,
+                              );
+                              if (Form.of(context).validate()) {
+                                Form.of(context).save();
+
+                                Get.to(SelectTypeBuffet());
+                              }
+                            },
+                            child: Text(
+                              'المرحلة التالية',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.sp,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
                 ],
               ),
             ),

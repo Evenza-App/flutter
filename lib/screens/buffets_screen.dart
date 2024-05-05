@@ -1,5 +1,9 @@
+import 'package:evenza/controllers/reservation/reservation_controller.dart';
+import 'package:evenza/hooks/buffets_details_hook.dart';
 import 'package:evenza/hooks/buffets_hook.dart';
+import 'package:evenza/models/Buffet_detail.dart';
 import 'package:evenza/models/category.dart';
+import 'package:evenza/screens/buffet_details.screen.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
@@ -217,7 +221,10 @@ class BuffetsScreen extends HookWidget {
                 //     ],
                 //   ),
                 // ),
-                Row(
+                SizedBox(
+                  height: 20.h,
+                ),
+                Column(
                   children: [
                     Padding(
                       padding: EdgeInsets.only(right: 18.h, bottom: 10.h),
@@ -233,7 +240,7 @@ class BuffetsScreen extends HookWidget {
                       ),
                     ),
                     SizedBox(
-                        height: 400.h,
+                        height: 600.h,
                         child: SingleChildScrollView(
                           child: Column(
                             children: buffets
@@ -241,8 +248,8 @@ class BuffetsScreen extends HookWidget {
                                       title: buffet.type,
                                       price: buffet.price.toString(),
                                       ontap: () {
-                                        Get.to(BuffetsScreen(
-                                          category: category,
+                                        Get.to(BuffetDetailsScreen(
+                                          buffetDetail: buffet.toBuffetDetail(),
                                         ));
                                       },
                                       name: buffet.name,

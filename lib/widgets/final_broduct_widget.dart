@@ -39,7 +39,7 @@ class FinalBroductWidget extends StatelessWidget {
                   title,
                   style: BaseTextStyles.finalbro,
                 ),
-                content, SizedBox(height: 20.h),
+                content, SizedBox(height: 10.h),
                 TextButton(
                   onPressed: () {},
                   child: Container(

@@ -1,4 +1,5 @@
 import 'package:evenza/helpers/api/api_helper.dart';
+import 'package:evenza/models/Buffet_detail.dart';
 
 class Buffet {
   final int id;
@@ -19,6 +20,15 @@ class Buffet {
     required this.type,
   });
 
+  BuffetDetail toBuffetDetail() => BuffetDetail(
+        id: id,
+        image: image,
+        name: name,
+        type: type,
+        price: price.toDouble(),
+        ingredients: '',
+      );
+
   factory Buffet.fromJson(Map<String, dynamic> data) {
     final id = int.parse(data['id'].toString());
     final name = data['name'];
@@ -26,7 +36,7 @@ class Buffet {
         .toString()
         .replaceFirst('http://localhost:8000', ApiHelper.domain);
     final type = data['type'];
-    final price=int.parse(data['price'].toString());
+    final price = int.parse(data['price'].toString());
     // final details = data['details'] != null
     //     ? (data['details'] as List)
     //         .map((detail) => EventDetail.fromJson(detail))

@@ -1,5 +1,13 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
+import 'package:evenza/screens/event_reservation_screen.dart';
+import 'package:evenza/screens/event_types_screen.dart';
+import 'package:evenza/screens/final_broduct_screen.dart';
+import 'package:evenza/screens/login.dart';
+import 'package:evenza/screens/profile_screen.dart';
+import 'package:evenza/screens/select_type_buffet.dart';
+import 'package:evenza/screens/splash_screen.dart';
+import 'package:evenza/widgets/text_form_data.dart';
 import 'package:evenza/helpers/fcm_helper.dart';
 import 'package:evenza/screens/home2.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -49,7 +57,7 @@ class MyApp extends HookWidget {
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: const HomeScreen(),
+        home: const EventTypesScreen(),
       ),
     );
   }

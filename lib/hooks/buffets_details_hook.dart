@@ -24,6 +24,7 @@ class _BuffetDetailsHookState
   BuffetDetail buffetDetail = BuffetDetail(
       id: 0,
       name: 'name',
+      type: '',
       ingredients: 'ingredients',
       price: 0,
       image: 'image');

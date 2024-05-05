@@ -5,8 +5,9 @@ import 'package:evenza/models/buffet.dart';
 class BuffetService {
   final ApiHelper apiHelper = ApiHelper();
   Future<BuffetDetail> getbuffetdetails(int id) async {
-    final response = await apiHelper.dio.get('buffets/$id');
-    return BuffetDetail.fromJson ((response.data as Map<String, dynamic>)['data']);
+    final response = await apiHelper.dio.get('buffet/$id');
+    return BuffetDetail.fromJson(
+        (response.data as Map<String, dynamic>)['data']);
   }
 
   Future<List<Buffet>> getAll(int id) async {

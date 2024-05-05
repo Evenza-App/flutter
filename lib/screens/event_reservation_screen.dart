@@ -1,5 +1,6 @@
 import 'package:evenza/models/event.dart';
 import 'package:evenza/screens/decoration_screen.dart';
+import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/widgets/base_loading.dart';
 import 'package:evenza/widgets/event_res.dart';
@@ -19,7 +20,7 @@ class EventReservationScreen extends HookWidget {
     useEffect(() {
       final ReservationController reservationController =
           Get.put(ReservationController());
-      reservationController.reservation.eventId = event.id;
+      reservationController.reservation.event = event;
       return null;
     }, const []);
 
@@ -46,7 +47,9 @@ class EventReservationScreen extends HookWidget {
                 if (Form.of(context).validate()) {
                   Form.of(context).save();
 
-                  Get.to(DecorationScreen(event: event));
+                  Get.to(DecorationScreen(
+                    event: event,
+                  ));
                 }
               },
               child: Text(
