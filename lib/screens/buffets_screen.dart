@@ -4,6 +4,7 @@ import 'package:evenza/hooks/buffets_hook.dart';
 import 'package:evenza/models/Buffet_detail.dart';
 import 'package:evenza/models/category.dart';
 import 'package:evenza/screens/buffet_details.screen.dart';
+import 'package:evenza/screens/select_photographer.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
@@ -25,6 +26,10 @@ class BuffetsScreen extends HookWidget {
     final (loading, buffets) = useBuffet(id: category.id);
 
     return BackGroundWidget(
+        bottomNavBar: TextButton(
+          child: Text('تخطي'),
+          onPressed: () => Get.to(SelectPhotographer()),
+        ),
         title: category.name,
         onback: () => Get.off(const SelectTypeBuffet()),
         content: Padding(
@@ -227,7 +232,7 @@ class BuffetsScreen extends HookWidget {
                 Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(right: 18.h, bottom: 10.h),
+                      padding: EdgeInsets.only(bottom: 10.h),
                       child: Text(
                         'مقترحات',
                         textAlign: TextAlign.start,

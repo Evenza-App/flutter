@@ -1,5 +1,6 @@
 import 'package:evenza/helpers/fcm_helper.dart';
 import 'package:evenza/screens/event_types_screen.dart';
+import 'package:evenza/screens/home2.dart';
 import 'package:evenza/services/authentication_service.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -30,6 +31,6 @@ class SingupController extends GetxController {
     await sharedPreferences.setString('token', token);
     loading.value = false;
 
-    Get.to(const EventTypesScreen());
+    Get.to(const HomeScreen());
   }
 }

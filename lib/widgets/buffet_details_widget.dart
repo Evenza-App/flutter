@@ -2,6 +2,7 @@ import 'package:evenza/controllers/reservation/reservation_controller.dart';
 import 'package:evenza/models/Buffet_detail.dart';
 import 'package:evenza/models/buffet.dart';
 import 'package:evenza/styles/color.dart';
+import 'package:evenza/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,10 +41,8 @@ class BuffetDetailsWidget extends HookWidget {
               const SizedBox(
                 height: double.infinity,
               ),
-              
-        
-              Image.asset(
-                imagePath,
+              Image(
+                image: CustomImageWidget.provider(imagePath),
                 fit: BoxFit.cover,
                 height: 500.h,
                 width: 400.w,
@@ -263,7 +262,7 @@ class BuffetDetailsWidget extends HookWidget {
 //                         ),
 // =======
                   child: Container(
-                    height: 450.h,
+                    // height: 450.h,
                     padding: EdgeInsets.only(top: 98.h),
                     decoration: BoxDecoration(
                       color: BaseColors.backgroundCard,
@@ -362,14 +361,14 @@ class BuffetDetailsWidget extends HookWidget {
                             final buffet = Buffet(
                               id: id,
                               name: title,
-                              price: int.parse(price),
+                              price: double.parse(price).toInt(),
                               image: imagePath,
                               type: type,
                             );
-                            print(reservationController.reservation.buffets);
+
                             reservationController.reservation.buffets
                                 .add(buffet);
-                            Get.off(());
+                            Navigator.of(context).pop();
                           },
                           child: SizedBox(
                             width: 213,

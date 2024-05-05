@@ -1,4 +1,3 @@
-
 import 'package:evenza/models/buffet.dart';
 import 'package:evenza/services/buffet_service.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +16,7 @@ class _BuffetsHook extends Hook<(bool, List<Buffet>)> {
 
 class _BuffetsHookState extends HookState<(bool, List<Buffet>), _BuffetsHook> {
   bool loading = true;
-  List<Buffet> buffets =
-      [];
+  List<Buffet> buffets = [];
 
   final BuffetService service = BuffetService();
 
@@ -33,5 +31,5 @@ class _BuffetsHookState extends HookState<(bool, List<Buffet>), _BuffetsHook> {
   }
 
   @override
-  (bool, List<Buffet>) build (BuildContext context) => (loading,buffets);
+  (bool, List<Buffet>) build(BuildContext context) => (loading, buffets);
 }

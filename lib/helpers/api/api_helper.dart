@@ -2,11 +2,20 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiHelper {
-  late final Dio dio;
+  Dio dio = Dio()
+    ..options = BaseOptions(
+      baseUrl: _baseUrl,
+      headers: {
+        HttpHeaders.acceptHeader: 'application/json',
+        ...ngrokHeaders,
+      },
+    )
+    ..interceptors.add(PrettyDioLogger());
 
-  static const String domain = 'https://10f8-185-107-80-116.ngrok-free.app';
+  static const String domain = 'https://9cec-46-213-146-193.ngrok-free.app';
 
   static const String _baseUrl = '$domain/api/';
 
@@ -15,11 +24,18 @@ class ApiHelper {
   };
 
   ApiHelper() {
+    init();
+  }
+
+  void init() async {
+    final sharedPreferences = await SharedPreferences.getInstance();
     dio = Dio()
       ..options = BaseOptions(
         baseUrl: _baseUrl,
         headers: {
           HttpHeaders.acceptHeader: 'application/json',
+          HttpHeaders.authorizationHeader:
+              'Bearer ${sharedPreferences.getString('token')}',
           ...ngrokHeaders,
         },
       )

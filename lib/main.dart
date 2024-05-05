@@ -57,7 +57,7 @@ class MyApp extends HookWidget {
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: const EventTypesScreen(),
+        home: SplashScreen(),
       ),
     );
   }
