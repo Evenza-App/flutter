@@ -8,7 +8,7 @@ abstract class BaseImages {
   static const birthday = 'assets/images/birthday.png';
   static const wedding = 'assets/images/wedding.png';
   static const baby = 'assets/images/baby.png';
-  static const profile = 'assets/images/profile.png';
+  static const profile = 'assets/images/Profile.png';
   static const background = 'assets/images/select_things.png';
   static const sweets = 'assets/images/sweets.jpg';
   static const east = 'assets/images/east.png';

@@ -1,4 +1,5 @@
-
+import 'package:evenza/helpers/fcm_helper.dart';
+import 'package:evenza/screens/home2.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/screens/welcome_screen.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,8 @@ class SplashController extends GetxController {
   void onInit() async {
     super.onInit();
 
+     FcmHelper.subscribeToAll();
+
     await Future.delayed(const Duration(seconds: 3));
 
     final SharedPreferences sharedPreferences =
@@ -17,7 +20,7 @@ class SplashController extends GetxController {
     final token = sharedPreferences.getString('token');
 
     if (token != null) {
-      Get.to(const SelectTypeBuffet());
+      Get.to(const HomeScreen());
     } else {
       Get.to(const WelcomeScreen());
     }

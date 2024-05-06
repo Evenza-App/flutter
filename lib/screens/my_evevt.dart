@@ -1,15 +1,21 @@
+import 'package:evenza/hooks/my_events_hook.dart';
 import 'package:evenza/screens/home.dart';
 import 'package:evenza/screens/notification.dart';
+import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
+import 'package:evenza/widgets/base_loading.dart';
+import 'package:evenza/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class MyEvent extends StatelessWidget {
+class MyEvent extends HookWidget {
   const MyEvent({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final (loading, myEvents) = useMyEvents();
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Stack(
@@ -57,115 +63,24 @@ class MyEvent extends StatelessWidget {
                             child: Column(children: [
                               SizedBox(
                                 height: 550.h,
-                                child: SingleChildScrollView(
-                                  child: Positioned(
-                                      child: Container(
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          padding: EdgeInsets.only(top: 5.w),
-                                          width: 308.w,
-                                          height: 157.h,
-                                          decoration: ShapeDecoration(
-                                            image: const DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/myEvents/birthdayEvent.png'),
-                                              fit: BoxFit.fill,
-                                            ),
-                                            shape: RoundedRectangleBorder(
-                                              side: BorderSide(
-                                                  width: 1.w,
-                                                  color:
-                                                      const Color(0xFF7A7A7A)),
-                                              borderRadius:
-                                                  BorderRadius.circular(14),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            children: [
-                                              Container(
-                                                padding: const EdgeInsets.only(
-                                                    top: 37,
-                                                    right: 140,
-                                                    left: 44),
-                                                child: const Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'احتفال عيد ميلاد',
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ),
-                                                    Text('دمشق ,سوريا',
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white)),
-                                                    Text('2022-2-22',
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white)),
-                                                  ],
-                                                ),
-                                              )
-                                            ],
-                                          ),
+                                child: loading
+                                    ? Center(
+                                        child: BaseLoading(
+                                          color: BaseColors.primary,
                                         ),
-                                        Container(
-                                          padding: EdgeInsets.only(
-                                              top: 5.w, right: 5.w),
-                                          margin: EdgeInsets.only(top: 12.w),
-                                          width: 308.w,
-                                          height: 157.h,
-                                          decoration: ShapeDecoration(
-                                            image: const DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/myEvents/myEvent2.png'),
-                                              fit: BoxFit.fill,
-                                            ),
-                                            shape: RoundedRectangleBorder(
-                                              side: BorderSide(
-                                                  width: 1.w,
-                                                  color:
-                                                      const Color(0xFF7A7A7A)),
-                                              borderRadius:
-                                                  BorderRadius.circular(14),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            children: [
-                                              Container(
-                                                padding: const EdgeInsets.only(
-                                                    top: 37,
-                                                    right: 120,
-                                                    left: 44),
-                                                child: const Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'احتفال تخرج',
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ),
-                                                    Text('دمشق ,سوريا',
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white)),
-                                                    Text('2022-2-22',
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white)),
-                                                  ],
-                                                ),
-                                              )
-                                            ],
-                                          ),
+                                      )
+                                    : SingleChildScrollView(
+                                        child: Column(
+                                          children: myEvents
+                                              .map((myEvent) => MyEventCard(
+                                                    address: myEvent.location,
+                                                    date: myEvent.date,
+                                                    image: myEvent.eventImage,
+                                                    name: myEvent.eventName,
+                                                  ))
+                                              .toList(),
                                         ),
-                                      ],
-                                    ),
-                                  )),
-                                ),
+                                      ),
                               )
                             ])),
                         Container(
@@ -254,6 +169,61 @@ class MyEvent extends StatelessWidget {
                 ),
               ),
             ]),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class MyEventCard extends StatelessWidget {
+  const MyEventCard({
+    super.key,
+    required this.image,
+    required this.name,
+    required this.address,
+    required this.date,
+  });
+
+  final String image;
+
+  final String name;
+
+  final String address;
+
+  final String date;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 5.w),
+      width: 308.w,
+      height: 157.h,
+      decoration: ShapeDecoration(
+        image: DecorationImage(
+          image: CustomImageWidget.provider(image),
+          fit: BoxFit.fill,
+        ),
+        shape: RoundedRectangleBorder(
+          side: BorderSide(width: 1.w, color: const Color(0xFF7A7A7A)),
+          borderRadius: BorderRadius.circular(14),
+        ),
+      ),
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.only(top: 37, right: 140, left: 44),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(color: Colors.white),
+                ),
+                Text(address, style: TextStyle(color: Colors.white)),
+                Text(date, style: TextStyle(color: Colors.white)),
+              ],
+            ),
           )
         ],
       ),

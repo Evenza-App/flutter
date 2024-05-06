@@ -15,7 +15,7 @@ class TextFormDataWidget extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(
-              bottom: 10.h, left: 200.h, right: 20.h, top: 10.h),
+              bottom: 10.h, left: 210.h, right: 20.h, top: 10.h),
           child: Text(
             title,
             style: TextStyle(
