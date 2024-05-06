@@ -1,3 +1,4 @@
+import 'package:evenza/controllers/auth/logout_controller.dart';
 import 'package:evenza/controllers/drawer/drawer_controller.dart';
 import 'package:evenza/screens/my_evevt.dart';
 import 'package:evenza/screens/notification.dart';
@@ -9,7 +10,7 @@ class Setting extends StatelessWidget {
   const Setting({super.key});
 
   static final DrawerController drawerContoller = Get.find();
-
+  static final LogoutController logoutController = Get.put(LogoutController());
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -60,66 +61,66 @@ class Setting extends StatelessWidget {
                                   height: 550.h,
                                   child: SingleChildScrollView(
                                       child: Column(children: [
-                                    ListTile(
-                                      title: Text(
-                                        "حسابك الشخصي",
-                                        style: TextStyle(
-                                            fontSize: 19.sp,
-                                            fontWeight: FontWeight.normal),
-                                      ),
+                                    // ListTile(
+                                    //   title: Text(
+                                    //     "حسابك الشخصي",
+                                    //     style: TextStyle(
+                                    //         fontSize: 19.sp,
+                                    //         fontWeight: FontWeight.normal),
+                                    //   ),
 
-                                      leading: Image(
-                                        image: const AssetImage(
-                                            'assets/icons/user.png'),
-                                        width: 28.w,
-                                        height: 28.h,
-                                      ),
+                                    //   leading: Image(
+                                    //     image: const AssetImage(
+                                    //         'assets/icons/user.png'),
+                                    //     width: 28.w,
+                                    //     height: 28.h,
+                                    //   ),
 
-                                      //onTap: () {
-                                      // Get.to( profile())
-                                    ),
-                                    Container(
-                                      padding: const EdgeInsets.only(top: 12),
-                                      child: ListTile(
-                                        title: Text(
-                                          " الوضع",
-                                          style: TextStyle(
-                                              fontSize: 19.sp,
-                                              fontWeight: FontWeight.normal),
-                                        ),
+                                    //   //onTap: () {
+                                    //   // Get.to( profile())
+                                    // ),
+                                    // Container(
+                                    //   padding: const EdgeInsets.only(top: 12),
+                                    //   child: ListTile(
+                                    //     title: Text(
+                                    //       " الوضع",
+                                    //       style: TextStyle(
+                                    //           fontSize: 19.sp,
+                                    //           fontWeight: FontWeight.normal),
+                                    //     ),
 
-                                        leading: Image(
-                                          image: const AssetImage(
-                                              'assets/icons/color.png'),
-                                          width: 28.w,
-                                          height: 28.h,
-                                        ),
+                                    //     leading: Image(
+                                    //       image: const AssetImage(
+                                    //           'assets/icons/color.png'),
+                                    //       width: 28.w,
+                                    //       height: 28.h,
+                                    //     ),
 
-                                        //onTap: () {
-                                        // Get.to( profile())
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: const EdgeInsets.only(top: 12),
-                                      child: ListTile(
-                                        title: Text(
-                                          "اللغة",
-                                          style: TextStyle(
-                                              fontSize: 19.sp,
-                                              fontWeight: FontWeight.normal),
-                                        ),
+                                    //     //onTap: () {
+                                    //     // Get.to( profile())
+                                    //   ),
+                                    // ),
+                                    // Container(
+                                    //   padding: const EdgeInsets.only(top: 12),
+                                    //   child: ListTile(
+                                    //     title: Text(
+                                    //       "اللغة",
+                                    //       style: TextStyle(
+                                    //           fontSize: 19.sp,
+                                    //           fontWeight: FontWeight.normal),
+                                    //     ),
 
-                                        leading: Image(
-                                          image: const AssetImage(
-                                              'assets/icons/globe.png'),
-                                          width: 28.w,
-                                          height: 28.h,
-                                        ),
+                                    //     leading: Image(
+                                    //       image: const AssetImage(
+                                    //           'assets/icons/globe.png'),
+                                    //       width: 28.w,
+                                    //       height: 28.h,
+                                    //     ),
 
-                                        //onTap: () {
-                                        // Get.to( profile())
-                                      ),
-                                    ),
+                                    //     //onTap: () {
+                                    //     // Get.to( profile())
+                                    //   ),
+                                    // ),
                                     Container(
                                       padding: const EdgeInsets.only(top: 12),
                                       child: ListTile(
@@ -139,25 +140,25 @@ class Setting extends StatelessWidget {
                                             Get.to(const Notificationn()),
                                       ),
                                     ),
-                                    Container(
-                                      padding: const EdgeInsets.only(top: 12),
-                                      child: ListTile(
-                                          title: Text(
-                                            " مناسباتي",
-                                            style: TextStyle(
-                                                fontSize: 19.sp,
-                                                fontWeight: FontWeight.normal),
-                                          ),
-                                          leading: Image(
-                                            image: const AssetImage(
-                                                'assets/icons/myevents1.png'),
-                                            width: 28.w,
-                                            height: 28.h,
-                                          ),
-                                          onTap: () {
-                                            Get.to(const MyEvent());
-                                          }),
-                                    ),
+                                    // Container(
+                                    //   padding: const EdgeInsets.only(top: 12),
+                                    //   child: ListTile(
+                                    //       title: Text(
+                                    //         " مناسباتي",
+                                    //         style: TextStyle(
+                                    //             fontSize: 19.sp,
+                                    //             fontWeight: FontWeight.normal),
+                                    //       ),
+                                    //       leading: Image(
+                                    //         image: const AssetImage(
+                                    //             'assets/icons/myevents1.png'),
+                                    //         width: 28.w,
+                                    //         height: 28.h,
+                                    //       ),
+                                    //       onTap: () {
+                                    //         Get.to(const MyEvent());
+                                    //       }),
+                                    // ),
                                     Container(
                                       padding: const EdgeInsets.only(top: 12),
                                       child: ListTile(
@@ -195,6 +196,7 @@ class Setting extends StatelessWidget {
                                           width: 28.w,
                                           height: 28.h,
                                         ),
+                                        onTap: logoutController.logout,
 
                                         //onTap: () {
                                         // Get.to( profile())

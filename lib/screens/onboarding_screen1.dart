@@ -23,7 +23,7 @@ class OnboardingScreen1 extends StatelessWidget {
                 text: ' بعض المناسبات لا تأتي إلا ',
                 style: TextStyle(
                   color: BaseColors.primaryDark,
-                  fontSize: 20.h,
+                  fontSize: 20.sp,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
                 ),
@@ -32,7 +32,7 @@ class OnboardingScreen1 extends StatelessWidget {
                 text: ' مرة ',
                 style: TextStyle(
                   color: BaseColors.orange,
-                  fontSize: 20.h,
+                  fontSize: 20.sp,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
                 ),
@@ -41,7 +41,7 @@ class OnboardingScreen1 extends StatelessWidget {
                 text: 'واحدة في ',
                 style: TextStyle(
                   color: BaseColors.primaryDark,
-                  fontSize: 20.h,
+                  fontSize: 20.sp,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
                 ),
@@ -50,7 +50,7 @@ class OnboardingScreen1 extends StatelessWidget {
                 text: 'العمر\n',
                 style: TextStyle(
                   color: BaseColors.orange,
-                  fontSize: 20.h,
+                  fontSize: 20.sp,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
                 ),
@@ -59,7 +59,7 @@ class OnboardingScreen1 extends StatelessWidget {
                 text: '\n',
                 style: TextStyle(
                   color: BaseColors.orange,
-                  fontSize: 7.h,
+                  fontSize: 7.sp,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
                 ),
@@ -68,7 +68,7 @@ class OnboardingScreen1 extends StatelessWidget {
                 text: 'استعد',
                 style: TextStyle(
                   color: BaseColors.orange,
-                  fontSize: 20.h,
+                  fontSize: 20.sp,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
                 ),
@@ -77,7 +77,7 @@ class OnboardingScreen1 extends StatelessWidget {
                 text: ' معنا لمناسبة',
                 style: TextStyle(
                   color: BaseColors.primaryDark,
-                  fontSize: 20.h,
+                  fontSize: 20.sp,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
                 ),
@@ -86,7 +86,7 @@ class OnboardingScreen1 extends StatelessWidget {
                 text: ' لا تنسى !!',
                 style: TextStyle(
                   color: BaseColors.orange,
-                  fontSize: 20.h,
+                  fontSize: 20.sp,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
                 ),

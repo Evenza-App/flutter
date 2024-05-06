@@ -15,7 +15,7 @@ class ApiHelper {
     )
     ..interceptors.add(PrettyDioLogger());
 
-  static const String domain = 'https://ba24-169-150-218-74.ngrok-free.app';
+  static const String domain = 'https://ad45-169-150-218-74.ngrok-free.app';
 
   static const String _baseUrl = '$domain/api/';
 

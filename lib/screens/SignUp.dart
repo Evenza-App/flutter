@@ -20,6 +20,10 @@ class SignUpScreen extends StatelessWidget {
           child: Form(
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: 35.h),
+              child: Image.asset('assets/icons/Light.png'),
+            ),
             TextFormField(
               onSaved: (newValue) => signupController.name = newValue,
               keyboardType: TextInputType.name,
@@ -32,7 +36,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 label: Text('الاسم',
                     style: TextStyle(
-                        fontSize: 17.h,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFFAF75B2))),
               ),
@@ -52,7 +56,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   label: Text('رقم الهاتف',
                       style: TextStyle(
-                          fontSize: 17.h,
+                          fontSize: 18.sp,
                           fontWeight: FontWeight.bold,
                           color: const Color(0xFFAF75B2)))),
             ),
@@ -68,7 +72,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   label: Text('العنوان',
                       style: TextStyle(
-                          fontSize: 17.h,
+                          fontSize: 18.sp,
                           fontWeight: FontWeight.bold,
                           color: const Color(0xFFAF75B2)))),
             ),
@@ -86,7 +90,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 label: Text('البريد الالكتروني',
                     style: TextStyle(
-                        fontSize: 17.h,
+                        fontSize: 17.sp,
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFFAF75B2))),
               ),
@@ -118,10 +122,10 @@ class SignUpScreen extends StatelessWidget {
                   }
                 },
                 child: Container(
-                  height: 60.h,
+                  height: 55.h,
                   width: 200.w,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32.r),
+                    borderRadius: BorderRadius.circular(27.r),
                     color: const Color(0xFFAF75B2),
                   ),
                   child: Center(
@@ -132,7 +136,7 @@ class SignUpScreen extends StatelessWidget {
                               'إنشاء حساب',
                               style: TextStyle(
                                 fontWeight: FontWeight.normal,
-                                fontSize: 18.h,
+                                fontSize: 18.sp,
                                 color: Colors.white,
                               ),
                             ),
@@ -151,7 +155,7 @@ class SignUpScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: const Color(0xFFFFB183),
-                      fontSize: 14.h,
+                      fontSize: 15.sp,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
                     ),
@@ -165,7 +169,7 @@ class SignUpScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 11.sp,
+                        fontSize: 12.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w700,
                       ),
@@ -205,7 +209,7 @@ class PasswordField extends HookWidget {
           ),
           label: Text(' كلمة المرور ',
               style: TextStyle(
-                  fontSize: 17.h,
+                  fontSize: 18.sp,
                   fontWeight: FontWeight.bold,
                   color: const Color(0xFFAF75B2)))),
     );

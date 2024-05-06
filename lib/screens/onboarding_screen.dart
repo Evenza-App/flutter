@@ -17,7 +17,7 @@ class OnboardingScreen extends StatelessWidget {
         onNext: () => Get.to(const OnboardingScreen1()),
         imagePath: BaseImages.birthday,
         text: Padding(
-          padding: EdgeInsets.only(top: 25),
+          padding: EdgeInsets.only(top: 25.h),
           child: Text.rich(
             TextSpan(
               children: [
@@ -25,7 +25,7 @@ class OnboardingScreen extends StatelessWidget {
                   text: ' استعدو ',
                   style: TextStyle(
                     color: BaseColors.orange,
-                    fontSize: 20.h,
+                    fontSize: 20.sp,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w700,
                   ),
@@ -34,7 +34,7 @@ class OnboardingScreen extends StatelessWidget {
                   text: 'للعد التنازلي لمناسبة \n لن ترغب ',
                   style: TextStyle(
                     color: BaseColors.primaryDark,
-                    fontSize: 20.h,
+                    fontSize: 20.sp,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w700,
                   ),
@@ -43,7 +43,7 @@ class OnboardingScreen extends StatelessWidget {
                   text: 'في تفويتها !!',
                   style: TextStyle(
                     color: BaseColors.orange,
-                    fontSize: 20.h,
+                    fontSize: 20.sp,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w700,
                   ),

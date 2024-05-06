@@ -31,27 +31,30 @@ class LoginSignupWidget extends StatelessWidget {
               child: Column(
                 children: [
                   Center(
-                    child: Column(
-                      children: [
-                        Text(
-                          title,
-                          style: BaseTextStyles.font,
-                          textAlign: TextAlign.center,
-                        ),
-                        Text(
-                          'أهلاٌ و سهلاٌ بك',
-                          style: BaseTextStyles.fonto,
-                          textAlign: TextAlign.center,
-                          textDirection: TextDirection.rtl,
-                        ),
-                      ],
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: 25.h),
+                      child: Column(
+                        children: [
+                          Text(
+                            title,
+                            style: BaseTextStyles.font,
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            'أهلاٌ و سهلاٌ بك',
+                            style: BaseTextStyles.fonto,
+                            textAlign: TextAlign.center,
+                            textDirection: TextDirection.rtl,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Container(
                     height: 600.h,
                     width: double.infinity,
                     margin: EdgeInsets.only(top: 20.h),
-                    padding: EdgeInsets.only(top: 80.h),
+                    // padding: EdgeInsets.only(top: 80.h),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(

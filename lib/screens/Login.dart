@@ -21,6 +21,10 @@ class Login extends HookWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: 50.h),
+              child: Image.asset('assets/icons/Light.png'),
+            ),
             TextFormField(
               onSaved: (newValue) => loginController.email = newValue,
               validator: 'required|email'.validate(customMessages: {
@@ -35,7 +39,7 @@ class Login extends HookWidget {
                 ),
                 label: Text('البريد الالكتروني',
                     style: TextStyle(
-                        fontSize: 17.h,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFFAF75B2))),
               ),
@@ -54,63 +58,67 @@ class Login extends HookWidget {
                     loginController.login();
                   }
                 },
-                child: Container(
-                  height: 60.h,
-                  width: 200.w,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32.r),
-                    color: const Color(0xFFAF75B2),
-                  ),
-                  child: Center(
-                    child: Obx(() => loginController.loading.value
-                        ? const BaseLoading()
-                        : Text(
-                            'تسجيل الدخول',
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 18.h,
-                              color: Colors.white,
-                            ),
-                          )),
+                child: Padding(
+                  padding: EdgeInsets.only(top: 20.h),
+                  child: Container(
+                    height: 55.h,
+                    width: 200.w,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(27.r),
+                      color: const Color(0xFFAF75B2),
+                    ),
+                    child: Center(
+                      child: Obx(() => loginController.loading.value
+                          ? const BaseLoading()
+                          : Text(
+                              'تسجيل الدخول',
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 18.sp,
+                                color: Colors.white,
+                              ),
+                            )),
+                    ),
                   ),
                 ),
               );
             }),
             Align(
               alignment: Alignment.center,
-              child: Column(
-                children: [
-                  SizedBox(height: 20.h),
-                  Text(
-                    'ليس لديك حساب ؟',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: const Color(0xFFFFB183),
-                      fontSize: 14.h,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                      height: 0,
-                      letterSpacing: 0.07.h,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Get.off(SignUpScreen());
-                    },
-                    child: Text(
-                      'أنشئ حساب',
+              child: Padding(
+                padding: EdgeInsets.only(top: 30.h),
+                child: Column(
+                  children: [
+                    SizedBox(height: 20.h),
+                    Text(
+                      'ليس لديك حساب ؟',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 11.h,
+                        color: const Color(0xFFFFB183),
+                        fontSize: 15.sp,
                         fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w700,
-                        height: 0,
-                        letterSpacing: 0.06.h,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 0.07.sp,
                       ),
                     ),
-                  )
-                ],
+                    TextButton(
+                      onPressed: () {
+                        Get.off(SignUpScreen());
+                      },
+                      child: Text(
+                        'أنشئ حساب',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 0.06.sp,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             )
           ],
@@ -146,7 +154,7 @@ class PasswordField extends HookWidget {
           ),
           label: Text(' كلمة المرور ',
               style: TextStyle(
-                  fontSize: 17.h,
+                  fontSize: 18.sp,
                   fontWeight: FontWeight.bold,
                   color: const Color(0xFFAF75B2)))),
     );
