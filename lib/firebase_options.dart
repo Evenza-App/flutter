@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -70,5 +67,14 @@ class DefaultFirebaseOptions {
     projectId: 'evenza-3e3f8',
     storageBucket: 'evenza-3e3f8.appspot.com',
     iosBundleId: 'com.example.evenza',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCJSKE0A93IDRcgsywKXGVGaao6awGbRiQ',
+    appId: '1:1097610978951:ios:53485ecff925198dc63a22',
+    messagingSenderId: '1097610978951',
+    projectId: 'evenza-3e3f8',
+    storageBucket: 'evenza-3e3f8.appspot.com',
+    iosBundleId: 'com.example.evenza.RunnerTests',
   );
 }
