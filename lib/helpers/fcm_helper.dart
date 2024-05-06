@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:evenza/helpers/api/api_helper.dart';
 import 'package:http/http.dart' as http;
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -113,6 +114,10 @@ abstract class FcmHelper {
 
   static void deleteToken() async =>
       await FirebaseMessaging.instance.deleteToken();
+
+  static void subscribeToAll() async {
+    await FirebaseMessaging.instance.subscribeToTopic('all');
+  }
 }
 
 class NotificationRepository {

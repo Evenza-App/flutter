@@ -1,6 +1,7 @@
 import 'package:evenza/controllers/reservation/reservation_controller.dart';
 import 'package:evenza/models/Buffet_detail.dart';
 import 'package:evenza/models/buffet.dart';
+import 'package:evenza/screens/home.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';

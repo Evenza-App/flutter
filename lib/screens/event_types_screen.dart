@@ -1,5 +1,6 @@
 import 'package:evenza/hooks/events_hook.dart';
 import 'package:evenza/screens/event_reservation_screen.dart';
+import 'package:evenza/screens/home.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
@@ -38,12 +39,7 @@ class EventTypesScreen extends HookWidget {
                   padding: EdgeInsets.only(left: 18.h),
                   child: Align(
                       alignment: Alignment.topLeft,
-                      child: TextButton(
-                          onPressed: null,
-                          child: const Icon(
-                            Icons.arrow_back_ios_new,
-                            textDirection: TextDirection.ltr,
-                          ))),
+                      child:DrawerIconWidget()),
                 ),
                 Center(
                   child: Column(

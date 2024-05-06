@@ -1,3 +1,4 @@
+import 'package:evenza/screens/home.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/styles/text.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +9,11 @@ class LoginSignupWidget extends StatelessWidget {
     super.key,
     required this.title,
     required this.content,
+    this.drawer
   });
   final String title;
   final Widget content;
+  final Widget? drawer;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +26,10 @@ class LoginSignupWidget extends StatelessWidget {
               fit: BoxFit.cover,
               height: double.infinity,
               width: double.infinity,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 18.h),
+              child: drawer
             ),
             Positioned(
               bottom: 0,

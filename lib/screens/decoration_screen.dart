@@ -61,7 +61,7 @@ class DecorationScreen extends HookWidget {
                     return SelectRadio(
                       name: detail.name,
                       options: detail.options,
-                      onChanged: (value) => reservationController
+                      onSaved: (value) => reservationController
                           .reservation.details
                           .add({detail: value}),
                     );
@@ -133,54 +133,57 @@ class SelectRadio extends HookWidget {
     super.key,
     required this.name,
     required this.options,
-    required this.onChanged,
+    required this.onSaved,
   });
 
   final String name;
 
   final List<String> options;
 
-  final void Function(String) onChanged;
+  final void Function(String?) onSaved;
 
   @override
   Widget build(BuildContext context) {
     final selectedValue = useState(options.first);
-    return Column(
-      children: [
-        Text(name),
-        Wrap(
-          children: options
-              .map((option) => Container(
-                    constraints: BoxConstraints(
-                      maxWidth: 125.w,
-                    ),
-                    child: Row(
-                      children: [
-                        Radio<String>(
-                          value: option,
-                          groupValue: selectedValue.value,
-                          onChanged: (value) {
-                            selectedValue.value = value!;
-                            onChanged(value);
-                          },
-                        ),
-                        Container(
-                            width: 70.w,
-                            height: 30.h,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.r),
-                            ),
-                            child: Text(
-                              option,
-                              textAlign: TextAlign.center,
-                            )),
-                      ],
-                    ),
-                  ))
-              .toList(),
-        ),
-      ],
+    return FormField<String>(
+      initialValue: selectedValue.value,
+      onSaved: onSaved,
+      builder: (_) => Column(
+        children: [
+          Text(name),
+          Wrap(
+            children: options
+                .map((option) => Container(
+                      constraints: BoxConstraints(
+                        maxWidth: 125.w,
+                      ),
+                      child: Row(
+                        children: [
+                          Radio<String>(
+                            value: option,
+                            groupValue: selectedValue.value,
+                            onChanged: (value) {
+                              selectedValue.value = value!;
+                            },
+                          ),
+                          Container(
+                              width: 70.w,
+                              height: 30.h,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10.r),
+                              ),
+                              child: Text(
+                                option,
+                                textAlign: TextAlign.center,
+                              )),
+                        ],
+                      ),
+                    ))
+                .toList(),
+          ),
+        ],
+      ),
     );
   }
 }

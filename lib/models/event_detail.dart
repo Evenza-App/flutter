@@ -20,9 +20,11 @@ class EventDetail {
     final id = int.parse(data['id'].toString());
     final name = data['name'];
     final type = data['type'];
-    final options = (data['options'] as List)
-        .map((item) => item['name'] as String)
-        .toList();
+    final options = data['options'] != null
+        ? (data['options'] as List)
+            .map((item) => item['name'] as String)
+            .toList()
+        : <String>[];
     final isrequired = data['is_required'];
 
     return EventDetail(
