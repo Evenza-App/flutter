@@ -11,40 +11,46 @@ class OnboardingScreen2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OnBoardingWidget(
-        onNext: () => Get.to(Login()),
-        imagePath: BaseImages.baby,
-        text: Column(
-          children: [
-            SizedBox(
-              width: 277.w,
-              // height: 30.h,
-              child: Text(
-                'استعدوا',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: BaseColors.primary,
-                  fontSize: 20.h,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w700,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: OnBoardingWidget(
+          onNext: () => Get.to(Login()),
+          imagePath: BaseImages.baby,
+          text: Padding(
+            padding: EdgeInsets.only(top: 35.h),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: 277.w,
+                  // height: 30.h,
+                  child: Text(
+                    'استعدوا',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: BaseColors.primaryDark,
+                      fontSize: 20.sp,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            SizedBox(
-              width: 142.w,
-              // height: 30.h,
-              child: Text(
-                'واحتفلوا معنا',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: BaseColors.orange,
-                  fontSize: 20.h,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w700,
+                SizedBox(
+                  width: 142.w,
+                  // height: 30.h,
+                  child: Text(
+                    'و احتفلوا معنا !!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: BaseColors.orange,
+                      fontSize: 20.sp,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
-        ));
+          )),
+    );
   }
 }

@@ -24,13 +24,13 @@ class SingupController extends GetxController {
     loading.value = true;
     final fcmToken = await FcmHelper.createToken();
     try {
-      final token = await autheticationService.Register(name!, phone!, address!,
+      final token = await autheticationService.register(name!, phone!, address!,
           email!, password!, DateTime(2013), fcmToken!);
       final SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
 
       await sharedPreferences.setString('token', token);
-    Get.offAll(const HomeScreen());
+      Get.offAll(const HomeScreen());
     } on DioException catch (e) {
       Get.snackbar('هنالك خطأ', 'البريد الالكتروني مستخدم من قبل');
     }

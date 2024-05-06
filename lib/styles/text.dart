@@ -50,5 +50,7 @@ abstract class BaseTextStyles {
 
     //TODO:: fix shadow
   );
-  static final onboardingtext=GoogleFonts.cairo();
+  static final poppins=GoogleFonts.poppins(
+    
+  );
 }

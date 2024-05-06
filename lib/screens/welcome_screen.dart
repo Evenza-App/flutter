@@ -21,11 +21,11 @@ class WelcomeScreen extends StatelessWidget {
             width: double.infinity,
           ),
           Positioned(
-            bottom: 0,
-            right: 0,
-            left: 0,
+            bottom: 0.h,
+            right: 0.w,
+            left: 0.w,
             child: Container(
-              padding: const EdgeInsets.only(top: 40),
+              padding:  EdgeInsets.only(top: 40.h),
               height: 276.h,
               decoration: BoxDecoration(
                 color: BaseColors.backgroundCard,

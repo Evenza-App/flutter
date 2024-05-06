@@ -1,6 +1,8 @@
 import 'package:evenza/controllers/drawer/drawer_controller.dart';
 import 'package:evenza/helpers/stripe_helper.dart';
 import 'package:evenza/hooks/homes_hook.dart';
+import 'package:evenza/hooks/user_hook.dart';
+import 'package:evenza/models/user.dart';
 import 'package:evenza/screens/lilian_projects.dart';
 import 'package:evenza/screens/notification.dart';
 
@@ -21,6 +23,7 @@ class Home extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final (loading, home) = useHome();
+    final (Userloading, user) = useUser();
     return Directionality(
         textDirection: TextDirection.rtl,
         child: Stack(children: [
@@ -57,14 +60,15 @@ class Home extends HookWidget {
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'أهلا بك ناز',
-                          style: TextStyle(
-                              fontSize: 24.h,
-                              color: BaseColors.primaryDark,
-                              fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.start,
-                        ),
+                        if (!Userloading)
+                          Text(
+                            'أهلا بك ${user.name}',
+                            style: TextStyle(
+                                fontSize: 24.h,
+                                color: BaseColors.primaryDark,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.start,
+                          ),
                         Text(
                           'مسرورين بإنضامك إلينا',
                           style: TextStyle(
