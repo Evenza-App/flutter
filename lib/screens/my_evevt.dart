@@ -1,5 +1,6 @@
 import 'package:evenza/hooks/my_events_hook.dart';
 import 'package:evenza/screens/home.dart';
+import 'package:evenza/screens/my_event_details_screen.dart';
 import 'package:evenza/screens/notification.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
@@ -72,11 +73,18 @@ class MyEvent extends HookWidget {
                                     : SingleChildScrollView(
                                         child: Column(
                                           children: myEvents
-                                              .map((myEvent) => MyEventCard(
-                                                    address: myEvent.location,
-                                                    date: myEvent.date,
-                                                    image: myEvent.eventImage,
-                                                    name: myEvent.eventName,
+                                              .map((myEvent) => TextButton(
+                                                    onPressed: () {
+                                                      Get.to(
+                                                          MyEventDetailsScreen(
+                                                              id: myEvent.id));
+                                                    },
+                                                    child: MyEventCard(
+                                                      address: myEvent.location,
+                                                      date: myEvent.date,
+                                                      image: myEvent.eventImage,
+                                                      name: myEvent.eventName,
+                                                    ),
                                                   ))
                                               .toList(),
                                         ),

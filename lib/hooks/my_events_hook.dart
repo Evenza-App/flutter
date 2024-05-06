@@ -1,4 +1,3 @@
-
 import 'package:evenza/models/buffet.dart';
 import 'package:evenza/models/my_event.dart';
 import 'package:evenza/services/buffet_service.dart';
@@ -17,10 +16,10 @@ class _MyEventsHook extends Hook<(bool, List<MyEvent>)> {
   _MyEventsHookState createState() => _MyEventsHookState();
 }
 
-class _MyEventsHookState extends HookState<(bool, List<MyEvent>), _MyEventsHook> {
+class _MyEventsHookState
+    extends HookState<(bool, List<MyEvent>), _MyEventsHook> {
   bool loading = true;
-  List<MyEvent> myEvents =
-      [];
+  List<MyEvent> myEvents = [];
 
   final MyEventService service = MyEventService();
 
@@ -35,5 +34,5 @@ class _MyEventsHookState extends HookState<(bool, List<MyEvent>), _MyEventsHook>
   }
 
   @override
-  (bool, List<MyEvent>) build (BuildContext context) => (loading,myEvents);
+  (bool, List<MyEvent>) build(BuildContext context) => (loading, myEvents);
 }

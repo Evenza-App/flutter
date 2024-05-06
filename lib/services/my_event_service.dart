@@ -13,7 +13,7 @@ class MyEventService {
         'Bearer ${sharedPreferences.getString('token')}';
     final response = await apiHelper.dio.get('myevents');
 
-    return ((response.data as Map<String, dynamic>)['data'] as List)
+    return ((response.data as Map<String, dynamic>)['reservations'] as List)
         .map((e) => MyEvent.fromJson(e))
         .toList();
   }

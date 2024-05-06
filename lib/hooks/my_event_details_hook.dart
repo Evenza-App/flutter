@@ -1,4 +1,3 @@
-
 import 'package:evenza/models/buffet.dart';
 import 'package:evenza/models/my_event.dart';
 import 'package:evenza/models/my_event_detail.dart';
@@ -18,9 +17,22 @@ class _MyEventDetailsHook extends Hook<(bool, MyEventDetails)> {
   _MyEventDetailsHookState createState() => _MyEventDetailsHookState();
 }
 
-class _MyEventDetailsHookState extends HookState<(bool,MyEventDetails), _MyEventDetailsHook> {
+class _MyEventDetailsHookState
+    extends HookState<(bool, MyEventDetails), _MyEventDetailsHook> {
   bool loading = true;
-  MyEventDetails myEventDetails = MyEventDetails(id: 0, startTime: '', endTime: '', date: 'date', status: 'status', location: 'location', numberOfPeople: 0, event: 'event', photographer: 'photographer', buffet: [], details: []);
+  MyEventDetails myEventDetails = MyEventDetails(
+      id: 0,
+      startTime: '',
+      endTime: '',
+      date: 'date',
+      status: 'status',
+      location: 'location',
+      numberOfPeople: 0,
+      event: 'event',
+      photographer: Photographer(name: 'name', image: 'image'),
+      buffet: [],
+      details: [],
+      image: null);
 
   final MyEventDetailsService service = MyEventDetailsService();
 
@@ -35,5 +47,6 @@ class _MyEventDetailsHookState extends HookState<(bool,MyEventDetails), _MyEvent
   }
 
   @override
-  (bool, MyEventDetails) build(BuildContext context) => (loading, myEventDetails);
+  (bool, MyEventDetails) build(BuildContext context) =>
+      (loading, myEventDetails);
 }

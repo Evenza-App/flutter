@@ -8,12 +8,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MyEventDetailsService {
   final apiHelper = ApiHelper();
 
-  Future<MyEventDetails>getmyeventdetails(int id) async {
-    final response = await apiHelper.dio.get('myevents/$id');
+  Future<MyEventDetails> getmyeventdetails(int id) async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    apiHelper.dio.options.headers[HttpHeaders.authorizationHeader] =
+        'Bearer ${sharedPreferences.getString('token')}';
+    final response = await apiHelper.dio.get('reservation/$id');
     return MyEventDetails.fromJson(
         (response.data as Map<String, dynamic>)['data']);
   }
-
-  
-  
 }

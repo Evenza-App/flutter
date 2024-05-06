@@ -3,6 +3,7 @@ import 'package:evenza/controllers/reservation/reservation_controller.dart';
 import 'package:evenza/models/reservation.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
+import 'package:evenza/widgets/base_loading.dart';
 import 'package:evenza/widgets/custom_image_widget.dart';
 import 'package:evenza/widgets/event_res.dart';
 import 'package:evenza/widgets/final_broduct_widget.dart';
@@ -54,6 +55,7 @@ class FinalBroduct extends HookWidget {
               ),
             ],
           ),
+          BaseLoading(),
           Column(
             children: [
               TextFormDataWidget(
