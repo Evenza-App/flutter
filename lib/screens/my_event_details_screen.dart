@@ -223,7 +223,7 @@ class MyEventDetailsScreen extends HookWidget {
                         onTap: () {},
                         leading: CircleAvatar(
                             backgroundImage:
-                                CustomImageWidget.provider(photographer.image)),
+                                CustomImageWidget.provider(photographer)),
                       ),
                     ),
                   ],

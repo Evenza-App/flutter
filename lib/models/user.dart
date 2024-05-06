@@ -4,6 +4,7 @@ class User {
   String address;
   String phone;
   String email;
+  String? password;
 
   User({
     required this.id,
@@ -11,6 +12,7 @@ class User {
     required this.address,
     required this.phone,
     required this.email,
+    this.password,
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -29,6 +31,7 @@ class User {
       'address': address,
       'phone': phone,
       'email': email,
+      'password': password,
     };
   }
 }

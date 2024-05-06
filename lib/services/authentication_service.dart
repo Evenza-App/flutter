@@ -58,4 +58,11 @@ class AutheticationService {
 
     return User.fromJson(data['data']);
   }
+
+  Future<void> updateprofile(User user) async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    apiHelper.dio.options.headers[HttpHeaders.authorizationHeader] =
+        'Bearer ${sharedPreferences.getString('token')}';
+    final response = await apiHelper.dio.post('profile', data: user.toJson());
+  }
 }

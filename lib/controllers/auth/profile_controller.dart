@@ -1,33 +1,27 @@
 import 'package:dio/dio.dart';
 import 'package:evenza/helpers/fcm_helper.dart';
+import 'package:evenza/models/user.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/screens/home2.dart';
 import 'package:evenza/services/authentication_service.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginController extends GetxController {
-  String? email;
-  String? password;
+class ProfileController extends GetxController {
+  User user = User(id: 0, name: 'name', address: 'address', phone: 'phone', email: 'email');
 
   final loading = false.obs;
 
   final AutheticationService autheticationService = AutheticationService();
 
-  void login() async {
+  void updateprofile() async {
     loading.value = true;
-    final fcmToken = await FcmHelper.createToken();
+    
 
     try {
-      final token =
-          await autheticationService.login(email!, password!, fcmToken!);
+          await autheticationService.updateprofile(user);
 
-      final SharedPreferences sharedPreferences =
-          await SharedPreferences.getInstance();
-
-      await sharedPreferences.setString('token', token);
-
-      Get.to(const HomeScreen());
+      Get.snackbar('تم التحديث', ' تم تحديث المعلومات بنجاح');
     } on DioException catch (e) {
       Get.snackbar('هنالك خطأ', 'البريد الالكتروني او كلمة السر خاطئة');
     }
