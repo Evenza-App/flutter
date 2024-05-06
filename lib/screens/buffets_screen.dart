@@ -4,6 +4,7 @@ import 'package:evenza/hooks/buffets_hook.dart';
 import 'package:evenza/models/Buffet_detail.dart';
 import 'package:evenza/models/category.dart';
 import 'package:evenza/screens/buffet_details.screen.dart';
+import 'package:evenza/screens/select_photographer.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
@@ -12,6 +13,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
+import '../styles/color.dart';
+import '../widgets/base_loading.dart';
 
 class BuffetsScreen extends HookWidget {
   const BuffetsScreen({
@@ -25,6 +29,10 @@ class BuffetsScreen extends HookWidget {
     final (loading, buffets) = useBuffet(id: category.id);
 
     return BackGroundWidget(
+        bottomNavBar: TextButton(
+          child: Text('تخطي'),
+          onPressed: () => Get.to(SelectPhotographer()),
+        ),
         title: category.name,
         onback: () => Get.off(const SelectTypeBuffet()),
         content: Padding(
@@ -227,7 +235,7 @@ class BuffetsScreen extends HookWidget {
                 Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(right: 18.h, bottom: 10.h),
+                      padding: EdgeInsets.only(bottom: 10.h),
                       child: Text(
                         'مقترحات',
                         textAlign: TextAlign.start,
@@ -239,6 +247,10 @@ class BuffetsScreen extends HookWidget {
                         ),
                       ),
                     ),
+                    loading
+                      ? const BaseLoading(
+                          color: BaseColors.primary,
+                        ):
                     SizedBox(
                         height: 600.h,
                         child: SingleChildScrollView(
@@ -246,7 +258,7 @@ class BuffetsScreen extends HookWidget {
                             children: buffets
                                 .map((buffet) => BuffetWidget(
                                       title: buffet.type,
-                                      price: buffet.price.toString(),
+                                      // price: buffet.price.toString(),
                                       ontap: () {
                                         Get.to(BuffetDetailsScreen(
                                           buffetDetail: buffet.toBuffetDetail(),

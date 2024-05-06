@@ -1,8 +1,10 @@
+import 'package:evenza/controllers/reservation/reservation_controller.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/styles/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class FinalBroductWidget extends StatelessWidget {
   const FinalBroductWidget(
@@ -26,7 +28,7 @@ class FinalBroductWidget extends StatelessWidget {
                 top: 60.h,
               ),
               child: Center(
-                  child: Column(children: [
+                  child: ListView(children: [
                 // Text(
                 //   title,
                 //   style: TextStyle(
@@ -39,9 +41,10 @@ class FinalBroductWidget extends StatelessWidget {
                   title,
                   style: BaseTextStyles.finalbro,
                 ),
-                content, SizedBox(height: 10.h),
+                content,
+                SizedBox(height: 10.h),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: Get.find<ReservationController>().makeReservation,
                   child: Container(
                     width: 250.73.w,
                     height: 46.h,

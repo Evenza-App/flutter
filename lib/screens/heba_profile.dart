@@ -17,11 +17,10 @@ class HebaProfile extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (loading, photographers) = usePhotographer(id: photographer.id);
+    final (loading, photographers) = usePhotographer();
     return BackGroundWidget(
       title: '',
       onback: () => Get.off(SelectPhotographer(
-        photographer: photographer,
       )),
       content: loading
           ? const BaseLoading(

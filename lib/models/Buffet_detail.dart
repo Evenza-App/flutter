@@ -21,15 +21,15 @@ class BuffetDetail {
     final name = data['name'];
     final type = data['type'];
     final ingredients = data['ingredients'];
-    final price = double.parse(data['price'].toString());
-   final image = data['image']
+    // final price = double.parse(data['price'].toString());
+    final image = data['image']
         .toString()
         .replaceFirst('http://localhost:8000', ApiHelper.domain);
     return BuffetDetail(
         id: id,
         name: name,
         ingredients: ingredients,
-        price: price,
+        price: 0,
         type: type,
         image: image);
   }

@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BackGroundWidget extends StatelessWidget {
+  final Widget? bottomNavBar;
+
   const BackGroundWidget({
     super.key,
     required this.title,
     required this.onback,
-    required this.content,
+    required this.content,  this.bottomNavBar,
   });
   final String title;
   final void Function() onback;
@@ -16,6 +18,7 @@ class BackGroundWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomNavBar,
         body: Directionality(
             textDirection: TextDirection.rtl,
             child: Stack(children: [

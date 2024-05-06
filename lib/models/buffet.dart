@@ -36,12 +36,12 @@ class Buffet {
         .toString()
         .replaceFirst('http://localhost:8000', ApiHelper.domain);
     final type = data['type'];
-    final price = int.parse(data['price'].toString());
+    // final price = double.parse(data['price'].toString()).toInt();
     // final details = data['details'] != null
     //     ? (data['details'] as List)
     //         .map((detail) => EventDetail.fromJson(detail))
     //         .toList()
     //     : null;
-    return Buffet(id: id, name: name, image: image, price: price, type: type);
+    return Buffet(id: id, name: name, image: image, price: 0, type: type);
   }
 }

@@ -1,4 +1,5 @@
 import 'package:evenza/controllers/drawer/drawer_controller.dart';
+import 'package:evenza/helpers/stripe_helper.dart';
 import 'package:evenza/hooks/homes_hook.dart';
 import 'package:evenza/screens/lilian_projects.dart';
 import 'package:evenza/screens/notification.dart';
@@ -118,7 +119,7 @@ class Home extends HookWidget {
                                     location: '',
                                     image: home.image,
                                     onNext: () {
-                                      Get.to(const Setting());
+                                      StripeHelper.stripe();
                                     },
                                   ),
                                 ),

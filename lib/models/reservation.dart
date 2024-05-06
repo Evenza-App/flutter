@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:evenza/controllers/auth/singup_controller.dart';
 import 'package:evenza/models/buffet.dart';
 import 'package:evenza/models/event.dart';
 import 'package:evenza/models/event_detail.dart';
@@ -29,4 +30,21 @@ class Reservation {
     required this.details,
     this.image,
   });
+
+  Map<String, dynamic> toJson() => {
+        'start_time': startTime.toString(),
+        'end_time': endTime.toString(),
+        'date': date.toDateString(),
+        'number_of_people': numberOfPeople,
+        'location': location,
+        'event_id': event.id,
+        'photographer_id': photographer?.id,
+        'buffet_ids': buffets.map((buffet) => buffet.id).toList(),
+        'details': details
+            .map((detail) => {
+                  'event_detail_id': detail.keys.first.id,
+                  'value': detail.values.first,
+                })
+            .toList(),
+      };
 }

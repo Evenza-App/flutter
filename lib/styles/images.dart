@@ -1,4 +1,3 @@
-
 abstract class BaseImages {
   static const logo = 'assets/logos/finallogo.png';
 

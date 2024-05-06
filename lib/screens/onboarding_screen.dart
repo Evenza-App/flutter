@@ -11,42 +11,48 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OnBoardingWidget(
-      onNext: () => Get.to(const OnboardingScreen1()),
-      imagePath: BaseImages.birthday,
-      text: Text.rich(
-        TextSpan(
-          children: [
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: OnBoardingWidget(
+        onNext: () => Get.to(const OnboardingScreen1()),
+        imagePath: BaseImages.birthday,
+        text: Padding(
+          padding: EdgeInsets.only(top: 25),
+          child: Text.rich(
             TextSpan(
-              text: ' استعدو ',
-              style: TextStyle(
-                color: BaseColors.orange,
-                fontSize: 20.h,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w700,
-              ),
+              children: [
+                TextSpan(
+                  text: ' استعدو ',
+                  style: TextStyle(
+                    color: BaseColors.orange,
+                    fontSize: 20.h,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                TextSpan(
+                  text: 'للعد التنازلي لمناسبة \n لن ترغب ',
+                  style: TextStyle(
+                    color: BaseColors.primaryDark,
+                    fontSize: 20.h,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                TextSpan(
+                  text: 'في تفويتها !!',
+                  style: TextStyle(
+                    color: BaseColors.orange,
+                    fontSize: 20.h,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
             ),
-            TextSpan(
-              text: 'للعد التنازلي لمناسبة \n لن ترغب ',
-              style: TextStyle(
-                color: BaseColors.primaryDark,
-                fontSize: 20.h,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            TextSpan(
-              text: 'في تفويتها ',
-              style: TextStyle(
-                color: BaseColors.orange,
-                fontSize: 20.h,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ],
+            textAlign: TextAlign.center,
+          ),
         ),
-        textAlign: TextAlign.center,
       ),
     );
   }

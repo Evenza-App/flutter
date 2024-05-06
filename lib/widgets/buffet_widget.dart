@@ -2,18 +2,20 @@ import 'package:evenza/helpers/api/api_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'custom_image_widget.dart';
+
 class BuffetWidget extends StatelessWidget {
   const BuffetWidget({
     super.key,
     required this.ontap,
     required this.title,
-    required this.price,
+    
     required this.name,
     required this.image,
   });
   final Function() ontap;
   final String title;
-  final String price;
+  
   final String name;
   final String image;
 
@@ -71,8 +73,7 @@ class BuffetWidget extends StatelessWidget {
                   height: 140.h,
                   decoration: ShapeDecoration(
                     image: DecorationImage(
-                      image:
-                          NetworkImage(image, headers: ApiHelper.ngrokHeaders),
+                      image: CustomImageWidget.provider(image),
                       fit: BoxFit.cover,
                     ),
                     shape: RoundedRectangleBorder(
@@ -81,19 +82,19 @@ class BuffetWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              left: 70.h,
-              top: 213.h,
-              child: Text(
-                price,
-                style: TextStyle(
-                  color: const Color(0xFFFF8C8D),
-                  fontSize: 14.sp,
-                  fontFamily: 'Cairo',
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ),
+            // Positioned(
+            //   left: 70.h,
+            //   top: 213.h,
+            //   child: Text(
+            //     price,
+            //     style: TextStyle(
+            //       color: const Color(0xFFFF8C8D),
+            //       fontSize: 14.sp,
+            //       fontFamily: 'Cairo',
+            //       fontWeight: FontWeight.w700,
+            //     ),
+            //   ),
+            // ),
             Positioned(
               left: 215.h,
               top: 162.h,

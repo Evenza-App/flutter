@@ -38,7 +38,7 @@ class OnBoardingWidget extends StatelessWidget {
             left: 0,
             child: Container(
               height: 340.h,
-              padding: EdgeInsets.only(top: 98.h),
+              padding: EdgeInsets.only(top: 70.h),
               decoration: BoxDecoration(
                 color: BaseColors.backgroundCard,
                 borderRadius: BorderRadius.only(
@@ -49,8 +49,8 @@ class OnBoardingWidget extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    width: 193.w,
-                    height: 78.h,
+                    width: 250.w,
+                    height: 110.h,
                     child: text,
                   ),
                   SizedBox(
@@ -61,23 +61,8 @@ class OnBoardingWidget extends StatelessWidget {
                     child: Row(
                       children: [
                         Expanded(
-                            child: Center(
-                          child: TextButton(
-                            onPressed: () {
-                              Get.to(Login());
-                            },
-                            child: Text(
-                              'تخطي',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 18.h,
-                                  color: BaseColors.primary),
-                            ),
-                          ),
-                        )),
-                        Expanded(
                           child: Container(
-                            padding: EdgeInsets.all(10.h),
+                            padding: EdgeInsets.all(7.h),
                             decoration: BoxDecoration(
                               color: BaseColors.primary,
                               borderRadius: BorderRadius.circular(32.r),
@@ -96,6 +81,21 @@ class OnBoardingWidget extends StatelessWidget {
                             ),
                           ),
                         ),
+                        Expanded(
+                            child: Center(
+                          child: TextButton(
+                            onPressed: () {
+                              Get.to(Login());
+                            },
+                            child: Text(
+                              'تخطي',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 18.h,
+                                  color: BaseColors.primary),
+                            ),
+                          ),
+                        )),
                       ],
                     ),
                   ),

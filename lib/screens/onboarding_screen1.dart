@@ -11,78 +11,90 @@ class OnboardingScreen1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OnBoardingWidget(
-      onNext: () => Get.to(const OnboardingScreen2()),
-      imagePath: BaseImages.wedding,
-      text: Text.rich(
-        TextSpan(
-          children: [
-            TextSpan(
-              text: ' بعض المناسبات لا تأتي إلا ',
-              style: TextStyle(
-                color: BaseColors.primaryDark,
-                fontSize: 20.h,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w700,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: OnBoardingWidget(
+        onNext: () => Get.to(const OnboardingScreen2()),
+        imagePath: BaseImages.wedding,
+        text: Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: ' بعض المناسبات لا تأتي إلا ',
+                style: TextStyle(
+                  color: BaseColors.primaryDark,
+                  fontSize: 20.h,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            TextSpan(
-              text: ' مرة ',
-              style: TextStyle(
-                color: BaseColors.orange,
-                fontSize: 20.h,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w700,
+              TextSpan(
+                text: ' مرة ',
+                style: TextStyle(
+                  color: BaseColors.orange,
+                  fontSize: 20.h,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            TextSpan(
-              text: 'واحدة في ',
-              style: TextStyle(
-                color: BaseColors.primary,
-                fontSize: 20.h,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w700,
+              TextSpan(
+                text: 'واحدة في ',
+                style: TextStyle(
+                  color: BaseColors.primaryDark,
+                  fontSize: 20.h,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            TextSpan(
-              text: 'العمر\n',
-              style: TextStyle(
-                color: BaseColors.orange,
-                fontSize: 20.h,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w700,
+              TextSpan(
+                text: 'العمر\n',
+                style: TextStyle(
+                  color: BaseColors.orange,
+                  fontSize: 20.h,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            TextSpan(
-              text: 'استعد',
-              style: TextStyle(
-                color: BaseColors.orange,
-                fontSize: 20.h,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w700,
+              TextSpan(
+                text: '\n',
+                style: TextStyle(
+                  color: BaseColors.orange,
+                  fontSize: 7.h,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            TextSpan(
-              text: ' معنا لمناسبة',
-              style: TextStyle(
-                color: BaseColors.primaryDark,
-                fontSize: 20.h,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w700,
+              TextSpan(
+                text: 'استعد',
+                style: TextStyle(
+                  color: BaseColors.orange,
+                  fontSize: 20.h,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            TextSpan(
-              text: ' لا تنسى !!',
-              style: TextStyle(
-                color: BaseColors.orange,
-                fontSize: 20.h,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w700,
+              TextSpan(
+                text: ' معنا لمناسبة',
+                style: TextStyle(
+                  color: BaseColors.primaryDark,
+                  fontSize: 20.h,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-          ],
+              TextSpan(
+                text: ' لا تنسى !!',
+                style: TextStyle(
+                  color: BaseColors.orange,
+                  fontSize: 20.h,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
+          ),
+          textAlign: TextAlign.center,
         ),
-        textAlign: TextAlign.center,
       ),
     );
   }

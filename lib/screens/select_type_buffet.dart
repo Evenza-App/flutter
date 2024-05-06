@@ -6,15 +6,14 @@ import 'package:evenza/widgets/base_loading.dart';
 import 'package:evenza/widgets/types_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class SelectTypeBuffet extends HookWidget {
   const SelectTypeBuffet({super.key});
 
   @override
-  Widget build(BuildContext context) { 
-    
-
+  Widget build(BuildContext context) {
     final (loading, categories) = useCategories();
 
     //    useEffect(() {
@@ -22,32 +21,27 @@ class SelectTypeBuffet extends HookWidget {
     //       Get.put(ReservationController());
     //   reservationController.reservation.buffetIds =Map(buffet)=>buffet.id;
     // }, const []);
-    
 
     return BackGroundWidget(
       title: 'اختر الضيافة',
-      onback: () => Get.off(null),
-      content:
-       loading
+      onback: () => Get.off('/'),
+      content: loading
           ? const BaseLoading(
               color: BaseColors.primary,
             )
-            
-          : Column(
-              children:
-              
-               categories
-                  .map((category) => TypesWidget(
-                    
-                        title: category.name,
-                        imagePath: category.image,
-                        
-                        ontap: () {
-                          Get.to(BuffetsScreen(category: category));
-                        },
-                        
-                      ))
-                  .toList(),
+          : Padding(
+              padding: EdgeInsets.only(top: 50.h),
+              child: Column(
+                children: categories
+                    .map((category) => TypesWidget(
+                          title: category.name,
+                          imagePath: category.image,
+                          ontap: () {
+                            Get.to(BuffetsScreen(category: category));
+                          },
+                        ))
+                    .toList(),
+              ),
             ),
     );
   }

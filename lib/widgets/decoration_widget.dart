@@ -61,9 +61,10 @@ class DecorationWidget extends StatelessWidget {
         right: 0,
         left: 0,
         child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Container(
-            constraints: BoxConstraints(minHeight: 600.h),
-            padding: EdgeInsets.only(top: 30.h),
+            constraints: BoxConstraints(minHeight: 500.h),
+            padding: EdgeInsets.only(top: 20.h),
             decoration: BoxDecoration(
               color: BaseColors.purple,
               borderRadius: BorderRadius.only(

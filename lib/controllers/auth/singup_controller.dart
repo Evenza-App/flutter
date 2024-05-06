@@ -37,5 +37,6 @@ class SingupController extends GetxController {
 
     loading.value = false;
 
+    Get.to(const HomeScreen());
   }
 }

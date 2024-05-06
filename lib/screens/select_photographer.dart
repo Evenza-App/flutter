@@ -3,6 +3,8 @@ import 'package:evenza/models/photographer.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/back_ground_widget.dart';
+import 'package:evenza/widgets/base_loading.dart';
+import 'package:evenza/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,11 +16,12 @@ import 'package:evenza/screens/heba_profile.dart';
 import 'package:evenza/screens/saeed_profile.dart';
 
 class SelectPhotographer extends HookWidget {
-  const SelectPhotographer({super.key, required this.photographer});
-  final Photographer photographer;
+  const SelectPhotographer({super.key});
   @override
   Widget build(BuildContext context) {
-    final (loading, photographers) = usePhotographer(id: photographer.id);
+    final (loading, photographers) = usePhotographer();
+    final Photographer photographer = Photographer(
+        id: 0, name: 'name', image: 'image', bio: 'bio', images: []);
     return BackGroundWidget(
       title: 'اختر المصور',
       onback: () => Get.off(const SelectTypeBuffet()),
@@ -91,202 +94,210 @@ class SelectPhotographer extends HookWidget {
           Positioned(
               child: SizedBox(
             height: 550.h,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  ListTile(
-                    title: const Text("ليليان وهبي"),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/lilian.png'),
-                    ),
-                    onTap: () {
-                      Get.to(LilianProfile(
-                        photographer: photographer,
-                      ));
-                    },
+            child: loading
+                ? BaseLoading()
+                : SingleChildScrollView(
+                    child: Column(
+                        children: photographers
+                            .map(
+                              (item) => ListTile(
+                                title: Text(item.name),
+                                subtitle: Text(item.bio),
+                                trailing: Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 15.h,
+                                ),
+                                leading: CircleAvatar(
+                                  child:
+                                      CustomImageWidget(imageUrl: item.image),
+                                ),
+                                onTap: () {
+                                  Get.to(LilianProfile(
+                                    photographer: item,
+                                  ));
+                                },
+                              ),
+                            )
+                            .toList()
+                        // [
+                        //   ListTile(
+                        //     title: const Text('سعيد مصلح'),
+                        //     subtitle: const Text('تصوير جميع المناسبات'),
+                        //     trailing: Icon(
+                        //       Icons.arrow_forward_ios,
+                        //       size: 15.h,
+                        //     ),
+                        //     leading: CircleAvatar(
+                        //       child: Image.asset('assets/photographers/saeed.png'),
+                        //     ),
+                        //     onTap: () {
+                        //       Get.to(SaeedProfile(
+                        //         photographer: photographer,
+                        //       ));
+                        //     },
+                        //   ),
+                        //   ListTile(
+                        //     title: const Text('هبة جويد'),
+                        //     subtitle: const Text('تصوير جميع المناسبات'),
+                        //     trailing: Icon(
+                        //       Icons.arrow_forward_ios,
+                        //       size: 15.h,
+                        //     ),
+                        //     leading: CircleAvatar(
+                        //       child: Image.asset('assets/photographers/heba.png'),
+                        //     ),
+                        //     onTap: () {
+                        //       Get.to(HebaProfile(photographer: photographer));
+                        //     },
+                        //   ),
+                        //   ListTile(
+                        //     title: const Text('ساهر سويدان'),
+                        //     subtitle: const Text('تصوير جميع المناسبات'),
+                        //     trailing: Icon(
+                        //       Icons.arrow_forward_ios,
+                        //       size: 15.h,
+                        //     ),
+                        //     leading: CircleAvatar(
+                        //       child: Image.asset('assets/photographers/saher.png'),
+                        //     ),
+                        //     onTap: () {
+                        //       Get.to(SaherProfile(
+                        //         photographer: photographer,
+                        //       ));
+                        //     },
+                        //   ),
+                        //   ListTile(
+                        //     title: const Text('ساهر سويدان'),
+                        //     subtitle: const Text('تصوير جميع المناسبات'),
+                        //     trailing: Icon(
+                        //       Icons.arrow_forward_ios,
+                        //       size: 15.h,
+                        //     ),
+                        //     leading: CircleAvatar(
+                        //       child: Image.asset('assets/photographers/saher.png'),
+                        //     ),
+                        //     onTap: () {
+                        //       Get.to(SaherProfile(
+                        //         photographer: photographer,
+                        //       ));
+                        //     },
+                        //   ),
+                        //   ListTile(
+                        //     title: const Text('ساهر سويدان'),
+                        //     subtitle: const Text('تصوير جميع المناسبات'),
+                        //     trailing: Icon(
+                        //       Icons.arrow_forward_ios,
+                        //       size: 15.h,
+                        //     ),
+                        //     leading: CircleAvatar(
+                        //       child: Image.asset('assets/photographers/saher.png'),
+                        //     ),
+                        //     onTap: () {
+                        //       Get.to(SaherProfile(
+                        //         photographer: photographer,
+                        //       ));
+                        //     },
+                        //   ),
+                        //   ListTile(
+                        //     title: const Text('ساهر سويدان'),
+                        //     subtitle: const Text('تصوير جميع المناسبات'),
+                        //     trailing: Icon(
+                        //       Icons.arrow_forward_ios,
+                        //       size: 15.h,
+                        //     ),
+                        //     leading: CircleAvatar(
+                        //       child: Image.asset('assets/photographers/saher.png'),
+                        //     ),
+                        //     onTap: () {
+                        //       Get.to(SaherProfile(
+                        //         photographer: photographer,
+                        //       ));
+                        //     },
+                        //   ),
+                        //   ListTile(
+                        //     title: const Text('ساهر سويدان'),
+                        //     subtitle: const Text('تصوير جميع المناسبات'),
+                        //     trailing: Icon(
+                        //       Icons.arrow_forward_ios,
+                        //       size: 15.h,
+                        //     ),
+                        //     leading: CircleAvatar(
+                        //       child: Image.asset('assets/photographers/saher.png'),
+                        //     ),
+                        //     onTap: () {
+                        //       Get.to(SaherProfile(
+                        //         photographer: photographer,
+                        //       ));
+                        //     },
+                        //   ),
+                        //   ListTile(
+                        //     title: const Text('ساهر سويدان'),
+                        //     subtitle: const Text('تصوير جميع المناسبات'),
+                        //     trailing: Icon(
+                        //       Icons.arrow_forward_ios,
+                        //       size: 15.h,
+                        //     ),
+                        //     leading: CircleAvatar(
+                        //       child: Image.asset('assets/photographers/saher.png'),
+                        //     ),
+                        //     onTap: () {
+                        //       Get.to(SaherProfile(
+                        //         photographer: photographer,
+                        //       ));
+                        //     },
+                        //   ),
+                        //   ListTile(
+                        //     title: const Text('ساهر سويدان'),
+                        //     subtitle: const Text('تصوير جميع المناسبات'),
+                        //     trailing: Icon(
+                        //       Icons.arrow_forward_ios,
+                        //       size: 15.h,
+                        //     ),
+                        //     leading: CircleAvatar(
+                        //       child: Image.asset('assets/photographers/saher.png'),
+                        //     ),
+                        //     onTap: () {
+                        //       Get.to(SaherProfile(
+                        //         photographer: photographer,
+                        //       ));
+                        //     },
+                        //   ),
+                        //   ListTile(
+                        //     title: const Text('ساهر سويدان'),
+                        //     subtitle: const Text('تصوير جميع المناسبات'),
+                        //     trailing: Icon(
+                        //       Icons.arrow_forward_ios,
+                        //       size: 15.h,
+                        //     ),
+                        //     leading: CircleAvatar(
+                        //       child: Image.asset('assets/photographers/saher.png'),
+                        //     ),
+                        //     onTap: () {
+                        //       Get.to(SaherProfile(
+                        //         photographer: photographer,
+                        //       ));
+                        //     },
+                        //   ),
+                        //   ListTile(
+                        //     title: const Text('ساهر سويدان'),
+                        //     subtitle: const Text('تصوير جميع المناسبات'),
+                        //     trailing: Icon(
+                        //       Icons.arrow_forward_ios,
+                        //       size: 15.h,
+                        //     ),
+                        //     leading: CircleAvatar(
+                        //       child: Image.asset('assets/photographers/saher.png'),
+                        //     ),
+                        //     onTap: () {
+                        //       Get.to(SaherProfile(
+                        //         photographer: photographer,
+                        //       ));
+                        //     },
+                        //   ),
+                        // ],
+
+                        ),
                   ),
-                  ListTile(
-                    title: const Text('سعيد مصلح'),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/saeed.png'),
-                    ),
-                    onTap: () {
-                      Get.to(SaeedProfile(
-                        photographer: photographer,
-                      ));
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('هبة جويد'),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/heba.png'),
-                    ),
-                    onTap: () {
-                      Get.to(HebaProfile(photographer: photographer));
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('ساهر سويدان'),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/saher.png'),
-                    ),
-                    onTap: () {
-                      Get.to(SaherProfile(
-                        photographer: photographer,
-                      ));
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('ساهر سويدان'),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/saher.png'),
-                    ),
-                    onTap: () {
-                      Get.to(SaherProfile(
-                        photographer: photographer,
-                      ));
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('ساهر سويدان'),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/saher.png'),
-                    ),
-                    onTap: () {
-                      Get.to(SaherProfile(
-                        photographer: photographer,
-                      ));
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('ساهر سويدان'),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/saher.png'),
-                    ),
-                    onTap: () {
-                      Get.to(SaherProfile(
-                        photographer: photographer,
-                      ));
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('ساهر سويدان'),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/saher.png'),
-                    ),
-                    onTap: () {
-                      Get.to(SaherProfile(
-                        photographer: photographer,
-                      ));
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('ساهر سويدان'),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/saher.png'),
-                    ),
-                    onTap: () {
-                      Get.to(SaherProfile(
-                        photographer: photographer,
-                      ));
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('ساهر سويدان'),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/saher.png'),
-                    ),
-                    onTap: () {
-                      Get.to(SaherProfile(
-                        photographer: photographer,
-                      ));
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('ساهر سويدان'),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/saher.png'),
-                    ),
-                    onTap: () {
-                      Get.to(SaherProfile(
-                        photographer: photographer,
-                      ));
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('ساهر سويدان'),
-                    subtitle: const Text('تصوير جميع المناسبات'),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15.h,
-                    ),
-                    leading: CircleAvatar(
-                      child: Image.asset('assets/photographers/saher.png'),
-                    ),
-                    onTap: () {
-                      Get.to(SaherProfile(
-                        photographer: photographer,
-                      ));
-                    },
-                  ),
-                ],
-              ),
-            ),
           )),
         ]),
       ),

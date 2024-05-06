@@ -14,10 +14,10 @@ class SaeedProfile extends StatelessWidget {
 final Photographer photographer;
   @override
   Widget build(BuildContext context) {
-    final(loading,photographers)=usePhotographer(id: photographer.id);
+    final(loading,photographers)=usePhotographer();
     return BackGroundWidget(
       title: '',
-      onback: () => Get.off( SelectPhotographer(photographer:photographer,)),
+      onback: () => Get.off( SelectPhotographer()),
       content: Padding(
         padding: EdgeInsets.only(left: 10.h, right: 15.h, top: 30.h),
         child: Column(
