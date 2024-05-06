@@ -1,6 +1,7 @@
 import 'package:evenza/controllers/auth/singup_controller.dart';
 import 'package:evenza/controllers/reservation/reservation_controller.dart';
-import 'package:evenza/models/reservation.dart';
+import 'package:evenza/hooks/my_event_details_hook.dart';
+
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
 import 'package:evenza/widgets/custom_image_widget.dart';
@@ -14,16 +15,18 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class FinalBroduct extends HookWidget {
-  const FinalBroduct({super.key});
+class MyEventDetailsScreen extends HookWidget {
+  const MyEventDetailsScreen({super.key,required this.id});
+  final int id;
 
   @override
   Widget build(BuildContext context) {
-    final ObjectRef(value: ReservationController(:reservation)) =
-        useRef(Get.find<ReservationController>());
+    // final ObjectRef(value: ReservationController(:reservation)) =
+    //     useRef(Get.find<ReservationController>());
+    final (loading, myevent) = useMyEventDetails(id: id);
 
     return FinalBroductWidget(
-      title: 'ملخص اختياراتك',
+      title: ' اختياراتك لهذه المناسبة',
       content: Column(
         children: [
           Row(
@@ -43,7 +46,7 @@ class FinalBroduct extends HookWidget {
               Padding(
                 padding: EdgeInsets.only(top: 30.h, bottom: 10.h),
                 child: Text(
-                  reservation.event.name,
+                  myevent.event,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
                       fontSize: 20.h,
@@ -58,7 +61,7 @@ class FinalBroduct extends HookWidget {
             children: [
               TextFormDataWidget(
                 title: 'تاريخ المناسبة',
-                data: reservation.date.toDateString(),
+                data: myevent.date,
                 icon: Icon(
                   Icons.date_range_outlined,
                   color: BaseColors.orange,
@@ -76,8 +79,8 @@ class FinalBroduct extends HookWidget {
                           Icons.av_timer_outlined,
                           color: BaseColors.orange,
                         ),
-                        data: TimeOfDay.fromDateTime(reservation.startTime)
-                            .format(context)),
+                        data: myevent.startTime
+                            ),
                     SizedBox(
                       width: 20.h,
                     ),
@@ -87,8 +90,8 @@ class FinalBroduct extends HookWidget {
                           Icons.av_timer,
                           color: BaseColors.orange,
                         ),
-                        data: TimeOfDay.fromDateTime(reservation.endTime)
-                            .format(context)),
+                        data: myevent.endTime
+                            ),
 
                     // Padding(
                     //   padding: const EdgeInsets.only(
@@ -133,7 +136,7 @@ class FinalBroduct extends HookWidget {
               ),
               TextFormDataWidget(
                 title: 'عدد الأشخاص',
-                data: reservation.numberOfPeople.toString(),
+                data: myevent.numberOfPeople.toString(),
                 icon: Icon(
                   Icons.people,
                   color: BaseColors.orange,
@@ -141,7 +144,7 @@ class FinalBroduct extends HookWidget {
               ),
               TextFormDataWidget(
                 title: 'رابط موقع المكان',
-                data: reservation.location,
+                data: myevent.location,
                 icon: Icon(
                   Icons.location_on_rounded,
                   color: BaseColors.orange,
@@ -150,7 +153,7 @@ class FinalBroduct extends HookWidget {
               SizedBox(
                 height: 10.h,
               ),
-              if (reservation.image != null)
+              if (myevent.image != null)
                 Column(
                   children: [
                     Text('ديكور'),
@@ -158,22 +161,22 @@ class FinalBroduct extends HookWidget {
                       width: 120.66.w,
                       height: 100.61.h,
                       child: ClipRRect(
-                        child: Image.file(reservation.image!, fit: BoxFit.fill),
+                        child: CustomImageWidget(imageUrl: myevent.image!,),
                         borderRadius: BorderRadius.circular(14),
                       ),
                     ),
                   ],
                 ),
               Column(
-                children: reservation.details
+                children: myevent.details
                     .map(
                       (detail) => TextFormDataWidget(
-                        title: detail.keys.first.name,
+                        title: detail.name,
                         icon: Icon(
                           Icons.location_on_rounded,
                           color: BaseColors.orange,
                         ),
-                        data: detail.values.first,
+                        data: detail.value,
                       ),
                     )
                     .toList(),
@@ -186,7 +189,7 @@ class FinalBroduct extends HookWidget {
                     child: Padding(
                       padding: EdgeInsets.only(left: 20.h, right: 20.h),
                       child: Row(
-                        children: reservation.buffets
+                        children: myevent.buffet
                             .map((buffet) => MiniWidget(
                                   imagePath: buffet.image,
                                   title: buffet.name,
@@ -198,7 +201,7 @@ class FinalBroduct extends HookWidget {
                   ),
                 ),
               ),
-              if (reservation.photographer case final photographer?)
+              if (myevent.photographer case final photographer?)
                 Column(
                   children: [
                     Padding(
@@ -216,7 +219,7 @@ class FinalBroduct extends HookWidget {
                     Padding(
                       padding: EdgeInsets.only(right: 18.h),
                       child: ListTile(
-                        title: Text(photographer.name),
+                        title: Text(photographer),
                         onTap: () {},
                         leading: CircleAvatar(
                             backgroundImage:

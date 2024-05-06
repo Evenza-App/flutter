@@ -37,9 +37,12 @@ class FinalBroductWidget extends StatelessWidget {
                 //       fontWeight: FontWeight.bold),
                 //   textAlign: TextAlign.center,
                 // ),
-                Text(
-                  title,
-                  style: BaseTextStyles.finalbro,
+                Padding(
+                  padding: EdgeInsets.only(left: 100.h, right: 30.h),
+                  child: Text(
+                    title,
+                    style: BaseTextStyles.finalbro,
+                  ),
                 ),
                 content,
                 SizedBox(height: 10.h),

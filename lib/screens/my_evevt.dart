@@ -195,6 +195,7 @@ class MyEventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(image);
     return Container(
       padding: EdgeInsets.only(top: 5.w),
       width: 308.w,

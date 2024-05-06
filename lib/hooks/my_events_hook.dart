@@ -14,10 +14,10 @@ class _MyEventsHook extends Hook<(bool, List<MyEvent>)> {
   const _MyEventsHook();
 
   @override
-  _BuffetsHookState createState() => _BuffetsHookState();
+  _MyEventsHookState createState() => _MyEventsHookState();
 }
 
-class _BuffetsHookState extends HookState<(bool, List<MyEvent>), _MyEventsHook> {
+class _MyEventsHookState extends HookState<(bool, List<MyEvent>), _MyEventsHook> {
   bool loading = true;
   List<MyEvent> myEvents =
       [];
