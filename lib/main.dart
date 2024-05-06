@@ -7,6 +7,7 @@ import 'package:evenza/screens/login.dart';
 import 'package:evenza/screens/profile_screen.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/screens/splash_screen.dart';
+import 'package:evenza/screens/welcome_screen.dart';
 import 'package:evenza/widgets/text_form_data.dart';
 import 'package:evenza/helpers/fcm_helper.dart';
 import 'package:evenza/screens/home2.dart';
@@ -57,7 +58,7 @@ class MyApp extends HookWidget {
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: SplashScreen(),
+        home: const WelcomeScreen(),
       ),
     );
   }

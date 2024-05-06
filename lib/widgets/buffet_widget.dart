@@ -9,13 +9,13 @@ class BuffetWidget extends StatelessWidget {
     super.key,
     required this.ontap,
     required this.title,
-    required this.price,
+    
     required this.name,
     required this.image,
   });
   final Function() ontap;
   final String title;
-  final String price;
+  
   final String name;
   final String image;
 
@@ -82,19 +82,19 @@ class BuffetWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              left: 70.h,
-              top: 213.h,
-              child: Text(
-                price,
-                style: TextStyle(
-                  color: const Color(0xFFFF8C8D),
-                  fontSize: 14.sp,
-                  fontFamily: 'Cairo',
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ),
+            // Positioned(
+            //   left: 70.h,
+            //   top: 213.h,
+            //   child: Text(
+            //     price,
+            //     style: TextStyle(
+            //       color: const Color(0xFFFF8C8D),
+            //       fontSize: 14.sp,
+            //       fontFamily: 'Cairo',
+            //       fontWeight: FontWeight.w700,
+            //     ),
+            //   ),
+            // ),
             Positioned(
               left: 215.h,
               top: 162.h,

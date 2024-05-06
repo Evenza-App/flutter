@@ -14,6 +14,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../styles/color.dart';
+import '../widgets/base_loading.dart';
+
 class BuffetsScreen extends HookWidget {
   const BuffetsScreen({
     super.key,
@@ -244,6 +247,10 @@ class BuffetsScreen extends HookWidget {
                         ),
                       ),
                     ),
+                    loading
+                      ? const BaseLoading(
+                          color: BaseColors.primary,
+                        ):
                     SizedBox(
                         height: 600.h,
                         child: SingleChildScrollView(
@@ -251,7 +258,7 @@ class BuffetsScreen extends HookWidget {
                             children: buffets
                                 .map((buffet) => BuffetWidget(
                                       title: buffet.type,
-                                      price: buffet.price.toString(),
+                                      // price: buffet.price.toString(),
                                       ontap: () {
                                         Get.to(BuffetDetailsScreen(
                                           buffetDetail: buffet.toBuffetDetail(),
