@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:evenza/helpers/fcm_helper.dart';
+import 'package:evenza/screens/Login.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/screens/home2.dart';
 import 'package:evenza/services/authentication_service.dart';
@@ -38,5 +39,6 @@ class SingupController extends GetxController {
     loading.value = false;
 
     Get.to(const HomeScreen());
+    // Get.to(Login());
   }
 }

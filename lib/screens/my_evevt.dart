@@ -71,24 +71,30 @@ class MyEvent extends HookWidget {
                                         ),
                                       )
                                     : SingleChildScrollView(
-                                        child: Column(
-                                          children: myEvents
-                                              .map((myEvent) => TextButton(
-                                                    onPressed: () {
-                                                      Get.to(
-                                                          MyEventDetailsScreen(
-                                                              id: myEvent.id));
-                                                    },
-                                                    child: MyEventCard(
-                                                      address: myEvent.location,
-                                                      date: myEvent.date,
-                                                      image: myEvent.eventImage,
-                                                      name: myEvent.eventName,
-                                                    ),
-                                                  ))
-                                              .toList(),
-                                        ),
-                                      ),
+                                        scrollDirection: Axis.vertical,
+                                        child: Container(
+                                          // height: 500.h,
+                                          child: Column(
+                                            children: myEvents
+                                                .map((myEvent) => TextButton(
+                                                      onPressed: () {
+                                                        Get.to(
+                                                            MyEventDetailsScreen(
+                                                                id: myEvent
+                                                                    .id));
+                                                      },
+                                                      child: MyEventCard(
+                                                        address:
+                                                            myEvent.location,
+                                                        date: myEvent.date,
+                                                        image:
+                                                            myEvent.eventImage,
+                                                        name: myEvent.eventName,
+                                                      ),
+                                                    ))
+                                                .toList(),
+                                          ),
+                                        )),
                               )
                             ])),
                         Container(

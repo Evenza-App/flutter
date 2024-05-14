@@ -4,6 +4,7 @@ import 'package:evenza/models/event.dart';
 class EventService {
   final ApiHelper apiHelper = ApiHelper();
   Future<Event> geteventdetails(int id) async {
+    apiHelper.init();
     final response = await apiHelper.dio.get('events/$id');
     return Event.fromJson ((response.data as Map<String, dynamic>)['data']);
   }

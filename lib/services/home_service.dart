@@ -6,6 +6,7 @@ class HomeService {
   final ApiHelper apiHelper = ApiHelper();
 
   Future<Home> getAll() async {
+    apiHelper.init();
     final response = await apiHelper.dio.get('home');
 
     return Home.fromJson(response.data);

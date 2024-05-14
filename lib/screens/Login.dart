@@ -21,68 +21,86 @@ class Login extends HookWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(
-              padding: EdgeInsets.only(bottom: 50.h),
-              child: Image.asset('assets/icons/Light.png'),
-            ),
-            TextFormField(
-              onSaved: (newValue) => loginController.email = newValue,
-              validator: 'required|email'.validate(customMessages: {
-                'required': ' أدخل بريدك الالكتروني رجاءا ',
-                'email': ' يجب ان تدخل بريد فعال'
-              }),
-              decoration: InputDecoration(
-                hintText: '',
-                suffixIcon: const Icon(
-                  Icons.email_rounded,
-                  color: Color.fromARGB(255, 247, 186, 151),
-                ),
-                label: Text('البريد الالكتروني',
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xFFAF75B2))),
-              ),
-            ),
-            PasswordField(
-                onSaved: (newValue) => loginController.password = newValue),
-            SizedBox(
-              height: 50.h,
-            ),
-            Builder(builder: (context) {
-              return InkWell(
-                onTap: () {
-                  if (Form.of(context).validate()) {
-                    Form.of(context).save();
-
-                    loginController.login();
-                  }
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(top: 20.h),
-                  child: Container(
-                    height: 55.h,
-                    width: 200.w,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(27.r),
-                      color: const Color(0xFFAF75B2),
-                    ),
-                    child: Center(
-                      child: Obx(() => loginController.loading.value
-                          ? const BaseLoading()
-                          : Text(
-                              'تسجيل الدخول',
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Container(
+                height: 330.h,
+                child: Container(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 50.h),
+                        child: Image.asset('assets/icons/Light.png'),
+                      ),
+                      TextFormField(
+                        onSaved: (newValue) => loginController.email = newValue,
+                        validator: 'required|email'.validate(customMessages: {
+                          'required': ' أدخل بريدك الالكتروني رجاءا ',
+                          'email': ' يجب ان تدخل بريد فعال'
+                        }),
+                        decoration: InputDecoration(
+                          hintText: '',
+                          suffixIcon: const Icon(
+                            Icons.email_rounded,
+                            color: Color.fromARGB(255, 247, 186, 151),
+                          ),
+                          label: Text('البريد الالكتروني',
                               style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 18.sp,
-                                color: Colors.white,
-                              ),
-                            )),
-                    ),
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.bold,
+                                  color: const Color(0xFFAF75B2))),
+                        ),
+                      ),
+                      PasswordField(
+                          onSaved: (newValue) =>
+                              loginController.password = newValue),
+                      SizedBox(
+                        height: 50.h,
+                      ),
+                    ],
                   ),
                 ),
-              );
-            }),
+              ),
+            ),
+            Positioned(
+              bottom: 0.h,
+              left: 0.h,
+              right: 0.h,
+              child: Builder(builder: (context) {
+                return InkWell(
+                  onTap: () {
+                    if (Form.of(context).validate()) {
+                      Form.of(context).save();
+
+                      loginController.login();
+                    }
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 20.h),
+                    child: Container(
+                      height: 55.h,
+                      width: 200.w,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(27.r),
+                        color: const Color(0xFFAF75B2),
+                      ),
+                      child: Center(
+                        child: Obx(() => loginController.loading.value
+                            ? const BaseLoading()
+                            : Text(
+                                'تسجيل الدخول',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 18.sp,
+                                  color: Colors.white,
+                                ),
+                              )),
+                      ),
+                    ),
+                  ),
+                );
+              }),
+            ),
             Align(
               alignment: Alignment.center,
               child: Padding(

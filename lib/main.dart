@@ -5,8 +5,10 @@ import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/screens/final_broduct_screen.dart';
 import 'package:evenza/screens/login.dart';
 import 'package:evenza/screens/profile_screen.dart';
+import 'package:evenza/screens/search.dart';
 import 'package:evenza/screens/select_type_buffet.dart';
 import 'package:evenza/screens/splash_screen.dart';
+import 'package:evenza/screens/test.dart';
 import 'package:evenza/screens/welcome_screen.dart';
 import 'package:evenza/widgets/text_form_data.dart';
 import 'package:evenza/helpers/fcm_helper.dart';
@@ -25,7 +27,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  // if (GetPlatform.isMobile) {
+  //   await Firebase.initializeApp(
+  //     options: DefaultFirebaseOptions.currentPlatform,
+  //   );
+  // }
   // await dotenv.load(fileName: ".env");
 
   Stripe.publishableKey =
@@ -58,7 +64,7 @@ class MyApp extends HookWidget {
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home:  SplashScreen(),
+        home: SplashScreen(),
       ),
     );
   }

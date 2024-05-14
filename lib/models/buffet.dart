@@ -36,7 +36,7 @@ class Buffet {
         .toString()
         .replaceFirst('http://localhost:8000', ApiHelper.domain);
     final type = data['type'];
-    // final price = double.parse(data['price'].toString()).toInt();
+   final price = double.parse(data['price'].toString()).toInt();
     // final details = data['details'] != null
     //     ? (data['details'] as List)
     //         .map((detail) => EventDetail.fromJson(detail))

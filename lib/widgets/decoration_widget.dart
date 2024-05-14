@@ -33,108 +33,109 @@ class DecorationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(children: [
-      const SizedBox(
-        height: double.infinity,
-      ),
-      ChooseImage(
-        imagePath: imagePath,
-        onChooseImage: onChooseImage,
-      ),
-      Positioned(
-        top: 40,
-        left: 13,
-        child: Align(
-            alignment: Alignment.topLeft,
-            child: TextButton(
-                onPressed: () {
-                  Get.off(());
-                },
-                child: const Icon(
-                  Icons.arrow_back_ios_new,
-                  textDirection: TextDirection.ltr,
-                  color: Colors.white,
-                ))),
-      ),
-      Positioned(
-        bottom: 0,
-        right: 0,
-        left: 0,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Container(
-            constraints: BoxConstraints(minHeight: 500.h),
-            padding: EdgeInsets.only(top: 20.h),
-            decoration: BoxDecoration(
-              color: BaseColors.purple,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15.r),
-                topRight: Radius.circular(15.r),
-              ),
-            ),
-            child: Form(
-              child: Column(
-                children: [
-                  Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    textDirection: TextDirection.rtl,
-                    style: TextStyle(
-                        color: BaseColors.primary,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17.sp),
+          const SizedBox(
+            height: double.infinity,
+          ),
+          ChooseImage(
+            imagePath: imagePath,
+            onChooseImage: onChooseImage,
+          ),
+          Positioned(
+            top: 40,
+            left: 13,
+            child: Align(
+                alignment: Alignment.topLeft,
+                child: TextButton(
+                    onPressed: () {
+                      Get.off(());
+                    },
+                    child: const Icon(
+                      Icons.arrow_back_ios_new,
+                      textDirection: TextDirection.ltr,
+                      color: Colors.white,
+                    ))),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            left: 0,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Container(
+                constraints: BoxConstraints(minHeight: 500.h),
+                padding: EdgeInsets.only(top: 20.h),
+                decoration: BoxDecoration(
+                  color: BaseColors.purple,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15.r),
+                    topRight: Radius.circular(15.r),
                   ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  content,
-                  Padding(
-                    padding: EdgeInsets.only(top: 10.h),
-                    child: Container(
-                      width: 250.73.w,
-                      height: 46.h,
-                      decoration: ShapeDecoration(
-                        color: BaseColors.primary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(19.r),
-                        ),
+                ),
+                child: Form(
+                  child: Column(
+                    children: [
+                      Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        textDirection: TextDirection.rtl,
+                        style: TextStyle(
+                            color: BaseColors.primary,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17.sp),
                       ),
-                      child: Builder(builder: (context) {
-                        return Center(
-                          child: TextButton(
-                            onPressed: () {
-                              const BaseLoading(
-                                color: BaseColors.primary,
-                              );
-                              if (Form.of(context).validate()) {
-                                Form.of(context).save();
-
-                                Get.to(SelectTypeBuffet());
-                              }
-                            },
-                            child: Text(
-                              'المرحلة التالية',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w500,
-                              ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      content,
+                      Padding(
+                        padding: EdgeInsets.only(top: 10.h),
+                        child: Container(
+                          width: 250.73.w,
+                          height: 46.h,
+                          decoration: ShapeDecoration(
+                            color: BaseColors.primary,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(19.r),
                             ),
                           ),
-                        );
-                      }),
-                    ),
+                          child: Builder(builder: (context) {
+                            return Center(
+                              child: TextButton(
+                                onPressed: () {
+                                  const BaseLoading(
+                                    color: BaseColors.primary,
+                                  );
+                                  if (Form.of(context).validate()) {
+                                    Form.of(context).save();
+
+                                    Get.to(SelectTypeBuffet());
+                                  }
+                                },
+                                child: Text(
+                                  'المرحلة التالية',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16.sp,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
+            // child: Column(children: [])
           ),
-        ),
-        // child: Column(children: [])
-      ),
-    ]));
+        ]));
   }
 }
 

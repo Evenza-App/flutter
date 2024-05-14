@@ -22,8 +22,8 @@ class MyEventDetailsScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final ObjectRef(value: ReservationController(:reservation)) =
-    //     useRef(Get.find<ReservationController>());
+    //  final ObjectRef(value: ReservationController(:reservation)) =
+    //  useRef(Get.find<ReservationController>());
     final (loading, myevent) = useMyEventDetails(id: id);
     print(myevent.image);
 

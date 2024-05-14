@@ -5,18 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginSignupWidget extends StatelessWidget {
-  const LoginSignupWidget({
-    super.key,
-    required this.title,
-    required this.content,
-    this.drawer
-  });
+  const LoginSignupWidget(
+      {super.key, required this.title, required this.content, this.drawer});
   final String title;
   final Widget content;
   final Widget? drawer;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: Stack(
@@ -27,10 +24,7 @@ class LoginSignupWidget extends StatelessWidget {
               height: double.infinity,
               width: double.infinity,
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 18.h),
-              child: drawer
-            ),
+            Padding(padding: EdgeInsets.only(left: 18.h), child: drawer),
             Positioned(
               bottom: 0,
               right: 0,

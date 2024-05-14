@@ -46,6 +46,31 @@ class FinalBroductWidget extends StatelessWidget {
                 ),
                 content,
                 SizedBox(height: 10.h),
+                TextButton(
+                  onPressed: Get.find<ReservationController>().makeReservation,
+                  child: Container(
+                    width: 250.73.w,
+                    height: 46.h,
+                    decoration: ShapeDecoration(
+                      color: BaseColors.primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(19.r),
+                      ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'إتمام الحجز',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
               ])),
             )
           ])),

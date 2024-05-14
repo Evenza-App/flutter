@@ -9,6 +9,7 @@ class MyEventDetailsService {
   final apiHelper = ApiHelper();
 
   Future<MyEventDetails> getmyeventdetails(int id) async {
+    apiHelper.init();
     final sharedPreferences = await SharedPreferences.getInstance();
     apiHelper.dio.options.headers[HttpHeaders.authorizationHeader] =
         'Bearer ${sharedPreferences.getString('token')}';

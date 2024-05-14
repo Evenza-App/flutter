@@ -10,6 +10,7 @@ class AutheticationService {
   final ApiHelper apiHelper = ApiHelper();
 
   Future<String> login(String email, String password, String fcmToken) async {
+    apiHelper.init();
     final resposnse = await apiHelper.dio.post('login', data: {
       'email': email,
       'password': password,

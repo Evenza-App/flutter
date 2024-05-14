@@ -299,16 +299,19 @@ class BuffetDetailsWidget extends HookWidget {
                             height: 0,
                           ),
                         ),
-                        Text(
-                          ingredient,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 13.sp,
-                            fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w600,
-                            height: 0,
-                            letterSpacing: -0.33,
+                        Padding(
+                          padding:  EdgeInsets.only(top: 20.h,bottom: 40.h),
+                          child: Text(
+                            ingredient,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 13.sp,
+                              fontFamily: 'Cairo',
+                              fontWeight: FontWeight.w600,
+                              height: 0,
+                              letterSpacing: -0.33,
+                            ),
                           ),
                         ),
                         // Text(
@@ -335,28 +338,28 @@ class BuffetDetailsWidget extends HookWidget {
                         //     letterSpacing: -0.33,
                         //   ),
                         // ),
-                        Text(
-                          'السعر:',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 15.sp,
-                            fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w600,
-                            // height: 0,
-                            // letterSpacing: -0.33,
-                          ),
-                        ),
-                        Text(
-                          price,
-                          style: TextStyle(
-                            color: const Color(0xFFFF8C8D),
-                            fontSize: 14.sp,
-                            fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w700,
-                            height: 0,
-                          ),
-                        ),
+                        // Text(
+                        //   'السعر:',
+                        //   textAlign: TextAlign.center,
+                        //   style: TextStyle(
+                        //     color: Colors.black,
+                        //     fontSize: 15.sp,
+                        //     fontFamily: 'Cairo',
+                        //     fontWeight: FontWeight.w600,
+                        //     // height: 0,
+                        //     // letterSpacing: -0.33,
+                        //   ),
+                        // ),
+                        // Text(
+                        //   price,
+                        //   style: TextStyle(
+                        //     color: const Color(0xFFFF8C8D),
+                        //     fontSize: 14.sp,
+                        //     fontFamily: 'Cairo',
+                        //     fontWeight: FontWeight.w700,
+                        //     height: 0,
+                        //   ),
+                        // ),
                         TextButton(
                           onPressed: () {
                             final buffet = Buffet(

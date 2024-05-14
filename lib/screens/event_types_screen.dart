@@ -38,8 +38,7 @@ class EventTypesScreen extends HookWidget {
                 Padding(
                   padding: EdgeInsets.only(left: 18.h),
                   child: Align(
-                      alignment: Alignment.topLeft,
-                      child:DrawerIconWidget()),
+                      alignment: Alignment.topLeft, child: DrawerIconWidget()),
                 ),
                 Center(
                   child: Column(
@@ -58,25 +57,31 @@ class EventTypesScreen extends HookWidget {
                               ? const BaseLoading(
                                   color: BaseColors.primary,
                                 )
-                              : GridView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: events.length,
-                                  gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 2),
-                                  itemBuilder: (_, index) {
-                                    final event = events[index];
-                                    return Padding(
-                                      padding: const EdgeInsets.all(5),
-                                      child: TypesWidget(
-                                          imagePath: event.image,
-                                          ontap: () {
-                                            Get.to(EventReservationScreen(
-                                                event: event));
-                                          },
-                                          title: event.name),
-                                    );
-                                  },
+                              : SingleChildScrollView(
+                                  scrollDirection: Axis.vertical,
+                                  child: Container(
+                                    height: 570.h,
+                                    child: GridView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: events.length,
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 2),
+                                      itemBuilder: (_, index) {
+                                        final event = events[index];
+                                        return Padding(
+                                          padding: const EdgeInsets.all(5),
+                                          child: TypesWidget(
+                                              imagePath: event.image,
+                                              ontap: () {
+                                                Get.to(EventReservationScreen(
+                                                    event: event));
+                                              },
+                                              title: event.name),
+                                        );
+                                      },
+                                    ),
+                                  ),
                                 )),
                     ],
                   ),

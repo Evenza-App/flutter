@@ -63,7 +63,7 @@ class CustomBottonNavigationBar extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 58,
-      //margin: EdgeInsets.only(top: 60.w),
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(35), topRight: Radius.circular(35)),

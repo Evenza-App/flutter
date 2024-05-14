@@ -258,7 +258,7 @@ class BuffetsScreen extends HookWidget {
                             children: buffets
                                 .map((buffet) => BuffetWidget(
                                       title: buffet.type,
-                                      // price: buffet.price.toString(),
+                                      price: buffet.price.toString(),
                                       ontap: () {
                                         Get.to(BuffetDetailsScreen(
                                           buffetDetail: buffet.toBuffetDetail(),
