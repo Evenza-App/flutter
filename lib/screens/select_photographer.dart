@@ -76,8 +76,12 @@ class SelectPhotographer extends HookWidget {
                   child: SizedBox(
                     width: 69.w,
                     height: 24.h,
-                    child: Text(
-                      'ابحث هنا',
+                    child: TextFormField(
+                      //'ابحث هنا',
+
+                      decoration: InputDecoration(
+                        hintText: 'ابحث هنا',
+                      ),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: const Color(0xFFBEBEBE),

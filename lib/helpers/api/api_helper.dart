@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ApiHelper {
   late Dio dio;
 
-  static const String domain = 'https://512b-178-171-185-72.ngrok-free.app';
+  static const String domain = 'https://606e-178-52-42-78.ngrok-free.app';
 
   static const String _baseUrl = '$domain/api/';
 
