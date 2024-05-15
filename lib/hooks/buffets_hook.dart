@@ -20,7 +20,7 @@ class _BuffetsHookState extends HookState<(bool, List<Buffet>, void Function(Str
 
   final BuffetService service = BuffetService();
 
-  late final void Function(String) searchFunction = (String search){
+  late final void Function(String) searchFunction = (String search) async {
     loading = true;
     setState(() {});
     // api
