@@ -6,7 +6,9 @@ class ReservationService {
   final ApiHelper apiHelper = ApiHelper();
 
   Future<bool> create(Reservation reservation) async {
-    apiHelper.init();
+    final sharedPreferences = await SharedPreferences.getInstance();
+    apiHelper.dio.options.headers[HttpHeaders.authorizationHeader] =
+        'Bearer ${sharedPreferences.getString('token')}';
     final formData = FormData.fromMap({
       ...reservation.toJson(),
       if (reservation.image != null)
