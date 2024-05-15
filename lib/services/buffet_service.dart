@@ -11,9 +11,10 @@ class BuffetService {
         (response.data as Map<String, dynamic>)['data']);
   }
 
-  Future<List<Buffet>> getAll(int id) async {
+  Future<List<Buffet>> getAll(int id, [String? search]) async {
     final response = await apiHelper.dio.get('buffet', queryParameters: {
       'category': id,
+      if(search != null) 'search': search,
     });
 
     return ((response.data as Map<String, dynamic>)['data'] as List).map((e) {

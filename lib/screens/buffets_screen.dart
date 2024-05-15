@@ -26,7 +26,7 @@ class BuffetsScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (loading, buffets) = useBuffet(id: category.id);
+    final (loading, buffets, searchFunction) = useBuffet(id: category.id);
 
     return BackGroundWidget(
         bottomNavBar: TextButton(
