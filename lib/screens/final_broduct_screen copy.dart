@@ -1,5 +1,6 @@
 import 'package:evenza/controllers/auth/singup_controller.dart';
 import 'package:evenza/controllers/reservation/reservation_controller.dart';
+import 'package:evenza/helpers/stripe_helper.dart';
 import 'package:evenza/models/reservation.dart';
 import 'package:evenza/styles/color.dart';
 import 'package:evenza/styles/images.dart';
@@ -15,8 +16,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class FinalBroduct extends HookWidget {
-  const FinalBroduct({super.key});
+class Payment extends HookWidget {
+  const Payment({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -226,31 +227,35 @@ class FinalBroduct extends HookWidget {
                       ),
                     ),
                   ],
-                ),SizedBox(height: 10.h),
-                TextButton(
-                  onPressed: Get.find<ReservationController>().makeReservation,
-                  child: Container(
-                    width: 250.73.w,
-                    height: 46.h,
-                    decoration: ShapeDecoration(
-                      color: BaseColors.primary,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(19.r),
+                ),
+              SizedBox(height: 10.h),
+              TextButton(
+                onPressed: () {
+                  StripeHelper.stripe();
+                },
+                child: Container(
+                  width: 250.73.w,
+                  height: 46.h,
+                  decoration: ShapeDecoration(
+                    color: BaseColors.primary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(19.r),
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'الرجاء الدفع',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.sp,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                    child: Center(
-                      child: Text(
-                        'إتمام الحجز',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),)
+                  ),
+                ),
+              )
             ],
           )
           // TextField(

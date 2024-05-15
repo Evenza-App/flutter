@@ -2,13 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 abstract class StripeHelper {
   static void stripe() async {
     final paymentIntent = await createPaymentIntent('100', 'INR');
     await Stripe.instance.initPaymentSheet(
         paymentSheetParameters: SetupPaymentSheetParameters(
-            billingDetails: const BillingDetails(
+            billingDetails: BillingDetails(
                 name: 'YOUR NAME',
                 email: 'YOUREMAIL@gmail.com',
                 phone: 'YOUR NUMBER',
@@ -36,8 +37,7 @@ abstract class StripeHelper {
 
       //Make post request to Stripe
       var response = await Dio(BaseOptions(headers: {
-        'Authorization':
-            'Bearer sk_test_51PBXH2RxkZxt0A5cHNuYUi3eIDytD6iHvLfzrqc8kNf0a9Ee2q2PiD19EBDmi2xKi6PdAo5PkSjMhknq183li2ZI00uVgNO7UV',
+        'Authorization': 'Bearer ${dotenv.env['STRIPE_SECRET']}',
         'Content-Type': 'application/x-www-form-urlencoded'
       })).post(
         'https://api.stripe.com/v1/payment_intents',
@@ -61,14 +61,14 @@ abstract class StripeHelper {
       await Stripe.instance.presentPaymentSheet();
 
       ScaffoldMessenger.of(Get.context!).showSnackBar(
-          const SnackBar(content: Text('Payment succesfully completed')));
+          SnackBar(content: Text('Payment succesfully completed')));
     } on Exception catch (e) {
       if (e is StripeException) {
         ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(
             content: Text('Error from Stripe: ${e.error.localizedMessage}')));
       } else {
         ScaffoldMessenger.of(Get.context!)
-            .showSnackBar(SnackBar(content: Text('Unforeseen error: $e')));
+            .showSnackBar(SnackBar(content: Text('Unforeseen error: ${e}')));
       }
     }
   }
