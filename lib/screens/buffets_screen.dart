@@ -90,6 +90,7 @@ class BuffetsScreen extends HookWidget {
                           height: 24.h,
                           child: TextFormField(
                             //'ابحث هنا',
+                            onFieldSubmitted: searchFunction,
                             decoration: InputDecoration(
                               hintText: 'ابحث هنا',
                             ),
