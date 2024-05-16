@@ -8,9 +8,10 @@ import 'package:get/get.dart';
 
 class FinalBroductWidget extends StatelessWidget {
   const FinalBroductWidget(
-      {super.key, required this.title, required this.content});
+      {super.key, required this.title, required this.content, this.isReservation = true});
   final String title;
   final Widget content;
+  final bool isReservation;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +47,7 @@ class FinalBroductWidget extends StatelessWidget {
                 ),
                 content,
                 SizedBox(height: 10.h),
+                if(isReservation)
                 TextButton(
                   onPressed: Get.find<ReservationController>().makeReservation,
                   child: Container(
