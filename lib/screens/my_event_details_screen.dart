@@ -29,6 +29,7 @@ class MyEventDetailsScreen extends HookWidget {
 
     return FinalBroductWidget(
       title: ' اختياراتك لهذه المناسبة',
+      isReservation: false,
       content: Column(
         children: [
           Row(
