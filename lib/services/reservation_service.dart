@@ -30,4 +30,16 @@ class ReservationService {
 
     return (response.data as Map).containsKey('data');
   }
+
+  Future<bool> pay(int id) async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    apiHelper.dio.options.headers[HttpHeaders.authorizationHeader] =
+        'Bearer ${sharedPreferences.getString('token')}';
+
+    final response = await apiHelper.dio.post(
+      'reservation/$id/pay'
+    );
+
+    return true;
+  }
 }
