@@ -24,6 +24,8 @@ abstract class StripeHelper {
                 paymentIntent!['client_secret'], //Gotten from payment intent
             style: ThemeMode.dark,
             merchantDisplayName: 'Ikay'));
+
+    StripeHelper.displayPaymentSheet();
   }
 
   //create Payment
