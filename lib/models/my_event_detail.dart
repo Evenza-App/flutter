@@ -1,5 +1,3 @@
-import 'package:evenza/helpers/api/api_helper.dart';
-
 class Photographer {
   String name;
   String image;
@@ -8,7 +6,7 @@ class Photographer {
 
   factory Photographer.fromJson(Map<String, dynamic> json) {
     return Photographer(
-      name: json['name'],
+      name: json['name'] as String,
       image: json['image']
           .toString()
           .replaceFirst('http://localhost:8000', ApiHelper.domain),
@@ -19,6 +17,27 @@ class Photographer {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['name'] = this.name;
     data['image'] = this.image;
+    return data;
+  }
+}
+
+class Payment {
+  double totalPrice;
+  String message;
+
+  Payment({required this.totalPrice, required this.message});
+
+  factory Payment.fromJson(Map<String, dynamic> json) {
+    return Payment(
+      totalPrice: json['total_price'],
+      message: json['message'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['total_price'] = this.totalPrice;
+    data['message'] = this.message;
     return data;
   }
 }
@@ -96,6 +115,7 @@ class MyEventDetails {
   String location;
   int numberOfPeople;
   String event;
+  Payment? payment;
   Photographer photographer;
   List<Buffet> buffet;
   List<Details> details;
@@ -111,6 +131,7 @@ class MyEventDetails {
     required this.numberOfPeople,
     required this.event,
     required this.photographer,
+    required this.payment,
     required this.buffet,
     required this.details,
   });
@@ -129,6 +150,8 @@ class MyEventDetails {
       numberOfPeople: json['number_of_people'],
       event: json['event'],
       photographer: Photographer.fromJson(json['photographer']),
+      payment: json['payment'] != null ? Payment.fromJson(json['payment']) 
+      : null,
       buffet: (json['buffet'] as List)
           .map((item) => Buffet.fromJson(item))
           .toList(),
@@ -150,6 +173,7 @@ class MyEventDetails {
     data['number_of_people'] = this.numberOfPeople;
     data['event'] = this.event;
     data['photographer'] = this.photographer.toJson();
+    data['payment'] = this.payment.toJson();
     data['buffet'] = this.buffet.map((item) => item.toJson()).toList();
     data['details'] = this.details.map((item) => item.toJson()).toList();
     return data;
