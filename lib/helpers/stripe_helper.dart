@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 abstract class StripeHelper {
-  static void stripe() async {
-    final paymentIntent = await createPaymentIntent('100', 'INR');
+  static void stripe(double price) async {
+    final paymentIntent = await createPaymentIntent(price.toString(), 'INR');
     await Stripe.instance.initPaymentSheet(
         paymentSheetParameters: SetupPaymentSheetParameters(
             billingDetails: BillingDetails(
