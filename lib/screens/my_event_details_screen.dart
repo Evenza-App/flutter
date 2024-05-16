@@ -242,6 +242,30 @@ class MyEventDetailsScreen extends HookWidget {
                             ),
                           ],
                         ),
+                      if (myevent.payment case final payment?)
+                      Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 10.h,
+                                  right: 20.h,
+                                  left: 270.h,
+                                  bottom: 5.h),
+                              child: Text(
+                                'الدفع :',
+                                textDirection: TextDirection.rtl,
+                                style: TextStyle(
+                                    fontSize: 15.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            Text('رسالة الدفع:'),
+                            Text(payment.message),
+                            Text('قيمة الدفع:'),
+                            Text(payment.totalPrice.toString()),
+                          ],
+                        ),
                     ],
                   ),
           )
