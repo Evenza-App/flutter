@@ -17,7 +17,7 @@ class HebaProfile extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (loading, photographers) = usePhotographer();
+    final (loading, photographers,searchFunction) = usePhotographer();
     return BackGroundWidget(
       title: '',
       onback: () => Get.off(SelectPhotographer(

@@ -14,7 +14,7 @@ class SaherProfile extends StatelessWidget {
   final Photographer photographer;
   @override
   Widget build(BuildContext context) {
-    final (loading, photographers) = usePhotographer();
+    final (loading, photographers,searchFunction) = usePhotographer();
     return BackGroundWidget(
       title: '',
       onback: () => Get.off(SelectPhotographer()),

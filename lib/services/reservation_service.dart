@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:evenza/helpers/api/api_helper.dart';
 import 'package:evenza/models/reservation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ReservationService {
   final ApiHelper apiHelper = ApiHelper();

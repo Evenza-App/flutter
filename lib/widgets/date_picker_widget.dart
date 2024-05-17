@@ -6,7 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 class DatePickerWidget extends HookWidget {
   const DatePickerWidget({super.key, required this.onSaved});
 
-final void Function(String?) onSaved ;
+  final void Function(String?) onSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,9 @@ final void Function(String?) onSaved ;
         onTap: () async {
           final d = await showDatePicker(
             context: context,
-            firstDate: DateTime(1950),
+            // firstDate: DateTime(1950),
+            initialDate: DateTime.now(),
+            firstDate: DateTime.now().subtract(const Duration(days: 0)),
             lastDate: DateTime(2050),
           );
 

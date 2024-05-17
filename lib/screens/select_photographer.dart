@@ -19,7 +19,7 @@ class SelectPhotographer extends HookWidget {
   const SelectPhotographer({super.key});
   @override
   Widget build(BuildContext context) {
-    final (loading, photographers) = usePhotographer();
+    final (loading, photographers, searchFunction) = usePhotographer();
     final Photographer photographer = Photographer(
         id: 0, name: 'name', image: 'image', bio: 'bio', images: []);
     return BackGroundWidget(
@@ -78,7 +78,7 @@ class SelectPhotographer extends HookWidget {
                     height: 24.h,
                     child: TextFormField(
                       //'ابحث هنا',
-
+                      onFieldSubmitted: searchFunction,
                       decoration: InputDecoration(
                         hintText: 'ابحث هنا',
                       ),

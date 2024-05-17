@@ -21,7 +21,7 @@ class BuffetDetail {
     final name = data['name'];
     final type = data['type'];
     final ingredients = data['ingredients'];
-    // final price = double.parse(data['price'].toString());
+    final price = double.parse(data['price'].toString());
     final image = data['image']
         .toString()
         .replaceFirst('http://localhost:8000', ApiHelper.domain);
@@ -29,7 +29,7 @@ class BuffetDetail {
         id: id,
         name: name,
         ingredients: ingredients,
-        price: 0,
+        price: price,
         type: type,
         image: image);
   }

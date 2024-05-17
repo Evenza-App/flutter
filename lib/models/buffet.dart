@@ -1,5 +1,6 @@
 import 'package:evenza/helpers/api/api_helper.dart';
 import 'package:evenza/models/Buffet_detail.dart';
+import 'package:evenza/models/event_detail.dart';
 
 class Buffet {
   final int id;
@@ -10,7 +11,7 @@ class Buffet {
 
   final String image;
 
-  // final List<EventDetail>? details;
+  //  final List<EventDetail>? details;
 
   Buffet({
     required this.id,
@@ -36,12 +37,12 @@ class Buffet {
         .toString()
         .replaceFirst('http://localhost:8000', ApiHelper.domain);
     final type = data['type'];
-   final price = double.parse(data['price'].toString()).toInt();
-    // final details = data['details'] != null
-    //     ? (data['details'] as List)
-    //         .map((detail) => EventDetail.fromJson(detail))
-    //         .toList()
-    //     : null;
-    return Buffet(id: id, name: name, image: image, price: 0, type: type);
+    final price = double.parse(data['price'].toString()).toInt();
+    //  final details = data['details'] != null
+    //      ? (data['details'] as List)
+    //        .map((detail) => EventDetail.fromJson(detail))
+    //        .toList()
+    //    : null;
+    return Buffet(id: id, name: name, image: image, price: price, type: type);
   }
 }
