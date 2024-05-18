@@ -27,9 +27,9 @@ class ReservationController extends GetxController {
     if (await _service.create(reservation)) {
       Get.snackbar('تم الحجز بنجاح', 'لقد تم الحجز بنجاح');
 
-      //  Get.offAll(HomeScreen());
+       Get.offAll(HomeScreen());
       // Get.offAll(FinalBroduct2());
-      Get.offAll(Payment());
+      // Get.offAll(Payment());
     }
 
     loading.value = false;

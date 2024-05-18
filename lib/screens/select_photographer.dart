@@ -20,8 +20,6 @@ class SelectPhotographer extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final (loading, photographers, searchFunction) = usePhotographer();
-    final Photographer photographer = Photographer(
-        id: 0, name: 'name', image: 'image', bio: 'bio', images: []);
     return BackGroundWidget(
       title: 'اختر المصور',
       onback: () => Get.off(const SelectTypeBuffet()),

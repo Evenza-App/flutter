@@ -24,6 +24,6 @@ class LogoutController extends GetxController {
     await sharedPreferences.remove('token');
     loading.value = false;
 
-    Get.to( Login());
+    Get.offAll( Login());
   }
 }

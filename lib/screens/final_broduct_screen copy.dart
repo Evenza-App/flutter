@@ -231,7 +231,7 @@ class Payment extends HookWidget {
               SizedBox(height: 10.h),
               TextButton(
                 onPressed: () {
-                  StripeHelper.stripe();
+                  StripeHelper.stripe(10);
                 },
                 child: Container(
                   width: 250.73.w,

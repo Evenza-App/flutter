@@ -1,3 +1,5 @@
+import 'package:evenza/helpers/api/api_helper.dart';
+
 class Photographer {
   String name;
   String image;
@@ -29,14 +31,14 @@ class Payment {
 
   factory Payment.fromJson(Map<String, dynamic> json) {
     return Payment(
-      totalPrice: json['total_price'],
+      totalPrice: json['total_price'].toDouble(),
       message: json['message'],
     );
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['total_price'] = this.totalPrice;
+    data['total_price'] = this.totalPrice.toDouble();
     data['message'] = this.message;
     return data;
   }
@@ -150,8 +152,8 @@ class MyEventDetails {
       numberOfPeople: json['number_of_people'],
       event: json['event'],
       photographer: Photographer.fromJson(json['photographer']),
-      payment: json['payment'] != null ? Payment.fromJson(json['payment']) 
-      : null,
+      payment:
+          json['payment'] != null ? Payment.fromJson(json['payment']) : null,
       buffet: (json['buffet'] as List)
           .map((item) => Buffet.fromJson(item))
           .toList(),
@@ -173,7 +175,7 @@ class MyEventDetails {
     data['number_of_people'] = this.numberOfPeople;
     data['event'] = this.event;
     data['photographer'] = this.photographer.toJson();
-    data['payment'] = this.payment.toJson();
+    data['payment'] = this.payment?.toJson();
     data['buffet'] = this.buffet.map((item) => item.toJson()).toList();
     data['details'] = this.details.map((item) => item.toJson()).toList();
     return data;

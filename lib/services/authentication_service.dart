@@ -45,10 +45,14 @@ class AutheticationService {
     return data['token'];
   }
 
-  Future<void> logout(String fcmToken) async =>
-      await apiHelper.dio.post('logout', data: {
-        'fcm_token': fcmToken,
-      });
+  Future<void> logout(String fcmToken) async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    apiHelper.dio.options.headers[HttpHeaders.authorizationHeader] =
+        'Bearer ${sharedPreferences.getString('token')}';
+    await apiHelper.dio.post('logout', data: {
+      'fcm_token': fcmToken,
+    });
+  }
 
   Future<User> getprofile() async {
     final sharedPreferences = await SharedPreferences.getInstance();

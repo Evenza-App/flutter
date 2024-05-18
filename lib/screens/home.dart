@@ -123,7 +123,7 @@ class Home extends HookWidget {
                                     location: '',
                                     image: home.image,
                                     onNext: () {
-                                      StripeHelper.stripe();
+                                      StripeHelper.stripe(10);
                                     },
                                   ),
                                 ),

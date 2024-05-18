@@ -20,6 +20,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,10 +33,9 @@ void main() async {
   //     options: DefaultFirebaseOptions.currentPlatform,
   //   );
   // }
-  // await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: ".env");
 
-  Stripe.publishableKey =
-      'pk_test_51PBXH2RxkZxt0A5caJkYQAuBC09eEtyRRSOzEchcoj41QqyVkRgEF3Lw3FOyB7JFNVr1lHTQ09LlSz0E0FeYyIWc00POmpI91y';
+  Stripe.publishableKey = dotenv.env['STRIPE_PUBLISHABLE_KEY']!;
 
   runApp(
     DevicePreview(

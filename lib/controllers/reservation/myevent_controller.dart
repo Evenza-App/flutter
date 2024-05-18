@@ -13,14 +13,12 @@ class MyEventController extends GetxController {
   void makePayment(MyEventDetails myEventDetails) async {
     loading.value = true;
 
-    StripeHelper.stripe(myEventDetails.payment!.totalPrice);
+    await StripeHelper.stripe(myEventDetails.payment!.totalPrice);
 
     if (await _service.pay(myEventDetails.id)) {
       Get.snackbar('تم الدفع بنجاح', 'لقد تم الدفع بنجاح');
 
-       Get.offAll(HomeScreen());
-      // Get.offAll(FinalBroduct2());
-      // Get.offAll(Payment());
+      Get.offAll(HomeScreen());
     }
 
     loading.value = false;

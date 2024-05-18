@@ -1,4 +1,5 @@
 import 'package:evenza/controllers/auth/singup_controller.dart';
+import 'package:evenza/controllers/reservation/myevent_controller.dart';
 import 'package:evenza/controllers/reservation/reservation_controller.dart';
 import 'package:evenza/hooks/my_event_details_hook.dart';
 
@@ -20,12 +21,13 @@ class MyEventDetailsScreen extends HookWidget {
   const MyEventDetailsScreen({super.key, required this.id});
   final int id;
 
+  static final myEventContrller = Get.put(MyEventController());
+
   @override
   Widget build(BuildContext context) {
     //  final ObjectRef(value: ReservationController(:reservation)) =
     //  useRef(Get.find<ReservationController>());
     final (loading, myevent) = useMyEventDetails(id: id);
-    print(myevent.image);
 
     return FinalBroductWidget(
       title: ' اختياراتك لهذه المناسبة',
@@ -243,7 +245,7 @@ class MyEventDetailsScreen extends HookWidget {
                           ],
                         ),
                       if (myevent.payment case final payment?)
-                      Column(
+                        Column(
                           children: [
                             Padding(
                               padding: EdgeInsets.only(
@@ -264,6 +266,35 @@ class MyEventDetailsScreen extends HookWidget {
                             Text(payment.message),
                             Text('قيمة الدفع:'),
                             Text(payment.totalPrice.toString()),
+                            if (myevent.status == 'NeedPayment')
+                              TextButton(
+                                onPressed: () =>
+                                    myEventContrller.makePayment(myevent),
+                                child: Container(
+                                  width: 250.73.w,
+                                  height: 46.h,
+                                  decoration: ShapeDecoration(
+                                    color: BaseColors.primary,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(19.r),
+                                    ),
+                                  ),
+                                  child: Obx(() => Center(
+                                        child: myEventContrller.loading.value
+                                            ? BaseLoading()
+                                            : Text(
+                                                'ادفع',
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 18.sp,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                      )),
+                                ),
+                              )
                           ],
                         ),
                     ],

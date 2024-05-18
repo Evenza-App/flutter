@@ -32,7 +32,7 @@ class _MyEventDetailsHookState
       photographer: Photographer(name: 'name', image: 'image'),
       buffet: [],
       details: [],
-      image: null);
+      image: null, payment:null);
 
   final MyEventDetailsService service = MyEventDetailsService();
 

@@ -36,10 +36,10 @@ class _PhotographersHookState extends HookState<
   void initHook() async {
     super.initHook();
 
-    // photographers = await service.getAll();
-    // loading = false;
+    photographers = await service.getAll();
+    loading = false;
 
-    // setState(() {});
+    setState(() {});
   }
 
   @override
