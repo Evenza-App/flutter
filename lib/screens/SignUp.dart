@@ -24,79 +24,92 @@ class SignUpScreen extends StatelessWidget {
               padding: EdgeInsets.only(bottom: 35.h),
               child: Image.asset('assets/icons/Light.png'),
             ),
-            TextFormField(
-              onSaved: (newValue) => signupController.name = newValue,
-              keyboardType: TextInputType.name,
-              validator: 'required'
-                  .validate(customMessages: {'required': 'أدخل أسمك رجاءا'}),
-              decoration: InputDecoration(
-                suffixIcon: const Icon(
-                  Icons.person_2_rounded,
-                  color: Color.fromARGB(255, 247, 186, 151),
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Container(
+                height: 400.h,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      onSaved: (newValue) => signupController.name = newValue,
+                      keyboardType: TextInputType.name,
+                      validator: 'required'.validate(
+                          customMessages: {'required': 'أدخل أسمك رجاءا'}),
+                      decoration: InputDecoration(
+                        suffixIcon: const Icon(
+                          Icons.person_2_rounded,
+                          color: Color.fromARGB(255, 247, 186, 151),
+                        ),
+                        label: Text('الاسم',
+                            style: TextStyle(
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.bold,
+                                color: const Color(0xFFAF75B2))),
+                      ),
+                    ),
+                    TextFormField(
+                      onSaved: (newValue) => signupController.phone = newValue,
+                      keyboardType: TextInputType.phone,
+                      validator:
+                          'required|min:10|max:10'.validate(customMessages: {
+                        'required': 'أدخل رقمك رجاءا',
+                        'min': 'أدخل رقما مكونا من 10 أرقام على الاقل',
+                        'max': 'أدخل رقما مكونا من 10 أرقام على الاكثر',
+                      }),
+                      decoration: InputDecoration(
+                          suffixIcon: const Icon(
+                            Icons.phone,
+                            color: Color.fromARGB(255, 247, 186, 151),
+                          ),
+                          label: Text('رقم الهاتف',
+                              style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.bold,
+                                  color: const Color(0xFFAF75B2)))),
+                    ),
+                    TextFormField(
+                      onSaved: (newValue) =>
+                          signupController.address = newValue,
+                      validator: 'required'.validate(customMessages: {
+                        'required': ' أدخل عنوانك  رجاءا ',
+                      }),
+                      decoration: InputDecoration(
+                          suffixIcon: const Icon(
+                            Icons.home_filled,
+                            color: Color.fromARGB(255, 247, 186, 151),
+                          ),
+                          label: Text('العنوان',
+                              style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.bold,
+                                  color: const Color(0xFFAF75B2)))),
+                    ),
+                    TextFormField(
+                      onSaved: (newValue) => signupController.email = newValue,
+                      keyboardType: TextInputType.emailAddress,
+                      validator: 'required|email'.validate(customMessages: {
+                        'required': ' أدخل بريدك الالكتروني رجاءا ',
+                        'email': ' يجب ان تدخل بريد فعال'
+                      }),
+                      decoration: InputDecoration(
+                        suffixIcon: const Icon(
+                          Icons.email_rounded,
+                          color: Color.fromARGB(255, 247, 186, 151),
+                        ),
+                        label: Text('البريد الالكتروني',
+                            style: TextStyle(
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.bold,
+                                color: const Color(0xFFAF75B2))),
+                      ),
+                    ),
+                    PasswordField(
+                        onSaved: (newValue) =>
+                            signupController.password = newValue),
+                  ],
                 ),
-                label: Text('الاسم',
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xFFAF75B2))),
               ),
             ),
-            TextFormField(
-              onSaved: (newValue) => signupController.phone = newValue,
-              keyboardType: TextInputType.phone,
-              validator: 'required|min:10|max:10'.validate(customMessages: {
-                'required': 'أدخل رقمك رجاءا',
-                'min': 'أدخل رقما مكونا من 10 أرقام على الاقل',
-                'max': 'أدخل رقما مكونا من 10 أرقام على الاكثر',
-              }),
-              decoration: InputDecoration(
-                  suffixIcon: const Icon(
-                    Icons.phone,
-                    color: Color.fromARGB(255, 247, 186, 151),
-                  ),
-                  label: Text('رقم الهاتف',
-                      style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                          color: const Color(0xFFAF75B2)))),
-            ),
-            TextFormField(
-              onSaved: (newValue) => signupController.address = newValue,
-              validator: 'required'.validate(customMessages: {
-                'required': ' أدخل عنوانك  رجاءا ',
-              }),
-              decoration: InputDecoration(
-                  suffixIcon: const Icon(
-                    Icons.home_filled,
-                    color: Color.fromARGB(255, 247, 186, 151),
-                  ),
-                  label: Text('العنوان',
-                      style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                          color: const Color(0xFFAF75B2)))),
-            ),
-            TextFormField(
-              onSaved: (newValue) => signupController.email = newValue,
-              keyboardType: TextInputType.emailAddress,
-              validator: 'required|email'.validate(customMessages: {
-                'required': ' أدخل بريدك الالكتروني رجاءا ',
-                'email': ' يجب ان تدخل بريد فعال'
-              }),
-              decoration: InputDecoration(
-                suffixIcon: const Icon(
-                  Icons.email_rounded,
-                  color: Color.fromARGB(255, 247, 186, 151),
-                ),
-                label: Text('البريد الالكتروني',
-                    style: TextStyle(
-                        fontSize: 17.sp,
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xFFAF75B2))),
-              ),
-            ),
-            PasswordField(
-                onSaved: (newValue) => signupController.password = newValue),
             // TextField(
             // decoration: InputDecoration(
             //    suffixIcon: const Icon(

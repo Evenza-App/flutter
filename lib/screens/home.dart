@@ -3,6 +3,7 @@ import 'package:evenza/helpers/stripe_helper.dart';
 import 'package:evenza/hooks/homes_hook.dart';
 import 'package:evenza/hooks/user_hook.dart';
 import 'package:evenza/models/user.dart';
+import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/screens/lilian_projects.dart';
 import 'package:evenza/screens/notification.dart';
 
@@ -70,7 +71,7 @@ class Home extends HookWidget {
                             textAlign: TextAlign.start,
                           ),
                         Text(
-                          'مسرورين بإنضامك إلينا',
+                          'مسرورين بإنضمامك إلينا',
                           style: TextStyle(
                               fontSize: 14.h,
                               color: BaseColors.orange,

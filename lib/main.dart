@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:evenza/firebase_options.dart';
+import 'package:evenza/screens/contact_us_screen.dart';
 import 'package:evenza/screens/event_reservation_screen.dart';
 import 'package:evenza/screens/event_types_screen.dart';
 import 'package:evenza/screens/final_broduct_screen.dart';

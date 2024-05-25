@@ -1,5 +1,6 @@
 import 'package:evenza/controllers/auth/logout_controller.dart';
 import 'package:evenza/controllers/drawer/drawer_controller.dart';
+import 'package:evenza/screens/contact_us_screen.dart';
 import 'package:evenza/screens/my_evevt.dart';
 import 'package:evenza/screens/notification.dart';
 import 'package:flutter/material.dart' hide DrawerController;
@@ -162,23 +163,21 @@ class Setting extends StatelessWidget {
                                     Container(
                                       padding: const EdgeInsets.only(top: 12),
                                       child: ListTile(
-                                        title: Text(
-                                          " تواصل معنا",
-                                          style: TextStyle(
-                                              fontSize: 19.sp,
-                                              fontWeight: FontWeight.normal),
-                                        ),
-
-                                        leading: Image(
-                                          image: const AssetImage(
-                                              'assets/icons/phone-call.png'),
-                                          width: 28.w,
-                                          height: 28.h,
-                                        ),
-
-                                        //onTap: () {
-                                        // Get.to( profile())
-                                      ),
+                                          title: Text(
+                                            " تواصل معنا",
+                                            style: TextStyle(
+                                                fontSize: 19.sp,
+                                                fontWeight: FontWeight.normal),
+                                          ),
+                                          leading: Image(
+                                            image: const AssetImage(
+                                                'assets/icons/phone-call.png'),
+                                            width: 28.w,
+                                            height: 28.h,
+                                          ),
+                                          onTap: () {
+                                            Get.to(ContactUs());
+                                          }),
                                     ),
                                     Container(
                                       padding: const EdgeInsets.only(top: 12),

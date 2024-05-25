@@ -62,4 +62,6 @@ abstract class BaseImages {
   static const event_res = 'assets/images/event_res.png';
   static const logo2 = 'assets/logos/logo.png';
   static const background2 = 'assets/logos/select_things.png';
+  static const ContactUs = 'assets/images/ContactUs.png';
+  
 }

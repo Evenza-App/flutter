@@ -88,18 +88,22 @@ class BuffetsScreen extends HookWidget {
                         child: SizedBox(
                           width: 69.w,
                           height: 24.h,
-                          child: TextFormField(
-                            //'ابحث هنا',
-                            onFieldSubmitted: searchFunction,
-                            decoration: InputDecoration(
-                              hintText: 'ابحث هنا',
-                            ),
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: const Color(0xFFBEBEBE),
-                              fontSize: 12.sp,
-                              fontFamily: 'Inter',
-                              fontWeight: FontWeight.w400,
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 15.h),
+                            child: TextFormField(
+                             
+                              //'ابحث هنا',
+                              onFieldSubmitted: searchFunction,
+                              decoration: InputDecoration(
+                                hintText: 'ابحث هنا',
+                              ),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: const Color(0xFFBEBEBE),
+                                fontSize: 12.sp,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                         ),
@@ -252,28 +256,29 @@ class BuffetsScreen extends HookWidget {
                       ),
                     ),
                     loading
-                      ? const BaseLoading(
-                          color: BaseColors.primary,
-                        ):
-                    SizedBox(
-                        height: 600.h,
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: buffets
-                                .map((buffet) => BuffetWidget(
-                                      title: buffet.type,
-                                      price: buffet.price.toString(),
-                                      ontap: () {
-                                        Get.to(BuffetDetailsScreen(
-                                          buffetDetail: buffet.toBuffetDetail(),
-                                        ));
-                                      },
-                                      name: buffet.name,
-                                      image: buffet.image,
-                                    ))
-                                .toList(),
-                          ),
-                        )),
+                        ? const BaseLoading(
+                            color: BaseColors.primary,
+                          )
+                        : SizedBox(
+                            height: 600.h,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: buffets
+                                    .map((buffet) => BuffetWidget(
+                                          title: buffet.type,
+                                          price: buffet.price.toString(),
+                                          ontap: () {
+                                            Get.to(BuffetDetailsScreen(
+                                              buffetDetail:
+                                                  buffet.toBuffetDetail(),
+                                            ));
+                                          },
+                                          name: buffet.name,
+                                          image: buffet.image,
+                                        ))
+                                    .toList(),
+                              ),
+                            )),
 
                     //  buffets.map((Buffet) =>  BuffetWidget(
                     //     ontap: () => Get.off(BreakEastPerfect()),

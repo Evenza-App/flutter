@@ -249,10 +249,11 @@ class MyEventDetailsScreen extends HookWidget {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(
-                                  top: 10.h,
-                                  right: 20.h,
-                                  left: 270.h,
-                                  bottom: 5.h),
+                                top: 10.h,
+                                right: 20.h,
+                                left: 270.h,
+                              ),
+                              //  bottom: 5.h),
                               child: Text(
                                 'الدفع :',
                                 textDirection: TextDirection.rtl,
@@ -262,10 +263,26 @@ class MyEventDetailsScreen extends HookWidget {
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
-                            Text('رسالة الدفع:'),
-                            Text(payment.message),
-                            Text('قيمة الدفع:'),
-                            Text(payment.totalPrice.toString()),
+                            TextFormDataWidget(
+                              title: " ملاحظة:",
+                              data: payment.message,
+                              icon: Icon(
+                                Icons.message,
+                                color: BaseColors.orange,
+                              ),
+                            ),
+                            TextFormDataWidget(
+                              title: 'قيمة الدفع:',
+                              data: payment.totalPrice.toString(),
+                              icon: Icon(
+                                Icons.attach_money,
+                                color: BaseColors.orange,
+                              ),
+                            ),
+                            //  Text('رسالة الدفع:'),
+                            //Text(payment.message),
+                            // Text('قيمة الدفع:'),
+                            // Text(payment.totalPrice.toString()),
                             if (myevent.status == 'NeedPayment')
                               TextButton(
                                 onPressed: () =>

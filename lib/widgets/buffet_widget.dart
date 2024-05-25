@@ -5,18 +5,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'custom_image_widget.dart';
 
 class BuffetWidget extends StatelessWidget {
-  const BuffetWidget({
-    super.key,
-    required this.ontap,
-    required this.title,
-    
-    required this.name,
-    required this.image,
-    required this.price
-  });
+  const BuffetWidget(
+      {super.key,
+      required this.ontap,
+      required this.title,
+      required this.name,
+      required this.image,
+      required this.price});
   final Function() ontap;
   final String title;
-    final String price;
+  final String price;
   final String name;
   final String image;
 
@@ -47,99 +45,139 @@ class BuffetWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              left: 88,
-              top: 200,
-              child: Center(
-                child: Text(
-                  name,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14.h,
-                    fontFamily: 'Cairo',
-                    fontWeight: FontWeight.w600,
-                    height: 0,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            Positioned(
-              top: 40.h,
-              left: 10.h,
-              right: 10.h,
-              child: Center(
-                child: Container(
-                  width: 236.w,
-                  height: 140.h,
-                  decoration: ShapeDecoration(
-                    image: DecorationImage(
-                      image: CustomImageWidget.provider(image),
-                      fit: BoxFit.cover,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Positioned(
+                  left: 93.h,
+                  top: 12.h,
+                  bottom: 12.h,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14.sp,
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(9.r)),
                   ),
                 ),
-              ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 10.h),
+                  child: Positioned(
+                    top: 40.h,
+                    left: 10.h,
+                    right: 10.h,
+                    child: Center(
+                      child: Container(
+                        width: 236.w,
+                        height: 140.h,
+                        decoration: ShapeDecoration(
+                          image: DecorationImage(
+                            image: CustomImageWidget.provider(image),
+                            fit: BoxFit.cover,
+                          ),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(9.r)),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 88,
+                  top: 200,
+                  child: Center(
+                    child: Text(
+                      name,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14.h,
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.w600,
+                        height: 0,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+
+                // Positioned(
+                //   left: 70.h,
+                //   top: 213.h,
+                //   child: Text(
+                //     price,
+                //     style: TextStyle(
+                //       color: const Color(0xFFFF8C8D),
+                //       fontSize: 14.sp,
+                //       fontFamily: 'Cairo',
+                //       fontWeight: FontWeight.w700,
+                //     ),
+                //   ),
+                // ),
+                Positioned(
+                  left: 215.h,
+                  top: 162.h,
+                  child: SizedBox(
+                    width: 45.83.w,
+                    height: 25.h,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 45.83.w,
+                          height: 25.h,
+                          child: const Stack(
+                            children: [
+                              Positioned(
+                                left: 0,
+                                top: 1.94,
+                                child: SizedBox(
+                                  width: 49.40,
+                                  height: 23.06,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                // Positioned(
+                //   left: 93.h,
+                //   top: 12.h,
+                //   bottom: 12.h,
+                //   child: Text(
+                //     title,
+                //     style: TextStyle(
+                //       color: Colors.black,
+                //       fontSize: 14.sp,
+                //       fontFamily: 'Cairo',
+                //       fontWeight: FontWeight.w600,
+                //     ),
+                //     textAlign: TextAlign.center,
+                //   ),
+                // ),
+              ],
             ),
             Positioned(
-              left: 70.h,
+              left: 100.h,
               top: 213.h,
               child: Text(
-                price,
+                'ل.س${price}',
                 style: TextStyle(
                   color: const Color(0xFFFF8C8D),
                   fontSize: 14.sp,
                   fontFamily: 'Cairo',
                   fontWeight: FontWeight.w700,
                 ),
-              ),
-            ),
-            Positioned(
-              left: 215.h,
-              top: 162.h,
-              child: SizedBox(
-                width: 45.83.w,
-                height: 25.h,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 45.83.w,
-                      height: 25.h,
-                      child: const Stack(
-                        children: [
-                          Positioned(
-                            left: 0,
-                            top: 1.94,
-                            child: SizedBox(
-                              width: 49.40,
-                              height: 23.06,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-              left: 93.h,
-              top: 12.h,
-              bottom: 12.h,
-              child: Text(
-                title,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14.sp,
-                  fontFamily: 'Cairo',
-                  fontWeight: FontWeight.w600,
-                ),
-                textAlign: TextAlign.center,
               ),
             ),
           ],

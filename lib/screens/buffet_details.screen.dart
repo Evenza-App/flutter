@@ -1,4 +1,5 @@
 import 'package:evenza/hooks/buffets_details_hook.dart';
+import 'package:evenza/hooks/buffets_hook.dart';
 import 'package:evenza/models/Buffet_detail.dart';
 import 'package:evenza/models/buffet.dart';
 import 'package:evenza/widgets/base_loading.dart';
@@ -13,6 +14,7 @@ class BuffetDetailsScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final (loading, buffet) = useBuffetDetails(id: buffetDetail.id);
+
     return loading
         ? BaseLoading()
         : BuffetDetailsWidget(
@@ -20,7 +22,8 @@ class BuffetDetailsScreen extends HookWidget {
             imagePath: buffet.image,
             type: buffet.type,
             onback: () {
-              Get.off(null);
+              // Get.off(null);
+              Get.offAll(null);
             },
             title: buffet.name,
             price: buffet.price.toString(),

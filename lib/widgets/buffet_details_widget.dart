@@ -263,8 +263,8 @@ class BuffetDetailsWidget extends HookWidget {
 //                         ),
 // =======
                   child: Container(
-                    // height: 450.h,
-                    padding: EdgeInsets.only(top: 98.h),
+                    height: 450.h,
+                    padding: EdgeInsets.only(top: 10.h),
                     decoration: BoxDecoration(
                       color: BaseColors.backgroundCard,
                       borderRadius: BorderRadius.only(
@@ -274,44 +274,77 @@ class BuffetDetailsWidget extends HookWidget {
                     ),
                     child: Column(
                       children: [
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 200.h),
-                          child: Text(
-                            title,
-                            style: TextStyle(
-                              color: const Color(0xEDFFB183),
-                              fontSize: 17.sp,
-                              fontFamily: 'Cairo',
-                              fontWeight: FontWeight.w700,
-                            ),
+                        Text(
+                          title,
+                          style: TextStyle(
+                            color: const Color(0xEDFFB183),
+                            fontSize: 17.sp,
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                         SizedBox(
-                          height: 30.h,
-                        ),
-                        Text(
-                          'الأطباق المتوافرة في البوفيه :',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 15.sp,
-                            fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w600,
-                            height: 0,
-                          ),
+                          height: 40.h,
                         ),
                         Padding(
-                          padding:  EdgeInsets.only(top: 20.h,bottom: 40.h),
-                          child: Text(
-                            ingredient,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 13.sp,
-                              fontFamily: 'Cairo',
-                              fontWeight: FontWeight.w600,
-                              height: 0,
-                              letterSpacing: -0.33,
-                            ),
+                          padding: EdgeInsets.only(right: 20.w, left: 20.w),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'الأطباق المتوافرة في البوفيه :',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15.sp,
+                                  fontFamily: 'Cairo',
+                                  fontWeight: FontWeight.w600,
+                                  height: 0,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: 20.h,
+                                  bottom: 40.h,
+                                ),
+                                //left: 20.w,
+                                // right: 20.w),
+                                child: Text(
+                                  ingredient,
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 13.sp,
+                                    fontFamily: 'Cairo',
+                                    fontWeight: FontWeight.w600,
+                                    height: 0,
+                                    letterSpacing: -0.33,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                'السعر:',
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15.sp,
+                                  fontFamily: 'Cairo',
+                                  fontWeight: FontWeight.w600,
+                                  // height: 0,
+                                  // letterSpacing: -0.33,
+                                ),
+                              ),
+                              Text(
+                                'ل.س${price}',
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                  color: const Color(0xFFFF8C8D),
+                                  fontSize: 14.sp,
+                                  fontFamily: 'Cairo',
+                                  fontWeight: FontWeight.w700,
+                                  //   height: 0,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         // Text(
@@ -338,28 +371,9 @@ class BuffetDetailsWidget extends HookWidget {
                         //     letterSpacing: -0.33,
                         //   ),
                         // ),
-                        // Text(
-                        //   'السعر:',
-                        //   textAlign: TextAlign.center,
-                        //   style: TextStyle(
-                        //     color: Colors.black,
-                        //     fontSize: 15.sp,
-                        //     fontFamily: 'Cairo',
-                        //     fontWeight: FontWeight.w600,
-                        //     // height: 0,
-                        //     // letterSpacing: -0.33,
-                        //   ),
-                        // ),
-                        // Text(
-                        //   price,
-                        //   style: TextStyle(
-                        //     color: const Color(0xFFFF8C8D),
-                        //     fontSize: 14.sp,
-                        //     fontFamily: 'Cairo',
-                        //     fontWeight: FontWeight.w700,
-                        //     height: 0,
-                        //   ),
-                        // ),
+                        SizedBox(
+                          height: 40.h,
+                        ),
                         TextButton(
                           onPressed: () {
                             final buffet = Buffet(
